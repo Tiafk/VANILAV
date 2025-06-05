@@ -1,0 +1,87 @@
+.block5 {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 100%;
+    min-height: 694px;
+    max-width: 1179px;
+    background-image: url('../img/block5/Russia\ 2.png');
+    padding: 87px 102px 96.92px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    margin-top: 60.46px;
+
+    .title {
+        margin-bottom: 50px;
+        h2 {
+            max-width: 695px;
+        }
+    }
+    .wrapper-city {
+        display: flex;
+        gap: 57.95px;
+        margin-bottom: 50px;
+        .colmn-1 {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            width: 100%;
+            max-width: 200px;
+        }
+        .block0 {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            h2 {
+                color: rgba(130, 63, 145, 1);
+                font-weight: 500;
+                font-size: 32px;
+                line-height: 120%;
+                letter-spacing: 0;
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                list-style-type: none;
+                li {
+                    text-decoration: none;
+                    color: rgba(0, 0, 0, 1);
+                    font-family: 'CeraPro-Regular';
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 120%;
+                    letter-spacing: 0%;
+                }
+            }
+        }
+        .block-2 {
+            align-items: start;
+        }
+    }
+    .btn {
+        cursor: pointer;
+        display: flex;
+        align-self: center;
+        border: 1px solid rgba(130, 63, 145, 1);
+        background-color: transparent;
+        color: rgba(130, 63, 145, 1);
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 120%;
+        letter-spacing: 0;
+        padding: 10px 21px;
+        border-radius: 100px;
+    }
+}
+
+@media (max-width:1179px) {
+    .block5 {
+        width: 100%;
+        max-width: 100%;
+        background-size: 100%;
+    }
+}

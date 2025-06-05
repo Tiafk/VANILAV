@@ -1,0 +1,71 @@
+@import './main-p';
+@import './marquee';
+@import './header';
+@import './block1';
+@import './block2';
+@import './block3';
+@import './block5';
+@import './block6';
+@import './block7';
+@import './block8';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-family: 'CeraPro-Medium';
+    font-weight: 500;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    .app-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .wrapper {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 1440px;
+        padding: 0 18px;
+    }
+    .text {
+        font-family: 'CeraPro-Regular';
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 140%;
+        letter-spacing: 0;
+        color: #000;
+    }
+}
+
+
+@font-face {
+    font-family: 'CeraPro-Bold';
+    src: url('../fonts/CeraPro-Bold.woff2');
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'CeraPro-Medium';
+    src: url('../fonts/CeraPro-Medium.woff2');
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'CeraPro-Regular';
+    src: url('../fonts/CeraPro-Regular.woff2');
+    font-style: normal;
+    font-weight: 400;
+}

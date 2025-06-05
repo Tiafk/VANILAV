@@ -1,0 +1,42 @@
+.marquee-wrapper {
+    width: 100vw;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #F2E1F0;
+    padding: 19px 0;
+    box-sizing: border-box;
+}
+.marquee {
+    display: flex;
+    animation: scroll 20s linear infinite;
+}
+.content {
+    display: flex;
+    flex-shrink: 0;
+}
+.text-block {
+    color: #823F91;
+    font-family: sans-serif;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+.dot::before {
+    content: '•';
+    color: #823F91;
+    margin: 0 1.13rem;
+}
+
+.marquee .content:first-child {
+    margin-right: 5px;
+}
+
+@keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+}

@@ -1,0 +1,108 @@
+.block2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-height: 871px;
+    min-height: 871px;
+    margin: 92px 0 72px 0;
+
+    .absolute-bg {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        z-index: 9;
+        // .bg1 {}
+        // .bg2 {}
+    }
+    .wrapper-img {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 1576px;
+        height: 100%;
+        min-height: 820px;
+        z-index: 10;
+
+        .img-icon {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            border: 1px solid #fff;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        .icon1 {
+            max-width: 345px;
+            max-height: 398px;
+            left: -6%;
+            z-index: 2;
+        }
+        .icon2 {
+            max-width: 285.5px;
+            max-height: 328.8px;
+            left: 16%;
+            top: 4%;
+            z-index: 3;
+        }
+        .icon3 {
+            max-width: 158.7px;
+            max-height: 181.4px;
+            bottom: 9.5%;
+            left: 16%;
+            z-index: 3;
+        }
+        .icon4 {
+            max-width: 532.89px;
+            max-height: 607.7px;
+            z-index: 2;
+        }
+        .icon5 {
+            max-width: 283.45px;
+            max-height: 328.81px;
+            bottom: 1%;
+            right: 15%;
+            z-index: 3;
+        }
+        .icon6 {
+            max-width: 158.7px;
+            max-height: 181.4px;
+            top: 10%;
+            right: 15.7%;
+            z-index: 3;
+        }
+        .icon7 {
+            max-width: 345px;
+            max-height: 398px;
+            right: -6%;
+            z-index: 2;
+        }
+        .icon8 {
+            max-width: 169px;
+            max-height: 173px;
+            left: 6.5%;
+            top: 9%;
+            z-index: 5;
+            border: 0;
+        }
+        .icon9 {
+            max-width: 208px;
+            max-height: 195px;
+            right: 14.7%;
+            bottom: 31%;
+            z-index: 5;
+            border: 0;
+        }
+    }
+}
