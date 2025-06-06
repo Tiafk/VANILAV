@@ -36,6 +36,7 @@
         text-align: center;
         max-width: 510px;
         margin-top: 16px;
+        color: #000;
     }
 }
 
@@ -73,6 +74,7 @@
                 z-index: 10;
 
                 .abs-circle {
+                    cursor: default;
                     position: absolute;
                     display: flex;
                     text-align: center;
@@ -83,6 +85,12 @@
                     -webkit-backdrop-backdrop-filter: blur(11px);
                     border: 1px solid #FFFFFF1A;
                     color: #fff;
+                    transition: 1s ease;
+
+                    &:hover {
+                        scale: 1.1;
+                        transition: 1s ease;
+                    }
 
                     .container {
                         display: flex;
@@ -168,34 +176,33 @@
                     right: 135px;
                 }
             }
-        .bg-img {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            z-index: 0;
+            .bg-img {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                z-index: 0;
+            }
+
+            p {
+                font-weight: 500;
+                font-size: 40px;
+                line-height: 120%;
+                letter-spacing: 0;
+                color: #fff;
+                margin-left: 31px;
+            }
         }
+        .container2 {
+            display: flex;
+            width: 100%;
+            max-width: 690px;
+            min-height: 710px;
+            max-height: 710px;
+            border-radius: 22px;
+            background-color: #F9F0F8;
+            padding: 62px 60px 61px;
 
-        p {
-            font-weight: 500;
-            font-size: 40px;
-            line-height: 120%;
-            letter-spacing: 0;
-            color: #fff;
-            margin-left: 31px;
-        }
-
-    }
-
-    .container2 {
-        display: flex;
-        width: 100%;
-        max-width: 690px;
-        min-height: 710px;
-        max-height: 710px;
-        border-radius: 22px;
-        background-color: #F9F0F8;
-        padding: 62px 60px 61px;
-        .wrapper-con2 {
+            .wrapper-con2 {
                 display: grid;
                 grid-template-columns: 1fr 329px;
                 grid-template-rows: auto;
@@ -261,7 +268,7 @@
                         letter-spacing: 0%;
                     }
                 }
+            }
         }
     }
-}
 }

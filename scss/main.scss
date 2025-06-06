@@ -1,13 +1,15 @@
+@import './header';
 @import './main-p';
 @import './marquee';
-@import './header';
 @import './block1';
 @import './block2';
 @import './block3';
+@import './block4';
 @import './block5';
 @import './block6';
 @import './block7';
 @import './block8';
+@import './footer';
 
 * {
     margin: 0;
@@ -68,4 +70,16 @@
     src: url('../fonts/CeraPro-Regular.woff2');
     font-style: normal;
     font-weight: 400;
+}
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url('../fonts/Inter_18pt-Regular.ttf');
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Inter-Medium';
+    src: url('../fonts/Inter_18pt-Medium.ttf');
+    font-style: normal;
+    font-weight: 500;
 }

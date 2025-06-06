@@ -98,8 +98,8 @@
         .icon6 {
             max-width: 158.7px;
             max-height: 181.4px;
-            top: 10%;
-            right: 15.7%;
+            top: 9.5%;
+            right: 16%;
             z-index: 3;
         }
         .icon7 {
@@ -128,16 +128,48 @@
 }
 
 @media (max-width:1900px) {
-    .block2 .wrapper-img .icon7 {
-        right: calc((1440px - 100vw) / 8);
-    }
     .block2 .wrapper-img .icon1 {
         left: calc((1440px - 100vw) / 8);
     }
-
+    .block2 .wrapper-img .icon2 {
+        max-width: clamp(252px, 17vw, 285.5px);
+        max-height: clamp(290px, 20vw, 328.8px);
+        // left: 19%;
+        // top: 9%;
+        transition: left 0.3s linear, top 0.3s linear;
+    }
+    .block2 .wrapper-img .icon3, .block2 .wrapper-img .icon6 {
+        max-width: clamp(140px, 9.7vw, 158.7px);
+        max-height: clamp(160px, 11vw, 181.4px);
+        transition: left 0.3s linear, top 0.3s linear;
+    }
+    .block2 .wrapper-img .icon3 {
+        padding-bottom: 46px;
+    }
+    .block2 .wrapper-img .icon4 {
+        max-width: clamp(470px, 32vw, 532.89px);
+        max-height: clamp(536px, 37vw, 607.7px);
+        transition: left 0.3s linear, top 0.3s linear;
+    }
+    .block2 .wrapper-img .icon5 {
+        max-width: clamp(250px, 17vw, 283.45px);
+        max-height: clamp(290px, 20vw, 328.81px);
+        transition: left 0.3s linear, top 0.3s linear;
+    }
+    .block2 .wrapper-img .icon7 {
+        right: calc((1440px - 100vw) / 8);
+    }
     .block2 .wrapper-img .icon1, .block2 .wrapper-img .icon7 {
         width: clamp(305px, 21vw, 345px);
         height: clamp(351px, 22vw, 398px);
+    }
+    .block2 .wrapper-img .icon8 {
+        width: clamp(149.79px, 10vw, 169px);
+        height: clamp(152.64px, 10vw, 173px);
+    }
+    .block2 .wrapper-img .icon9 {
+        width: clamp(183.7px, 10vw, 208px);
+        height: clamp(172.1px, 10vw, 195px);
     }
 }
 

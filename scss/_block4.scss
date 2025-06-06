@@ -1,0 +1,193 @@
+.block4 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 99.5px 0 60.5px 0;
+    
+    .title {
+        justify-self: center;
+
+        h2 {
+            max-width: 821px;
+        }
+
+        .btn {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 140%;
+            letter-spacing: 2%;
+            text-transform: uppercase;
+            color: #fff;
+            padding: 10px 26px;
+            border: 0;
+            background-color: #823F91;
+            border-radius: 100px;
+            margin-top: 16px;
+        }
+    }
+    
+    .wrapper-prtners {
+        display: flex;
+        background-color: #823F91;
+        border-radius: 22px;
+        padding: 60px;
+        justify-content: space-between;
+        color: #fff;
+        
+        .left-panel {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 593px;
+            height: 100%;
+            // min-height: 616px;
+            box-sizing: border-box;
+
+            .img-container {
+                position: relative;
+                display: flex;
+                width: 100%;
+                max-width: 519px;
+                max-height: 508px;
+                margin-left: 37px;
+                margin-bottom: 63px;
+                z-index: 10;
+
+                .img-wrap {
+                    display: flex;
+                    align-items: start;
+                    align-self: start;
+                    justify-content: start;
+                    width: 100%;
+                    max-width: 367px;
+                    height: 100%;
+                    max-height: 508px;
+                    border-radius: 22px;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        overflow: hidden;
+                    }
+                }
+                .img-wrap2 {
+                    position: absolute;
+                    align-items: center;
+                    right: 0;
+                    bottom: 32px;
+                    max-width: 217px;
+                    max-height: 246px;
+                }
+                .heart-mini {
+                    position: absolute;
+                    right: 22.65%;
+                    top: 26%;
+                }
+                .heart-mini2 {
+                    left: -16%;
+                    bottom: -10.26%;
+                    right: auto;
+                    top: auto;
+                }
+            }
+
+            .text {
+                max-width: 470px;
+                color: #fff;
+                font-family: 'CeraPro-Regular';
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 120%;
+                letter-spacing: 0;
+                z-index: 10;
+            }
+
+            .bg-heart {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                right: 0%;
+                top: -11%;
+                z-index: 5;
+                
+                img {
+                    width: 100%;
+                }
+            }
+            
+            .bg-heart2 {
+                transform: rotate(-35.41deg);
+                left: -28%;
+                // bottom: 0%;
+                right: auto;
+                top: 58%;
+            }
+        }
+        
+        .right-panel {
+            position: relative;
+            display: flex;
+            width: 100%;
+            max-width: 584px;
+            flex-direction: column;
+            align-items: start;
+            overflow: visible;
+
+            h2 {
+                max-width: 481px;
+                font-weight: 500;
+                font-size: 40px;
+                line-height: 120%;
+                letter-spacing: 0;
+            }
+
+            .colmn-container {
+                display: flex;
+                gap: 30px;
+                padding: 18px 0;
+                margin-top: 60px;
+
+                .colmn {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+                    .content {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        max-width: 277px;
+                        padding-bottom: 16px;
+                        border-bottom: 1px solid #FFFFFF38;
+                        align-items: start;
+
+                        h2{
+                            font-weight: 500;
+                            font-size: 40px;
+                            line-height: 120%;
+                            letter-spacing: 0;
+                        }
+                        p {
+                            font-family: 'CeraPro-Regular';
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 140%;
+                            letter-spacing: 0;
+                            text-align: right;
+                            text-transform: uppercase;
+
+                        }
+                    }
+                }
+            }
+            hr {
+                display: none;
+            }
+            .img-con {
+                position: absolute;
+                right: 0;
+                bottom: -4.6%;
+            }
+        }
+    }
+}

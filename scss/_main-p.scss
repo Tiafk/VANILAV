@@ -68,6 +68,9 @@
         display: flex;
         width: 100%;
         height: 100%;
+        will-change: transform;
+        transition: transform 0.1s ease-out;
+        
         .icon {
             display: flex;
             align-items: center;
@@ -149,15 +152,49 @@
         overflow: hidden;
         left: 0;
         bottom: 13.2%;
+        z-index: 1;
         svg {
             min-width: 100%;
             height: auto;
         }
     }
+    .line2 {
+        display: none;
+        z-index: 1;
+    }
     .marquee-wrapper {
         display: flex;
         align-items: end;
     }
+}
+.draw-line {
+  stroke-dasharray: 4000;
+  stroke-dashoffset: 4000;
+  stroke: #9d59aa;
+  animation: drawCycle 12s ease-in-out infinite;
+  filter: blur(1px);
+}
+
+@keyframes drawCycle {
+  0% {
+    stroke-dashoffset: 4000;
+    stroke: #9d59aa;
+    opacity: 1;
+  }
+  40% {
+    stroke-dashoffset: 0;
+    stroke: #9d59aa;
+    opacity: 1;
+  }
+  70% {
+    stroke: white;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke: white;
+    opacity: 0;
+  }
 }
 
 @media (max-width:1900px) {
@@ -168,19 +205,32 @@
     }
 }
 
+@media (max-width:1746px) {
+    .main-p .line1 {
+        display: none;
+    }
+
+    .main-p .line2 {
+        display: block;
+    }
+}
+
 @media (max-width:1440px) {
+    .main-p .line2 {
+        bottom: 23.2%;
+    }
     .main-p .wrapper-absolute-img .absolute-img-container .icon1 {
         width:210px;
         height: 210px;
-        top: 11%;
-        left: 10%;
+        top: 12.5%;
+        left: 9.7%;
     }
 
     .main-p .wrapper-absolute-img .absolute-img-container .icon2 {
         width:130px;
-        height: 130px;
-        top: 21.98%;
-        right: 27.86%;
+        height: 130px;        
+        top: 24%;
+        right: 27.6%;
     }
     .main-p .wrapper-absolute-img .absolute-img-container .icon3 {
         width:250px;
@@ -190,14 +240,19 @@
     }
     .main-p .wrapper-absolute-img .absolute-img-container .icon4 {
         width:130px;
-        height: 130px;
+        height: 130px;    
+        bottom: 14%;
+        left: 1%;
     }
     .main-p .wrapper-absolute-img .absolute-img-container .icon5 {
         width:250px;
         height: 150px;
+        left: 29.9%;
+        bottom: 22.5%;
     }
     .main-p .wrapper-absolute-img .absolute-img-container .icon6 {
         width:210px;
         height: 210px;
+        bottom: 14%;
     }
 }
