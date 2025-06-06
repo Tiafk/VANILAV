@@ -8,6 +8,7 @@
     min-height: 1020px;
     background-color: #823F91;
     .text-container {
+        user-select: none;
         display: flex;
         height: 100%;
         flex-direction: column;
@@ -39,6 +40,7 @@
             text-transform: uppercase;
         }
         .btn {
+            cursor: pointer;
             font-family: 'CeraPro-Medium';
             font-weight: 500;
             font-size: 16px;

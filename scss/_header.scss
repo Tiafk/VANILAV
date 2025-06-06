@@ -5,7 +5,7 @@ header {
     width: 100%;
     box-sizing: border-box;
     background-color: #8D509B;
-    z-index: 10;
+    z-index: 11;
     
     .wrapper-header {
         display: flex;
@@ -23,7 +23,7 @@ header {
                 color: #fff;
     
                 li {
-                    cursor: pointer;
+                    cursor: pointer ;
                     font-family: 'CeraPro-Regular';
                     font-weight: 400;
                     font-size: 16px;
