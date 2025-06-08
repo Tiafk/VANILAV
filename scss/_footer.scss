@@ -9,7 +9,6 @@
     .footer__wrapper {
         box-sizing: border-box;
         padding: 31px 18px 23px;
-        // display: grid;
         display: flex;
         flex-direction: column;
         gap: 24px;
@@ -18,10 +17,7 @@
         justify-content: space-between;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 129px;
-        // grid-template-areas: 
-        // 'logo contacts'
-        // 'nav contacts'
-        // 'bot bot';
+
         .top {
             display: flex;
             justify-content: space-between;

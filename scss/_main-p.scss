@@ -222,39 +222,118 @@
         bottom: 23.2%;
     }
     .main-p .wrapper-absolute-img .absolute-img-container .icon1 {
+        grid-area:icon1;
         width:210px;
         height: 210px;
         top: 12.5%;
         left: 9.7%;
     }
-
     .main-p .wrapper-absolute-img .absolute-img-container .icon2 {
+        grid-area:icon2;
         width:130px;
         height: 130px;        
         top: 24%;
         right: 27.6%;
     }
     .main-p .wrapper-absolute-img .absolute-img-container .icon3 {
+        grid-area:icon3;
         width:250px;
         height: 150px;
         top: 9%;
         right: 0.5%;
     }
     .main-p .wrapper-absolute-img .absolute-img-container .icon4 {
+        grid-area:icon4;
         width:130px;
         height: 130px;    
         bottom: 14%;
         left: 1%;
     }
     .main-p .wrapper-absolute-img .absolute-img-container .icon5 {
+        grid-area:icon5;
         width:250px;
         height: 150px;
         left: 29.9%;
         bottom: 22.5%;
     }
     .main-p .wrapper-absolute-img .absolute-img-container .icon6 {
+        grid-area:icon6;
         width:210px;
         height: 210px;
         bottom: 14%;
     }
+}
+
+@media (max-width:1440px) {
+    .main-p .text-container h1 {
+        font-size: clamp(37px,7vw,90px);
+    }
+
+    .main-p .text-container p {
+        font-size: clamp(15px,2vw,24px);
+    }
+    .main-p .text-container .btn {
+        font-size: clamp(13px,2vw,16px);
+    }
+}
+
+@media (max-width: 975px) {
+    .main-p .line2 {
+        display: none;
+    }
+    .main-p .text-container h1 {
+        margin-top: 20px;   
+    }
+    .main-p .text-container .btn{ 
+        margin-top: 17px;
+    }
+  .main-p .wrapper-absolute-img {
+    position: relative;
+    max-width: 800px;
+    height: auto;
+    padding-bottom: 38px;
+  }
+
+  .main-p .absolute-img-container {
+    position: relative;
+    display: grid;
+    height: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:  
+        'icon2 icon6 icon4'
+        'icon1 icon5 icon3';
+    gap: 7px 6px;
+  }
+
+  .main-p .wrapper-absolute-img .absolute-img-container .icon {
+    position: initial;
+    height: 100%;
+    width: 100%;
+    max-width: none !important;
+    max-height: none !important;
+    min-height: auto !important;
+    min-width: auto !important;
+    transform: none !important;
+    padding: 0;
+    aspect-ratio: 1.13 / 1; /* соответствие пропорциям 124.5 × 110 */
+  }
+
+  .main-p .absolute-img-container .icon img {
+    width: 100% ;
+    height: 100% ;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 375px) {
+  .main-p .absolute-img-container .icon {
+    height: 110px;
+    aspect-ratio: auto;
+  }
+
+  .main-p .absolute-img-container .icon img {
+    height: 100%;
+    object-fit: cover;
+  }
 }

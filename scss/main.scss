@@ -83,3 +83,10 @@
     font-style: normal;
     font-weight: 500;
 }
+
+
+@media (max-width:1370px) {
+    .main .wrapper {
+        padding: 0 16px;
+    }
+}

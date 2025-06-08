@@ -1,3 +1,4 @@
+// паралакс
 window.addEventListener('load', () => {
   const container1 = document.querySelector('.main-p');
   const container2 = document.querySelector('.block2');
@@ -76,9 +77,6 @@ window.addEventListener('load', () => {
   initParallax(container1, icons1, depths1);
   initParallax(container2, icons2, depths2);
 });
-
-
-
 
 // отступы %
 function updateIconPosition() {
@@ -176,96 +174,16 @@ window.addEventListener('resize', updateIconPosition);
 window.addEventListener('DOMContentLoaded', updateIconPosition);
 
 // Бегущая строка
-// const phrases = [
-//     "все будет фиолетово",
-//     "сделано в ванлав",
-//     "все будет фиолетово",
-//     "сделано в ванлав",
-//     "все будет фиолетово",
-//     "сделано в ванлав",
-//     "все будет фиолетово",
-//     "ванлав"
-//   ];
-
-//   function generateContent(container) {
-//     phrases.forEach((text, index) => {
-//       const span = document.createElement("span");
-//       span.className = "text-block" + (index !== 0 ? " dot" : "");
-//       span.textContent = text;
-//       container.appendChild(span);
-//     });
-//   }
-//   const content1 = document.getElementById("content1");
-//   const content2 = document.getElementById("content2");
-
-//   generateContent(content1);
-//   generateContent(content2);
-
-// const phrases = [
-//   "все будет фиолетово",
-//   "сделано в ванлав",
-//   "все будет фиолетово",
-//   "сделано в ванлав",
-//   "все будет фиолетово",
-//   "ванлав"
-// ];
-
-// const content = document.getElementById("content");
-// const marquee = document.getElementById("marquee");
-// const wrapper = document.querySelector(".marquee-wrapper");
-
-// function createPhraseSpan(text, isDot) {
-//   const span = document.createElement("span");
-//   span.className = "text-block" + (isDot ? " dot" : "");
-//   span.textContent = text;
-//   return span;
-// }
-
-// function generateContent() {
-//   const fragment = document.createDocumentFragment();
-//   phrases.forEach((text, index) => {
-//     fragment.appendChild(createPhraseSpan(text, index !== 0));
-//   });
-//   return fragment;
-// }
-
-// function fillMarquee() {
-//   content.innerHTML = ""; // очищаем
-
-//   // Добавляем минимум один набор
-//   content.appendChild(generateContent());
-
-//   // Теперь дублируем наборы, пока ширина .marquee не станет >= 2 * ширины контейнера
-//   let marqueeWidth = marquee.scrollWidth;
-//   const wrapperWidth = wrapper.clientWidth;
-
-//   // дублируем контент пока ширина < 2 * wrapperWidth
-//   while (marqueeWidth < wrapperWidth * 2) {
-//     content.appendChild(generateContent());
-//     marqueeWidth = marquee.scrollWidth;
-//   }
-
-//   // После заполнения контентом запускаем анимацию
-//   startAnimation(marqueeWidth);
-// }
-
-// function startAnimation(marqueeWidth) {
-//   // Скорость анимации, например 100px в секунду
-//   const speed = 100;
-
-//   // Длительность анимации в секундах = половина ширины контента (сколько мы прокручиваем) / скорость
-//   const duration = (marqueeWidth / 2) / speed;
-
-//   marquee.style.animation = `marquee ${duration}s linear infinite`;
-// }
-
-// fillMarquee();
-// window.addEventListener('resize', () => {
-//   marquee.style.animation = "none"; // сброс
-//   fillMarquee();
-// });
-
-
+const phrases = [
+    "все будет фиолетово",
+    "сделано в ванлав",
+    "все будет фиолетово",
+    "сделано в ванлав",
+    "все будет фиолетово",
+    "сделано в ванлав",
+    "все будет фиолетово",
+    "ванлав"
+];
 
 
 // блок 7 адресса
