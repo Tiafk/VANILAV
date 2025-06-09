@@ -19,6 +19,9 @@
             margin-top: 12px;
         }
     }
+    .left-panel h2 {
+      font-size: 40px;
+    }
 }
 .wrapper-panel {
     box-sizing: border-box;
@@ -139,6 +142,139 @@
   grid-column: 2;
   grid-row: 2;
   height: 268px;
+}
+
+//mobile
+
+.address-mobile {
+  cursor: pointer;
+  font-family: 'CeraPro-Regular';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  padding: 16px 10px 16px 0;
+  transition: 0.3s ease;
+  color: rgba(0, 0, 0, 1);
+}
+
+.address-mobile.active {
+  color: rgba(130, 63, 145, 1);
+}
+
+@media (max-width: 1310px) {
+  .left-panel {
+    max-width: 695px;
+  }
+  #addressListMobile {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .address-mobile {
+    border-bottom: 1px solid #3D205012;
+  }
+
+  .address-mobile.active{
+    border: 0;
+  }
+
+  .mobile-slider-container {
+    padding-bottom: 16px;
+    border-bottom: 1px solid #3D205012;
+  }
+
+  .address-mobile {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 12px;
+    font-size: 18px;
+    padding: 14px 20px;
+    border-radius: 12px;
+  }
+
+  #mobileSliderContainer {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin-top: 16px;
+  }
+
+  #mobileSliderContainer .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    object-fit: cover;
+  }
+
+  #mobileSliderContainer .swiper-slide {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .block7 .right-panel {
+    display: none;
+  }
+
+  .wrapper-panel {
+    max-height: none;
+    overflow: visible;
+    background-color: transparent;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .swiper {
+      width: 100%;
+  }
+  .swiper-slide {
+      max-width: 265px !important;
+      max-height: 353px !important;
+  }
+
+  .address-mobile.active {
+    background-color: transparent;
+  }
+
+  .address {
+    display: none;
+  }
+
+  .dropdown-gallery {
+    margin: 16px 0;
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .gallery {
+      display: grid;
+      gap: 12px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+  }
+}
+
+@media (min-width: 1311px) {
+  /* Восстанавливаем старый вид */
+  #addressListMobile {
+    display: none;
+  }
+  .left-panel > .address {
+    display: block;
+  }
+  .right-panel {
+    display: block !important;
+  }
+  #mobileSliderContainer {
+    display: none !important;
+  }
 }
 
 @media (max-width: 768px) {

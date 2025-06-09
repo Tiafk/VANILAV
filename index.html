@@ -25,7 +25,7 @@
         <div class="wrapper-header">
           <div class="logo">
             <img
-              src="./img/image 396.png"
+              src="./img/image396.png"
               alt="Логотип Vanlav - кондитерская франшиза"
             />
           </div>
@@ -291,7 +291,7 @@
                 </p>
               </div>
               <div class="card-img">
-                <img src="./img/block3/Group 1261154166.png" alt="" />
+                <img src="./img/block3/Group1261154166.png" alt="#" />
               </div>
               <div class="card">
                 <div class="title-card">
@@ -303,7 +303,7 @@
                 </p>
               </div>
               <div class="card-img">
-                <img src="./img/block3/Group 12611541661.png" alt="" />
+                <img src="./img/block3/Group12611541661.png" alt="#" />
               </div>
               <div class="card">
                 <div class="title-card">
@@ -437,7 +437,7 @@
                       <h2>2 млн</h2>
                       <p>паушальный взнос</p>
                     </div>
-                    <div class="content">
+                    <div class="content min72">
                       <h2>1,2 млн</h2>
                       <p>средняя прибыль в месяц</p>
                     </div>
@@ -445,7 +445,7 @@
                       <h2>от 8 млн</h2>
                       <p>торговая точка</p>
                     </div>
-                    <div class="content">
+                    <div class="content full">
                       <h2>~ 6%</h2>
                       <p>ежемесячный роялти платеж</p>
                     </div>
@@ -456,7 +456,7 @@
                       <h2>от 14 млн</h2>
                       <p>сумма инвестиций</p>
                     </div>
-                    <div class="content">
+                    <div class="content min72">
                       <h2>2 года</h2>
                       <p>средняя окупаемость</p>
                     </div>
@@ -564,7 +564,7 @@
             </article>
             <article class="wrapper-card">
               <div class="card-img">
-                <img src="./img/block6/Group 1261154166 (2).png" alt="#" />
+                <img src="./img/block6/Group1261154166.png" alt="#" />
               </div>
               <div class="card">
                 <div class="title-card">
@@ -609,7 +609,7 @@
                 </p>
               </div>
               <div class="card-img">
-                <img src="./img/block6/Union (1).png" alt="#" />
+                <img src="./img/block6/Union.png" alt="#" />
               </div>
               <div class="card">
                 <div class="title-card">
@@ -663,7 +663,7 @@
                 </p>
               </div>
               <div class="card-img">
-                <img src="./img/block6/Group 1261154167.png" alt="#" />
+                <img src="./img/block6/Group1261154167.png" alt="#" />
               </div>
             </article>
           </section>
@@ -694,26 +694,41 @@
                 <div class="address" onclick="showContent(5)">
                   2-я Звенигородская ул., 12, стр. 23
                 </div>
-              </div>
-              <div class="right-panel">
-                <!-- Swiper контейнер -->
-                <div id="swiperContainer" style="display: none">
-                  <div class="swiper">
-                    <div class="swiper-wrapper" id="swiperWrapper">
-                      <!-- Слайды будут добавлены динамически -->
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                  </div>
+
+                <div id="addressListMobile" style="display:none;">
+                  <div class="address-mobile" data-index="0">ул. Александры Монаховой, 85, корп. 1, посёлок Коммунарка</div>
+                  <div class="address-mobile" data-index="1">1-я Тверская-Ямская ул., 11</div>
+                  <div class="address-mobile" data-index="2">Боровское ш., 2, корп. 5</div>
+                  <div class="address-mobile" data-index="3">ул. Архитектора Щусева, 2, корп. 1</div>
+                  <div class="address-mobile" data-index="4">Винницкая ул., 8, корп. 4</div>
+                  <div class="address-mobile" data-index="5">2-я Звенигородская ул., 12, стр. 23</div>
                 </div>
 
-                <!-- Галерея -->
-                <div
-                  id="galleryContainer"
-                  class="gallery"
-                  style="display: none"
-                ></div>
+                <div id="mobileSliderContainer" style="display:none; margin-top: 20px;">
+                  <div class="swiper">
+                    <div class="swiper-wrapper" id="mobileSwiperWrapper"></div>
+                  </div>
               </div>
+
+            </div>
+            <div class="right-panel">
+              <!-- Swiper контейнер -->
+              <div id="swiperContainer" style="display: none">
+                <div class="swiper">
+                  <div class="swiper-wrapper" id="swiperWrapper">
+                    <!-- Слайды будут добавлены динамически -->
+                  </div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div>
+              </div>
+
+              <!-- Галерея -->
+              <div
+                id="galleryContainer"
+                class="gallery"
+                style="display: none"
+              ></div>
             </div>
           </section>
           <section class="block8">
@@ -721,72 +736,82 @@
               <p class="sub">варианты открытия</p>
               <h2>Открываемся в разных форматах</h2>
             </article>
-            <article class="container-card">
-              <div class="card-container__card">
-                <div class="card__image">
-                  <img src="./img/block8/1.png" alt="#" />
-                </div>
-                <div class="content">
-                  <div class="text-container">
-                    <p class="name">Островок / мини формат</p>
-                    <p class="dropdown-text">
-                      2 входа <br />Электрическая мощность: от 60 кВт, горячая и
-                      холодная вода
-                    </p>
+            <div class="swiper mySwiper2 container-card">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="card-container__card">
+                    <div class="card__image">
+                      <img src="./img/block8/1.png" alt="#" />
+                    </div>
+                    <div class="content">
+                      <div class="text-container">
+                        <p class="name">Островок / мини формат</p>
+                        <p class="dropdown-text">
+                          2 входа <br />Электрическая мощность: от 60 кВт,
+                          горячая и холодная вода
+                        </p>
+                      </div>
+                      <span class="shadow"></span>
+                      <span class="img-blur"></span>
+                    </div>
                   </div>
-                  <span class="shadow"></span>
-                  <span class="img-blur"></span>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-container__card">
+                    <div class="card__image">
+                      <img src="./img/block8/1.png" alt="#" />
+                    </div>
+                    <div class="content">
+                      <div class="text-container">
+                        <p class="name">Кондитерский магазин</p>
+                        <p class="dropdown-text">
+                          2 входа <br />Электрическая мощность: от 60 кВт,
+                          горячая и холодная вода
+                        </p>
+                      </div>
+                      <span class="shadow"></span>
+                      <span class="img-blur"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-container__card">
+                    <div class="card__image">
+                      <img src="./img/block8/1.png" alt="#" />
+                    </div>
+                    <div class="content">
+                      <div class="text-container">
+                        <p class="name">Кондитерская студия с посадкой</p>
+                        <p class="dropdown-text">
+                          2 входа <br />Электрическая мощность: от 60 кВт,
+                          горячая и холодная вода
+                        </p>
+                      </div>
+                      <span class="shadow"></span>
+                      <span class="img-blur"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-container__card">
+                    <div class="card__image">
+                      <img src="./img/block8/1.png" alt="#" />
+                    </div>
+                    <div class="content">
+                      <div class="text-container">
+                        <p class="name">Комбо формат: студия + цех</p>
+                        <p class="dropdown-text">
+                          2 входа <br />Электрическая мощность: от 60 кВт,
+                          горячая и холодная вода
+                        </p>
+                      </div>
+                      <span class="shadow"></span>
+                      <span class="img-blur"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="card-container__card">
-                <div class="card__image">
-                  <img src="./img/block8/1.png" alt="#" />
-                </div>
-                <div class="content">
-                  <div class="text-container">
-                    <p class="name">Кондитерский магазин</p>
-                    <p class="dropdown-text">
-                      2 входа <br />Электрическая мощность: от 60 кВт, горячая и
-                      холодная вода
-                    </p>
-                  </div>
-                  <span class="shadow"></span>
-                  <span class="img-blur"></span>
-                </div>
-              </div>
-              <div class="card-container__card">
-                <div class="card__image">
-                  <img src="./img/block8/1.png" alt="#" />
-                </div>
-                <div class="content">
-                  <div class="text-container">
-                    <p class="name">Кондитерская студия с посадкой</p>
-                    <p class="dropdown-text">
-                      2 входа <br />Электрическая мощность: от 60 кВт, горячая и
-                      холодная вода
-                    </p>
-                  </div>
-                  <span class="shadow"></span>
-                  <span class="img-blur"></span>
-                </div>
-              </div>
-              <div class="card-container__card">
-                <div class="card__image">
-                  <img src="./img/block8/1.png" alt="#" />
-                </div>
-                <div class="content">
-                  <div class="text-container">
-                    <p class="name">Комбо формат: студия + цех</p>
-                    <p class="dropdown-text">
-                      2 входа <br />Электрическая мощность: от 60 кВт, горячая и
-                      холодная вода
-                    </p>
-                  </div>
-                  <span class="shadow"></span>
-                  <span class="img-blur"></span>
-                </div>
-              </div>
-            </article>
+            </div>
             <section class="link-block">
               <ul class="link-wrapper">
                 <li class="link">хочу открыть ванлав в россии</li>
@@ -817,7 +842,7 @@
           <div class="top">
             <div class="top-left">
               <div class="logo">
-                <img src="./img/image 396.png" alt="#" />
+                <img src="./img/image396.png" alt="#" />
               </div>
               <ul class="navigation">
                 <li class="link">Кондитерские ванлав</li>

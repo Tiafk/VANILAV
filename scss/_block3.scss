@@ -74,7 +74,7 @@
     .block3 .title {
         margin-bottom: 24px;
     }
-    .card {
+    .main .wrapper .wrapper-card .card {
         width: 100%;
         min-width: auto;
         max-width: none;
@@ -82,6 +82,14 @@
         gap: 8px;
         padding: 20px;
         border-radius: 16px;
+
+        .title-card {
+            font-size: clamp(19px,3vw,24px);
+        }
+
+        .text {
+            font-size: clamp(13px,3vw,18px);
+        }
     }
     .card-img {
         display: none;
@@ -92,7 +100,7 @@
         font-weight: 500;
         font-size: clamp(13px,3vw,18px);
         line-height: 140%;
-        letter-spacing: 0%;
+        letter-spacing: 0;
         text-align: center;
         color: #fff;
         text-align: left;

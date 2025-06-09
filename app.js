@@ -187,101 +187,356 @@ const phrases = [
 
 
 // блок 7 адресса
-  const imageSets = [
-    [
-      "./img/block7/1/1.png",
-      "./img/block7/1/2.png",
-      "./img/block7/1/3.png",
-      "./img/block7/1/4.png",
-    ],
-    [
-      "./img/block7/2/1.png",
-      "./img/block7/2/2.png",
-      "./img/block7/2/3.png",
-    ],
-    [
-      "./img/block7/3/1.png",
-      "./img/block7/3/2.png",
-      "./img/block7/3/3.png",
-    ],
-    [
-      "./img/block7/4/1.png",
-      "./img/block7/4/2.png",
-      "./img/block7/4/3.png",
-      "./img/block7/4/4.png",
-    ],
-    [
-      "./img/block7/5/1.png",
-      "./img/block7/5/2.png",
-      "./img/block7/5/3.png",
-    ],
-    [
-      "./img/block7/6/1.png",
-      "./img/block7/6/2.png",
-      "./img/block7/6/3.png",
-      "./img/block7/6/4.png",
-      "./img/block7/6/5.png",
-      "./img/block7/6/6.png",
-      "./img/block7/6/7.png",
-      "./img/block7/6/8.png",
-      "./img/block7/6/9.png",
-    ]
-  ];
+// const imageSets = [
+//     [
+//       "./img/block7/1/1.png",
+//       "./img/block7/1/2.png",
+//       "./img/block7/1/3.png",
+//       "./img/block7/1/4.png",
+//     ],
+//     [
+//       "./img/block7/2/1.png",
+//       "./img/block7/2/2.png",
+//       "./img/block7/2/3.png",
+//     ],
+//     [
+//       "./img/block7/3/1.png",
+//       "./img/block7/3/2.png",
+//       "./img/block7/3/3.png",
+//     ],
+//     [
+//       "./img/block7/4/1.png",
+//       "./img/block7/4/2.png",
+//       "./img/block7/4/3.png",
+//       "./img/block7/4/4.png",
+//     ],
+//     [
+//       "./img/block7/5/1.png",
+//       "./img/block7/5/2.png",
+//       "./img/block7/5/3.png",
+//     ],
+//     [
+//       "./img/block7/6/1.png",
+//       "./img/block7/6/2.png",
+//       "./img/block7/6/3.png",
+//       "./img/block7/6/4.png",
+//       "./img/block7/6/5.png",
+//       "./img/block7/6/6.png",
+//       "./img/block7/6/7.png",
+//       "./img/block7/6/8.png",
+//       "./img/block7/6/9.png",
+//     ]
+//   ];
 
-  const isSlider = [true, false, false, true, false, true];
-  let swiper = null;
+//   const isSlider = [true, false, false, true, false, true];
+//   let swiper = null;
 
-  function showContent(index) {
-    const gallery = document.getElementById("galleryContainer");
-    const swiperContainer = document.getElementById("swiperContainer");
-    const swiperWrapper = document.getElementById("swiperWrapper");
+//   function showContent(index) {
+//     const gallery = document.getElementById("galleryContainer");
+//     const swiperContainer = document.getElementById("swiperContainer");
+//     const swiperWrapper = document.getElementById("swiperWrapper");
 
-    gallery.innerHTML = "";
-    swiperWrapper.innerHTML = "";
-    const addresses = document.querySelectorAll('.address');
-    addresses.forEach((el, i) => {
-        el.classList.toggle('active', i === index);
+//     gallery.innerHTML = "";
+//     swiperWrapper.innerHTML = "";
+//     const addresses = document.querySelectorAll('.address');
+//     addresses.forEach((el, i) => {
+//         el.classList.toggle('active', i === index);
+//     });
+
+//     if (isSlider[index]) {
+//       gallery.style.display = "none";
+//       swiperContainer.style.display = "block";
+
+//       imageSets[index].forEach(src => {
+//         const slide = document.createElement("div");
+//         slide.classList.add("swiper-slide");
+//         slide.innerHTML = `<img src="${src}" alt="">`;
+//         swiperWrapper.appendChild(slide);
+//       });
+
+//       if (swiper) swiper.destroy(true, true);
+//       swiper = new Swiper(".swiper", {
+//         loop: true,
+//         spaceBetween: 24,
+//         slidesPerView: 2,
+//         navigation: {
+//           nextEl: ".swiper-button-next",
+//           prevEl: ".swiper-button-prev"
+//         },
+//         pagination: {
+//           el: ".swiper-pagination"
+//         }
+//       });
+
+//     } else {
+//       swiperContainer.style.display = "none";
+//       gallery.style.display = "grid";
+
+//       imageSets[index].forEach(src => {
+//         const img = document.createElement("img");
+//         img.src = src;
+//         img.loading = "lazy";
+//         gallery.appendChild(img);
+//       });
+//     }
+//   }
+
+//   // ✅ Показать первый адрес по умолчанию
+//   window.onload = () => {
+//     showContent(0);
+//   };
+
+const imageSets = [
+  [
+    "./img/block7/1/1.png",
+    "./img/block7/1/2.png",
+    "./img/block7/1/3.png",
+    "./img/block7/1/4.png",
+  ],
+  [
+    "./img/block7/2/1.png",
+    "./img/block7/2/2.png",
+    "./img/block7/2/3.png",
+  ],
+  [
+    "./img/block7/3/1.png",
+    "./img/block7/3/2.png",
+    "./img/block7/3/3.png",
+  ],
+  [
+    "./img/block7/4/1.png",
+    "./img/block7/4/2.png",
+    "./img/block7/4/3.png",
+    "./img/block7/4/4.png",
+  ],
+  [
+    "./img/block7/5/1.png",
+    "./img/block7/5/2.png",
+    "./img/block7/5/3.png",
+  ],
+  [
+    "./img/block7/6/1.png",
+    "./img/block7/6/2.png",
+    "./img/block7/6/3.png",
+    "./img/block7/6/4.png",
+    "./img/block7/6/5.png",
+    "./img/block7/6/6.png",
+    "./img/block7/6/7.png",
+    "./img/block7/6/8.png",
+    "./img/block7/6/9.png",
+  ]
+];
+
+const isSlider = [true, false, false, true, false, true];
+
+let desktopSwiper = null;
+let mobileSwiper = null;
+
+// Отображение контента для десктопа (справа)
+function showContent(index) {
+  const gallery = document.getElementById("galleryContainer");
+  const swiperContainer = document.getElementById("swiperContainer");
+  const swiperWrapper = document.getElementById("swiperWrapper");
+
+  gallery.innerHTML = "";
+  swiperWrapper.innerHTML = "";
+
+  const addresses = document.querySelectorAll('.address');
+  addresses.forEach((el, i) => {
+    el.classList.toggle('active', i === index);
+  });
+
+  if (isSlider[index]) {
+    gallery.style.display = "none";
+    swiperContainer.style.display = "block";
+
+    imageSets[index].forEach(src => {
+      const slide = document.createElement("div");
+      slide.classList.add("swiper-slide");
+      slide.innerHTML = `<img src="${src}" alt="" style="width:100%; height:auto;">`;
+      swiperWrapper.appendChild(slide);
     });
 
-    if (isSlider[index]) {
-      gallery.style.display = "none";
-      swiperContainer.style.display = "block";
+    if (desktopSwiper) desktopSwiper.destroy(true, true);
+    desktopSwiper = new Swiper(".swiper", {
+      loop: true,
+      spaceBetween: 24,
+      slidesPerView: 2,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      pagination: {
+        el: ".swiper-pagination"
+      }
+    });
 
-      imageSets[index].forEach(src => {
-        const slide = document.createElement("div");
-        slide.classList.add("swiper-slide");
-        slide.innerHTML = `<img src="${src}" alt="">`;
-        swiperWrapper.appendChild(slide);
-      });
+  } else {
+    swiperContainer.style.display = "none";
+    gallery.style.display = "grid";
 
-      if (swiper) swiper.destroy(true, true);
-      swiper = new Swiper(".swiper", {
-        loop: true,
-        spaceBetween: 24,
-        slidesPerView: 2,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        },
-        pagination: {
-          el: ".swiper-pagination"
+    imageSets[index].forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.loading = "lazy";
+      img.style.width = "100%";
+      img.style.height = "auto";
+      gallery.appendChild(img);
+    });
+
+    if (desktopSwiper) {
+      desktopSwiper.destroy(true, true);
+      desktopSwiper = null;
+    }
+  }
+}
+
+// Инициализация мобильного слайдера в переданном контейнере
+function initMobileSlider(index, container) {
+  container.innerHTML = "";
+
+  imageSets[index].forEach(src => {
+    const slide = document.createElement("div");
+    slide.classList.add("swiper-slide");
+    slide.innerHTML = `<img src="${src}" alt="" style="width:100%; height:auto; border-radius:16px;">`;
+    container.appendChild(slide);
+  });
+
+  if (mobileSwiper) mobileSwiper.destroy(true, true);
+
+  mobileSwiper = new Swiper(container.parentElement, {
+    loop: true,
+    spaceBetween: 10,
+    slidesPerView: 1.4,
+  });
+
+  container.parentElement.style.display = "block";
+}
+
+// Уничтожение мобильного слайдера и удаление контейнеров из DOM
+function destroyMobileSlider() {
+  if (mobileSwiper) {
+    mobileSwiper.destroy(true, true);
+    mobileSwiper = null;
+  }
+  document.querySelectorAll(".mobile-slider-container").forEach(container => {
+    container.remove();
+  });
+}
+
+// Сброс активного состояния для мобильных адресов
+function resetMobileActive() {
+  document.querySelectorAll(".address-mobile").forEach(el => {
+    el.classList.remove("active");
+  });
+}
+
+// Навешиваем обработчики клика по мобильным адресам
+function setupMobileListeners() {
+  document.querySelectorAll(".address-mobile").forEach(el => {
+    el.onclick = () => {
+      const idx = parseInt(el.getAttribute("data-index"));
+      const activeIndex = document.querySelector(".address-mobile.active")?.getAttribute("data-index");
+
+      if (activeIndex === idx.toString()) {
+        // Повторный клик - скрываем слайдер
+        destroyMobileSlider();
+        resetMobileActive();
+      } else {
+        destroyMobileSlider();
+        resetMobileActive();
+
+        el.classList.add("active");
+
+        let sliderContainer = el.nextElementSibling;
+        if (!sliderContainer || !sliderContainer.classList.contains("mobile-slider-container")) {
+          sliderContainer = document.createElement("div");
+          sliderContainer.classList.add("mobile-slider-container");
+          sliderContainer.innerHTML = `
+            <div class="swiper mobile-swiper">
+              <div class="swiper-wrapper mobile-slider-wrapper"></div>
+            </div>
+          `;
+          el.parentNode.insertBefore(sliderContainer, el.nextSibling);
         }
-      });
 
-    } else {
-      swiperContainer.style.display = "none";
-      gallery.style.display = "grid";
+        const wrapper = sliderContainer.querySelector(".swiper-wrapper");
+        initMobileSlider(idx, wrapper);
+      }
+    };
+  });
+}
 
-      imageSets[index].forEach(src => {
-        const img = document.createElement("img");
-        img.src = src;
-        img.loading = "lazy";
-        gallery.appendChild(img);
+// Обработка ресайза — переключение между десктоп и мобилкой
+function handleResize() {
+  if (window.innerWidth <= 1310) {
+    // Мобильный режим
+    document.querySelector(".right-panel").style.display = "none";
+    document.getElementById("addressListMobile").style.display = "block";
+
+    destroyMobileSlider();
+    resetMobileActive();
+    setupMobileListeners();
+
+  } else {
+    // Десктопный режим
+    document.querySelector(".right-panel").style.display = "block";
+    document.getElementById("addressListMobile").style.display = "none";
+
+    destroyMobileSlider();
+    resetMobileActive();
+
+    showContent(0);
+  }
+}
+
+window.addEventListener("resize", handleResize);
+window.addEventListener("load", handleResize);
+
+
+
+//блок8
+document.addEventListener('DOMContentLoaded', () => {
+  let swiper2 = null;
+
+  function initSwiper() {
+    if (!swiper2) {
+      swiper2 = new Swiper('.container-card', {
+        slidesPerView: 4,
+        spaceBetween: 16,
+        loop: false,
+        breakpoints: {
+      0: {
+        slidesPerView: 1.6,
+        spaceBetween: 16
+      },
+      551: {
+        slidesPerView: 4,
+      }
+    }
       });
     }
   }
 
-  // ✅ Показать первый адрес по умолчанию
-  window.onload = () => {
-    showContent(0);
-  };
+  function destroySwiper() {
+    if (swiper2) {
+      swiper2.destroy(true, true);
+      swiper2 = null;
+    }
+  }
+
+  function handleResize() {
+    const width = window.innerWidth;
+
+    if (width >= 1420) {
+      destroySwiper();
+      document.querySelector('.container-card').classList.remove('swiper-initialized');
+    } else {
+      initSwiper();
+    }
+  }
+
+  window.addEventListener('resize', handleResize);
+  handleResize();
+});
+

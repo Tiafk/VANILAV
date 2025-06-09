@@ -39,3 +39,9 @@ header {
         }
     }
 }
+
+@media (max-width:725px) {
+    header .wrapper-header .navigation {
+        display: none;
+    }
+}
