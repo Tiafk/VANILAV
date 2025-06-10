@@ -473,7 +473,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     },
     {
-      threshold: 0.35, // 60% блока должно быть видно
+      threshold: 0.3, // 30% блока должно быть видно
     }
   );
 

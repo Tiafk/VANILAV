@@ -71,6 +71,20 @@
     }
 }
 
+@media (max-width:1070px) {
+    .block1,
+    .block2,
+    .block3,
+    .block4,
+    .block5,
+    .block6,
+    .block7,
+    .block8 {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
 
 @font-face {
     font-family: 'CeraPro-Bold';
