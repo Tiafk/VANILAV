@@ -1,16 +1,28 @@
 .popup {
-      display: none;
-      font-family: 'CeraPro-Regular';
-      width: 600px;
-      background-color: white;
-      padding: 32px;
-      border-radius: 22px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      margin: 50px auto;
-      position: absolute;
-      bottom: 0;
-      z-index: 1000000;
-    }
+  position: fixed;
+  display: none;
+  font-family: 'CeraPro-Regular';
+  width: 600px;
+  max-height: 90vh;
+  background-color: white;
+  padding: 32px;
+  border-radius: 22px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  margin: 50px auto;
+  top: 0;
+  overflow-y: auto;
+  z-index: 1000000;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE и Edge */
+}
+
+.popup::-webkit-scrollbar {
+  display: none; /* Chrome, Safari и Opera */
+}
+
+.popup.show {
+  display: block !important;
+}
 
     .popup h2 {
       font-family: 'CeraPro-Medium';

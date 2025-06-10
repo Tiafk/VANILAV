@@ -458,6 +458,33 @@ const input = document.querySelector("#phone");
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
   });
 
+const popupRussia = document.querySelector('.popup.russia');
+const btnRussia = document.querySelector('.btn-russia');
+const btnCloseRussia = document.querySelector('.close-btn');
+
+function openPopup() {
+  popupRussia.classList.add('show');
+  overlay.classList.add('active');
+  body.classList.add('lock');
+  content.classList.add('lock');
+}
+
+function closePopup() {
+  popupRussia.classList.remove('show');
+  overlay.classList.remove('active');
+  body.classList.remove('lock');
+  content.classList.remove('lock');
+}
+
+document.addEventListener('click', function (e) {
+  if (btnRussia.contains(e.target) || popupRussia.contains(e.target) && e.target !== btnCloseRussia) {
+    openPopup();
+  } else if (!popupRussia.contains(e.target) || btnCloseRussia.contains(e.target)) {
+    console.log(1);
+    closePopup();
+  }
+});
+
 
 //анимации блоков
 document.addEventListener("DOMContentLoaded", function () {
