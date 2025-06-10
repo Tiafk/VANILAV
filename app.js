@@ -457,3 +457,27 @@ const input = document.querySelector("#phone");
     autoPlaceholder: "polite",
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
   });
+
+
+//анимации блоков
+document.addEventListener("DOMContentLoaded", function () {
+  const blocks = document.querySelectorAll(".block1, .block2, .block3, .block4, .block5, .block6, .block7, .block8");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.35, // 60% блока должно быть видно
+    }
+  );
+
+  blocks.forEach((block) => {
+    observer.observe(block);
+  });
+});

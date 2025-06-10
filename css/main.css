@@ -2431,7 +2431,6 @@ body.lock {
   }
 }
 @media (min-width: 1311px) {
-  /* Восстанавливаем старый вид */
   #addressListMobile {
     display: none;
   }
@@ -2469,7 +2468,7 @@ body.lock {
   }
   .block7 .swiper-slide img {
     height: 100%;
-    min-height: 100%;
+    min-height: 353px;
   }
 }
 .block8 {
@@ -3096,6 +3095,24 @@ textarea {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.block1,
+.block2,
+.block3,
+.block4,
+.block5,
+.block6,
+.block7,
+.block8 {
+  opacity: 0;
+  transform: translateY(10%);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .main {

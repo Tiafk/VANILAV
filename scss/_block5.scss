@@ -112,7 +112,6 @@
         font-size: clamp(15px,2vw,18px);
     }
 }
-
 @media (max-width:1110px) {
     .block5 {
         background-image: none;
@@ -127,14 +126,12 @@
         bottom: -1%;
     }
 }
-
 @media (max-width:795px) {
     .block5 .bg-map {
         bottom: 9%;
         min-width: 433px;
     }
 }
-
 @media (max-width: 735px) {
     .block5 {
         background-image: none;
@@ -180,21 +177,16 @@
         padding: 10px;
     }
 }
-
-
-
 @media (max-width:623px) {
     .block5 .bg-map {
         bottom: 18%;
     }
 }
-
 @media (max-width:433px) {
     .block5 .bg-map {
         bottom: 20%;
     }
 }
-
 @media (max-width:375px) {
     .block5 .wrapper-city {
         margin-bottom: 47px;

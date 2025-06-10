@@ -19,6 +19,25 @@
     box-sizing: border-box;
 }
 
+.block1,
+.block2,
+.block3,
+.block4,
+.block5,
+.block6,
+.block7,
+.block8 {
+  opacity: 0;
+  transform: translateY(10%);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 .main {
     display: flex;
     flex-direction: column;
