@@ -3253,6 +3253,8 @@ textarea {
   align-self: center;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  color: #3A3839;
 }
 .back .arrow {
   display: flex;
