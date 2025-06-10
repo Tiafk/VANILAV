@@ -476,15 +476,40 @@ function closePopup() {
   content.classList.remove('lock');
 }
 
+// document.addEventListener('click', function (e) {
+//   if (btnRussia.contains(e.target)) {
+//     openPopup();
+//   } else if (btnCloseRussia.contains(e.target) || (!popupRussia.contains(e.target) && !btnRussia.contains(e.target))) {
+//     closePopup();
+//   }
+// });
+
+btnRussia.addEventListener('click', function (e) {
+  e.stopPropagation();
+  openPopup();
+});
+
+btnCloseRussia.addEventListener('click', function (e) {
+  e.stopPropagation();
+  closePopup();
+});
+
+popupRussia.addEventListener('click', function (e) {
+  e.stopPropagation();
+});
+
+overlay.addEventListener('click', function () {
+  closePopup();
+});
+
+// Запасная защита: если клик вне попапа и вне кнопки
 document.addEventListener('click', function (e) {
-  if (btnRussia.contains(e.target) || popupRussia.contains(e.target) && e.target !== btnCloseRussia) {
-    openPopup();
-  } else if (!popupRussia.contains(e.target) || btnCloseRussia.contains(e.target)) {
-    console.log(1);
+  if (!popupRussia.contains(e.target) && !btnRussia.contains(e.target)) {
     closePopup();
   }
 });
 
+//проверка на соглашение
 const checkbox = document.querySelector('.checkbox-group input[required]');
   const submitBtn = document.querySelector('.submit-btn');
 
