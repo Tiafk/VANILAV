@@ -194,6 +194,12 @@
         }
     }
 }
+
+@media (max-width:1310px) {
+    .block4 .wrapper-prtners .right-panel {
+        display: flex !important;
+    }
+}
 @media (max-width:1280px) {
     .block4 .wrapper-prtners .left-panel .img-container {
         margin-left: 0;

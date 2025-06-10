@@ -206,22 +206,39 @@
 }
 
 @media (max-width: 1419px) {
-  .container-card {
-        gap: 0 !important;
+    .container-card {
+    //     gap: 0 !important;
 
-    .swiper-wrapper {
-        gap: 0 !important;
+    .mySwiper2 .swiper-wrapper {
+        gap: 16px !important;
     }
 
     .swiper-slide {
         min-width: 333px;
-        margin-right: 16px !important;
+        max-width: 333px;
+        flex-shrink: 1 !important;
+        // margin-right: 16px !important;
     }
 
-    .swiper-slide:last-child {
-        margin-right: 0 !important;
-    }
+    // .swiper-slide:last-child {
+    //     margin-right: 0 !important;
+    // }
   }
+}
+
+@media (max-width:1310px) {
+    .block8 .swiper-slide {
+        max-height: none !important;
+        min-width: 250px !important;
+    }
+    .block8 .swiper-wrapper {
+        justify-content: center;
+    }
+}
+@media (max-width:1140px) {
+    .block8 .swiper-wrapper {
+        justify-content: normal;
+    }
 }
 
 @media (max-width: 750px) {
@@ -229,19 +246,21 @@
         border-radius: 16px;
     }
     .container-card .swiper-slide {
-        min-width: 250px;
+        min-width: 250px !important;
+        overflow: hidden;
     }
   .block8 .container-card .card-container__card {
-    flex-direction: column; /* чтобы текст шел под картинкой */
+    flex-direction: column;
+    width: 100%;
     align-items: flex-start;
     height: auto;
   }
 
   .block8 .container-card .card-container__card .card__image {
-    position: relative; /* больше не absolute */
+    position: relative; 
     width: 100%;
     height: auto;
-    order: -1; /* поместить выше текста */
+    order: -1;
     z-index: auto;
   }
 
@@ -255,7 +274,6 @@
   .block8 .container-card .card-container__card .img-blur {
     display: none !important; /* скрываем визуальные элементы */
   }
-
   .block8 .container-card .card-container__card .content {
     width: 100%;
     padding-top: 12px;
@@ -280,7 +298,7 @@
 }
 
 @media (max-width:550px) {
-    .swiper-slide {
+    .mySwiper2  .swiper-wrapper .swiper-slide {
         width: 250px !important;
         flex-shrink: 0;
     }

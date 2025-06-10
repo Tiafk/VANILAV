@@ -78,7 +78,7 @@ window.addEventListener('load', () => {
   initParallax(container2, icons2, depths2);
 });
 
-// отступы %
+// отступы % 1900px - 1440px
 function updateIconPosition() {
   const icon2 = document.querySelector('.block2 .wrapper-img .icon2');
   const icon3 = document.querySelector('.block2 .wrapper-img .icon3');
@@ -128,9 +128,9 @@ function updateIconPosition() {
 
   const width = window.innerWidth;
 
-  // ограничим диапазон
+  //диапазон
   const clampedWidth = Math.max(minWidth, Math.min(maxWidth, width));
-  const ratio = (maxWidth - clampedWidth) / (maxWidth - minWidth); // от 0 до 1
+  const ratio = (maxWidth - clampedWidth) / (maxWidth - minWidth);
   
   const left2 = maxLeft2 + (minLeft2 - maxLeft2) * ratio;
   const top2 = maxTop2 + (minTop2 - maxTop2) * ratio;
@@ -173,6 +173,14 @@ function updateIconPosition() {
 window.addEventListener('resize', updateIconPosition);
 window.addEventListener('DOMContentLoaded', updateIconPosition);
 
+// отступы % 1440px - 375px
+const maxWidth2 = 1440;
+const minWidth2 = 375;
+
+//диапазон
+  const clampedWidth2 = Math.max(minWidth2, Math.min(maxWidth2, width));
+  const ratio2 = (maxWidth2 - clampedWidth2) / (maxWidth2 - minWidth2);
+
 // Бегущая строка
 const phrases = [
     "все будет фиолетово",
@@ -187,152 +195,19 @@ const phrases = [
 
 
 // блок 7 адресса
-// const imageSets = [
-//     [
-//       "./img/block7/1/1.png",
-//       "./img/block7/1/2.png",
-//       "./img/block7/1/3.png",
-//       "./img/block7/1/4.png",
-//     ],
-//     [
-//       "./img/block7/2/1.png",
-//       "./img/block7/2/2.png",
-//       "./img/block7/2/3.png",
-//     ],
-//     [
-//       "./img/block7/3/1.png",
-//       "./img/block7/3/2.png",
-//       "./img/block7/3/3.png",
-//     ],
-//     [
-//       "./img/block7/4/1.png",
-//       "./img/block7/4/2.png",
-//       "./img/block7/4/3.png",
-//       "./img/block7/4/4.png",
-//     ],
-//     [
-//       "./img/block7/5/1.png",
-//       "./img/block7/5/2.png",
-//       "./img/block7/5/3.png",
-//     ],
-//     [
-//       "./img/block7/6/1.png",
-//       "./img/block7/6/2.png",
-//       "./img/block7/6/3.png",
-//       "./img/block7/6/4.png",
-//       "./img/block7/6/5.png",
-//       "./img/block7/6/6.png",
-//       "./img/block7/6/7.png",
-//       "./img/block7/6/8.png",
-//       "./img/block7/6/9.png",
-//     ]
-//   ];
-
-//   const isSlider = [true, false, false, true, false, true];
-//   let swiper = null;
-
-//   function showContent(index) {
-//     const gallery = document.getElementById("galleryContainer");
-//     const swiperContainer = document.getElementById("swiperContainer");
-//     const swiperWrapper = document.getElementById("swiperWrapper");
-
-//     gallery.innerHTML = "";
-//     swiperWrapper.innerHTML = "";
-//     const addresses = document.querySelectorAll('.address');
-//     addresses.forEach((el, i) => {
-//         el.classList.toggle('active', i === index);
-//     });
-
-//     if (isSlider[index]) {
-//       gallery.style.display = "none";
-//       swiperContainer.style.display = "block";
-
-//       imageSets[index].forEach(src => {
-//         const slide = document.createElement("div");
-//         slide.classList.add("swiper-slide");
-//         slide.innerHTML = `<img src="${src}" alt="">`;
-//         swiperWrapper.appendChild(slide);
-//       });
-
-//       if (swiper) swiper.destroy(true, true);
-//       swiper = new Swiper(".swiper", {
-//         loop: true,
-//         spaceBetween: 24,
-//         slidesPerView: 2,
-//         navigation: {
-//           nextEl: ".swiper-button-next",
-//           prevEl: ".swiper-button-prev"
-//         },
-//         pagination: {
-//           el: ".swiper-pagination"
-//         }
-//       });
-
-//     } else {
-//       swiperContainer.style.display = "none";
-//       gallery.style.display = "grid";
-
-//       imageSets[index].forEach(src => {
-//         const img = document.createElement("img");
-//         img.src = src;
-//         img.loading = "lazy";
-//         gallery.appendChild(img);
-//       });
-//     }
-//   }
-
-//   // ✅ Показать первый адрес по умолчанию
-//   window.onload = () => {
-//     showContent(0);
-//   };
-
 const imageSets = [
-  [
-    "./img/block7/1/1.png",
-    "./img/block7/1/2.png",
-    "./img/block7/1/3.png",
-    "./img/block7/1/4.png",
-  ],
-  [
-    "./img/block7/2/1.png",
-    "./img/block7/2/2.png",
-    "./img/block7/2/3.png",
-  ],
-  [
-    "./img/block7/3/1.png",
-    "./img/block7/3/2.png",
-    "./img/block7/3/3.png",
-  ],
-  [
-    "./img/block7/4/1.png",
-    "./img/block7/4/2.png",
-    "./img/block7/4/3.png",
-    "./img/block7/4/4.png",
-  ],
-  [
-    "./img/block7/5/1.png",
-    "./img/block7/5/2.png",
-    "./img/block7/5/3.png",
-  ],
-  [
-    "./img/block7/6/1.png",
-    "./img/block7/6/2.png",
-    "./img/block7/6/3.png",
-    "./img/block7/6/4.png",
-    "./img/block7/6/5.png",
-    "./img/block7/6/6.png",
-    "./img/block7/6/7.png",
-    "./img/block7/6/8.png",
-    "./img/block7/6/9.png",
-  ]
+  ["./img/block7/1/1.png", "./img/block7/1/2.png", "./img/block7/1/3.png", "./img/block7/1/4.png"],
+  ["./img/block7/2/1.png", "./img/block7/2/2.png", "./img/block7/2/3.png"],
+  ["./img/block7/3/1.png", "./img/block7/3/2.png", "./img/block7/3/3.png"],
+  ["./img/block7/4/1.png", "./img/block7/4/2.png", "./img/block7/4/3.png", "./img/block7/4/4.png"],
+  ["./img/block7/5/1.png", "./img/block7/5/2.png", "./img/block7/5/3.png"],
+  ["./img/block7/6/1.png", "./img/block7/6/2.png", "./img/block7/6/3.png", "./img/block7/6/4.png", "./img/block7/6/5.png", "./img/block7/6/6.png", "./img/block7/6/7.png", "./img/block7/6/8.png", "./img/block7/6/9.png"]
 ];
 
 const isSlider = [true, false, false, true, false, true];
-
 let desktopSwiper = null;
 let mobileSwiper = null;
 
-// Отображение контента для десктопа (справа)
 function showContent(index) {
   const gallery = document.getElementById("galleryContainer");
   const swiperContainer = document.getElementById("swiperContainer");
@@ -353,7 +228,7 @@ function showContent(index) {
     imageSets[index].forEach(src => {
       const slide = document.createElement("div");
       slide.classList.add("swiper-slide");
-      slide.innerHTML = `<img src="${src}" alt="" style="width:100%; height:auto;">`;
+      slide.innerHTML = `<img src="${src}" alt="">`;
       swiperWrapper.appendChild(slide);
     });
 
@@ -370,7 +245,6 @@ function showContent(index) {
         el: ".swiper-pagination"
       }
     });
-
   } else {
     swiperContainer.style.display = "none";
     gallery.style.display = "grid";
@@ -379,8 +253,6 @@ function showContent(index) {
       const img = document.createElement("img");
       img.src = src;
       img.loading = "lazy";
-      img.style.width = "100%";
-      img.style.height = "auto";
       gallery.appendChild(img);
     });
 
@@ -391,10 +263,8 @@ function showContent(index) {
   }
 }
 
-// Инициализация мобильного слайдера в переданном контейнере
 function initMobileSlider(index, container) {
   container.innerHTML = "";
-
   imageSets[index].forEach(src => {
     const slide = document.createElement("div");
     slide.classList.add("swiper-slide");
@@ -407,13 +277,12 @@ function initMobileSlider(index, container) {
   mobileSwiper = new Swiper(container.parentElement, {
     loop: true,
     spaceBetween: 10,
-    slidesPerView: 1.4,
+    slidesPerView: 1.4
   });
 
   container.parentElement.style.display = "block";
 }
 
-// Уничтожение мобильного слайдера и удаление контейнеров из DOM
 function destroyMobileSlider() {
   if (mobileSwiper) {
     mobileSwiper.destroy(true, true);
@@ -424,14 +293,12 @@ function destroyMobileSlider() {
   });
 }
 
-// Сброс активного состояния для мобильных адресов
 function resetMobileActive() {
   document.querySelectorAll(".address-mobile").forEach(el => {
     el.classList.remove("active");
   });
 }
 
-// Навешиваем обработчики клика по мобильным адресам
 function setupMobileListeners() {
   document.querySelectorAll(".address-mobile").forEach(el => {
     el.onclick = () => {
@@ -439,7 +306,6 @@ function setupMobileListeners() {
       const activeIndex = document.querySelector(".address-mobile.active")?.getAttribute("data-index");
 
       if (activeIndex === idx.toString()) {
-        // Повторный клик - скрываем слайдер
         destroyMobileSlider();
         resetMobileActive();
       } else {
@@ -467,21 +333,17 @@ function setupMobileListeners() {
   });
 }
 
-// Обработка ресайза — переключение между десктоп и мобилкой
 function handleResize() {
   if (window.innerWidth <= 1310) {
-    // Мобильный режим
-    document.querySelector(".right-panel").style.display = "none";
-    document.getElementById("addressListMobile").style.display = "block";
+    document.querySelector(".right-panel")?.style.setProperty("display", "none");
+    document.getElementById("addressListMobile")?.style.setProperty("display", "block");
 
     destroyMobileSlider();
     resetMobileActive();
     setupMobileListeners();
-
   } else {
-    // Десктопный режим
-    document.querySelector(".right-panel").style.display = "block";
-    document.getElementById("addressListMobile").style.display = "none";
+    document.querySelector(".right-panel")?.style.setProperty("display", "block");
+    document.getElementById("addressListMobile")?.style.setProperty("display", "none");
 
     destroyMobileSlider();
     resetMobileActive();
@@ -491,7 +353,12 @@ function handleResize() {
 }
 
 window.addEventListener("resize", handleResize);
-window.addEventListener("load", handleResize);
+window.addEventListener("load", () => {
+  handleResize();
+  if (window.innerWidth > 1310) {
+    showContent(0);
+  }
+});
 
 
 
@@ -504,14 +371,17 @@ document.addEventListener('DOMContentLoaded', () => {
       swiper2 = new Swiper('.container-card', {
         slidesPerView: 4,
         spaceBetween: 16,
-        loop: false,
+        loop: true,
         breakpoints: {
       0: {
         slidesPerView: 1.6,
         spaceBetween: 16
       },
       551: {
-        slidesPerView: 4,
+        slidesPerView: 2.5,
+      },
+      820: {
+        slidesPerView: 'auto',
       }
     }
       });
