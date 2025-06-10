@@ -151,7 +151,47 @@ const phrases = [
     "сделано в ванлав",
     "все будет фиолетово",
     "ванлав"
-];
+  ];
+
+  const marquee = document.querySelector(".marquee");
+
+  function createPhraseWithDot(text, isLast = false, nextText = "") {
+  const wrapper = document.createElement("span");
+  wrapper.classList.add("marquee-item");
+  // Если это последний элемент ИЛИ следующая фраза совпадает — точки не ставим
+  const shouldAddDot = !isLast && text !== nextText;
+  wrapper.innerHTML = shouldAddDot ? `${text} <span class="dot"></span>` : text;
+  return wrapper;
+}
+
+function fillMarquee() {
+  marquee.innerHTML = "";
+
+  // Создаём элементы с учетом следующей фразы
+  const originalItems = phrases.map((phrase, index) =>
+    createPhraseWithDot(phrase, index === phrases.length - 1, phrases[index + 1] || "")
+  );
+
+  originalItems.forEach(span => marquee.appendChild(span));
+
+  let totalWidth = marquee.scrollWidth;
+  const parentWidth = marquee.parentElement.offsetWidth;
+
+  while (totalWidth < parentWidth * 2) {
+    originalItems.forEach(span => {
+      const clone = span.cloneNode(true);
+      marquee.appendChild(clone);
+    });
+    totalWidth = marquee.scrollWidth;
+  }
+
+  const speed = 100; // px/sec
+  const duration = totalWidth / speed;
+  marquee.style.animationDuration = `${duration}s`;
+}
+
+  window.addEventListener("load", fillMarquee);
+  window.addEventListener("resize", fillMarquee);
 
 
 // блок 7 адресса
@@ -404,3 +444,16 @@ document.addEventListener('click', function (event) {
     content.classList.remove('lock');
   }
 });
+
+
+//popup
+
+const input = document.querySelector("#phone");
+  const iti = window.intlTelInput(input, {
+    initialCountry: "ru",
+    preferredCountries: ["ru", "kz", "by"],
+    formatOnDisplay: true,
+    nationalMode: false,
+    autoPlaceholder: "polite",
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+  });

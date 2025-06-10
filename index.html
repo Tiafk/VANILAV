@@ -16,6 +16,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"
+    />
     <link rel="stylesheet" href="./css/main.css" />
     <title>Франшиза Ванлав - Откройте свою кондитерскую</title>
   </head>
@@ -130,9 +134,7 @@
             </svg>
           </div>
           <div class="marquee-wrapper">
-            <div class="marquee" id="marquee">
-              <div class="content" id="content"></div>
-            </div>
+            <div class="marquee"></div>
           </div>
         </section>
         <div class="wrapper">
@@ -994,6 +996,81 @@
           </section>
         </div>
       </div>
+      <div class="popup">
+        <a class="close-btn" onclick="this.parentElement.style.display='none'"
+          >×</a
+        >
+        <h2>Хочу открыть Ванлав в России</h2>
+
+        <label>Имя</label>
+        <input type="text" placeholder="Евгения" />
+
+        <label>Город проживания</label>
+        <input type="text" placeholder="Город проживания" />
+
+        <label>Город, в котором хотите открыть кондитерскую</label>
+        <input
+          type="text"
+          placeholder="Город, в котором хотите открыть кондитерскую"
+        />
+
+        <div class="row">
+          <div class="column">
+            <div class="phone-group">
+              <label for="phone"
+                >Телефон<span style="color: #b70000">*</span></label
+              >
+              <input id="phone" type="tel" name="phone" />
+            </div>
+          </div>
+          <div class="column">
+            <label>Эл. почта</label>
+            <input type="email" placeholder="Эл. почта" />
+          </div>
+        </div>
+
+        <label class="message"
+          >В каком мессенджере с вами лучше связаться?</label
+        >
+        <div class="radio-group">
+          <label
+            ><input type="radio" name="messenger" checked /> WhatsApp</label
+          >
+          <label><input type="radio" name="messenger" /> Telegram</label>
+        </div>
+
+        <label>Как вы пришли к решению открыть Ванлав?</label>
+        <textarea
+          class="how"
+          rows="3"
+          placeholder="Как вы пришли к решению открыть Ванлав?"
+        ></textarea>
+
+        <label>Ваш бюджет на открытие</label>
+        <input type="text" placeholder="Ваш бюджет на открытие" />
+
+        <label>Кондитерскую какого формата хотите открыть?</label>
+        <input
+          type="text"
+          placeholder="Кондитерскую какого формата хотите открыть?"
+        />
+
+        <div class="checkbox-group">
+          <label
+            ><input type="checkbox" /> У меня есть управленческий опыт</label
+          >
+          <label
+            ><input type="checkbox" /> У меня есть опыт в сфере общественного
+            питания</label
+          >
+          <label
+            ><input type="checkbox" required /> Согласен с условиями
+            пользовательского соглашения и политикой конфиденциальности</label
+          >
+        </div>
+
+        <button class="submit-btn">ОТПРАВИТЬ</button>
+      </div>
       <footer class="footer">
         <div class="footer__wrapper">
           <div class="top">
@@ -1053,6 +1130,7 @@
         </div>
       </footer>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./app.js"></script>
   </body>
