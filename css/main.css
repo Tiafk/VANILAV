@@ -3222,7 +3222,7 @@ textarea {
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 32px 20px;
+  padding: 32px;
   background-color: #FFFFFF;
   border-radius: 22px;
   gap: 12px;
@@ -3266,6 +3266,9 @@ textarea {
   .sent-container {
     max-width: 331px;
     height: 221px;
+  }
+  .sent-container .sent {
+    padding: 32px 20px;
   }
   .sent-container .sent h2 {
     font-size: 26px;
