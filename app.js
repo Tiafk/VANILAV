@@ -527,7 +527,6 @@ setInterval(() => {
 }, 10);
 
 //checked
-
 document.addEventListener('DOMContentLoaded', function () {
   // Для каждой попап-формы
   const popups = document.querySelectorAll('.popup');
@@ -556,6 +555,49 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+document.querySelectorAll('.popup .submit-btn').forEach(button => {
+  button.addEventListener('click', function () {
+    const popup = this.closest('.popup');
+    const agreeCheckbox = popup.querySelector('.agree-checkbox');
+
+    if (agreeCheckbox && !agreeCheckbox.checked) {
+      return; // Не отправляем, если не согласен
+    }
+
+    // Скрыть попап
+    popup.classList.remove('show');
+
+    // Показать "отправлено"
+    const sentContainer = document.querySelector('.sent-container');
+    if (sentContainer) {
+      sentContainer.classList.add('show');
+    }
+
+    // overlay и lock уже активны — не трогаем
+  });
+});
+
+// Закрытие sent-контейнера по крестику
+const sentCloseBtn = document.querySelector('.sent-container .close-btn');
+if (sentCloseBtn) {
+  sentCloseBtn.addEventListener('click', () => {
+    document.querySelectorAll('.popup').forEach(p => p.classList.remove('show'));
+    document.querySelector('.sent-container')?.classList.remove('show');
+    overlay.classList.remove('active');
+    body.classList.remove('lock');
+    if (content) content.classList.remove('lock');
+  });
+}
+
+// Закрытие sent-контейнера по overlay
+overlay.addEventListener('click', () => {
+  document.querySelectorAll('.popup').forEach(p => p.classList.remove('show'));
+  document.querySelector('.sent-container')?.classList.remove('show');
+  overlay.classList.remove('active');
+  body.classList.remove('lock');
+  if (content) content.classList.remove('lock');
+});
+
   
 //анимации блоков
 document.addEventListener("DOMContentLoaded", function () {
@@ -581,9 +623,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
 //кондитерская
-
 
 document.getElementById('goBackBtn').addEventListener('click', function () {
   if (document.referrer === "") {

@@ -2963,7 +2963,7 @@ body.lock {
   display: none; /* Chrome, Safari и Opera */
 }
 
-.popup.show {
+.show {
   display: block !important;
 }
 
@@ -3203,6 +3203,53 @@ textarea {
   user-select: auto;
 }
 
+.sent-container {
+  position: fixed;
+  display: none;
+  max-width: 355px;
+  height: 224px;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  top: calc(50% - 224px);
+  z-index: 100000;
+  background-color: #FFFFFF;
+  border-radius: 22px;
+}
+.sent-container .sent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 32px 20px;
+  gap: 12px;
+}
+.sent-container .sent .icon-sucsess {
+  width: 100%;
+  max-width: 64px;
+}
+.sent-container .sent .icon-sucsess img {
+  width: 100%;
+}
+.sent-container .sent h2 {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: 0;
+  color: #000;
+}
+.sent-container .sent p {
+  font-family: "CeraPro-Regular";
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #3A3839;
+}
+
 @media (max-width: 600px) {
   .popup {
     width: 100%;
@@ -3214,6 +3261,16 @@ textarea {
   }
   .popup h2 {
     font-size: clamp(26px, 5.5vw, 32px);
+  }
+  .sent-container {
+    max-width: 331px;
+    height: 221px;
+  }
+  .sent-container .sent h2 {
+    font-size: 26px;
+  }
+  .sent-container .sent p {
+    font-size: 15px;
   }
 }
 @media (max-width: 480px) {
