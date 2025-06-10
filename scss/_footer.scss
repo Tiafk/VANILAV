@@ -27,12 +27,18 @@
                 justify-content: space-between;
                 .logo {
                     width: 100%;
-                    max-width: 208px;
                     grid-area: logo;
                     margin-top: 5px;
-                
-                    img {
-                        width: 100%;
+
+                    .icon {
+                        max-width: 208px;
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .mobile {
+                        display: none;
                     }
                 }
                 .navigation {
@@ -113,5 +119,79 @@
                 letter-spacing: 0;
             }
         }
+    }
+}
+
+@media (max-width:735px) {
+    .footer .footer__wrapper .top .top-left .navigation {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .footer .footer__wrapper .top .top-left {
+        margin-right: 24px;
+    }
+}
+
+@media (max-width:460px) {
+    .footer .footer__wrapper .top .top-left .navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        align-self: center;
+        max-width: 258px;
+        margin-top: 54px;
+    }
+    .footer .footer__wrapper .top .contacts {
+        align-self: center;
+        margin-top: 49px;
+    }
+    .footer .footer__wrapper .top {
+        flex-direction: column;
+        
+    }
+    .footer .footer__wrapper .top .top-left .logo .mobile {
+        display: flex;
+        margin-top: 20px;
+        gap: 8px;
+
+        .icon {
+            min-width: auto;
+            max-width: 123.33px;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .footer .footer__wrapper .top .top-left .logo {
+        align-self: center;
+        max-width: 258px;
+
+        .icon {
+            display: flex;
+            justify-self: center;
+            min-width: 208px;
+        }
+    }
+    .footer .footer__wrapper .top .top-left{
+        margin-right: 0;
+    }
+    .footer .footer__wrapper .bot {
+        justify-content: center;
+    }
+    .footer .footer__wrapper .bot .download-con {
+        display: none;
+    }
+    .footer .footer__wrapper {
+        gap:39px;
+    }
+}
+
+@media (max-width:375px) {
+    .footer .footer__wrapper .top .top-left .navigation {
+        align-self: start;
+    }
+    .footer .footer__wrapper .top .contacts {
+        align-self: start;
     }
 }

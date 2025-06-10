@@ -182,28 +182,40 @@
 }
 
 @media (max-width:1420px) {
+    .block2 {
+        min-height: 1116px;
+    }
+    .block2 .wrapper-img {
+        max-height: 981px;
+    }
     .block2 .wrapper-img .icon2 {
         max-width: clamp(160px, 27vw, 252px) !important;
         max-height: clamp(187px, 30vw, 290px) !important;
+        z-index: 1;
     }
     .block2 .wrapper-img .icon3, .block2 .wrapper-img .icon6 {
-        max-width: clamp(90px, 9.7vw, 140px);
-        max-height: clamp(103px, 11vw, 160px);
-    }
-    .block2 .wrapper-img .icon3 {
-        padding-bottom: 46px;
+        max-width: clamp(90px, 23vw, 140px);
+        max-height: clamp(103px, 24vw, 160px);
     }
     .block2 .wrapper-img .icon4 {
+        top: 18% !important;
         max-width: clamp(303.58px, 32vw, 470px);
         max-height: clamp(346.21px, 37vw, 536px);
+        z-index: 2;
     }
     .block2 .wrapper-img .icon5 {
         max-width: clamp(160px, 17vw, 250px);
         max-height: clamp(187px, 20vw, 290px);
     }
+    .block2 .wrapper-img .icon1 {
+        z-index: 3;
+    }
     .block2 .wrapper-img .icon1, .block2 .wrapper-img .icon7 {
         max-width: clamp(197px, 27vw, 305px);
         max-height: clamp(226px, 30vw, 351px);
+    }
+    .wrapper-img .icon7 {
+        z-index: 2;
     }
     .block2 .wrapper-img .icon8 {
         width: clamp(96.75px, 10vw, 149.79px);
@@ -212,5 +224,28 @@
     .block2 .wrapper-img .icon9 {
         width: clamp(118.56px, 10vw, 183.7px);
         height: clamp(111.17px, 10vw, 172.1px);
+    }
+}
+
+@media (max-width:545px) {
+    .block2 .absolute-bg {
+        display: flex;
+        flex-direction: row;
+        width: 200%;
+        height: 100%;
+        min-height: 100%;
+    }
+    .block2 .absolute-bg .bg1 , .block2 .absolute-bg .bg2 {
+        height: 100%;
+    }
+    .block2 .wrapper-img .icon7 {
+        right: auto !important;
+        left: 0 !important;
+        bottom: 15% !important;
+    }
+    .block2 .wrapper-img .icon1 {
+        left: auto !important;
+        bottom: 0 !important;
+        right: 0 !important;
     }
 }

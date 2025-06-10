@@ -86,100 +86,60 @@ function updateIconPosition() {
   const icon6 = document.querySelector('.block2 .wrapper-img .icon6');
   const heart1 = document.querySelector('.block2 .wrapper-img .icon8');
   const heart2 = document.querySelector('.block2 .wrapper-img .icon9');
-  const minWidth = 1440;
-  const maxWidth = 1900;
-
-  const minLeft2 = 19;
-  const maxLeft2 = 16;
-
-  const minTop2 = 8.8;
-  const maxTop2 = 4;
-
-  const maxRight6 = 16;
-  const minRight6 = 19.2;
-
-  const maxTop6 = 9.5;
-  const minTop6 = 14.5;
-
-  const maxLeft3 = 16;
-  const minLeft3 = 19.2;
-
-  const maxBottom3 = 9.5;
-  const minBottom3 = 14.5;
-
-  const maxBottom5 = 1;
-  const minBottom5 = 8;
-
-  const maxRight5 = 9.5;
-  const minRight5 = 19.5;
-
-  const maxTop8 = 9;
-  const minTop8 = 14;
-
-  const maxLeft8 = 6.5;
-  const minLeft8 = 10.5;
-
-  const maxBottom9 = 31;
-  const minBottom9 = 35;
-
-  const maxRight9 = 14.7;
-  const minRight9 = 18;
-
 
   const width = window.innerWidth;
 
-  //диапазон
-  const clampedWidth = Math.max(minWidth, Math.min(maxWidth, width));
-  const ratio = (maxWidth - clampedWidth) / (maxWidth - minWidth);
-  
-  const left2 = maxLeft2 + (minLeft2 - maxLeft2) * ratio;
-  const top2 = maxTop2 + (minTop2 - maxTop2) * ratio;
+  if (width >= 1440) {
+    // 1440px - 1900px
+    const minWidth = 1440;
+    const maxWidth = 1900;
+    const ratio = (maxWidth - Math.min(width, maxWidth)) / (maxWidth - minWidth);
 
-  const left3 = maxLeft3 + (minLeft3 - maxLeft3) * ratio;
-  const bottom3 = maxBottom3 + (minBottom3 - maxBottom3) * ratio;
+    icon2.style.left = `${16 + (19 - 16) * ratio}%`;
+    icon2.style.top = `${4 + (8.8 - 4) * ratio}%`;
 
-  
-  const right5 = maxRight5 + (minRight5 - maxRight5) * ratio;
-  const bottom5 = maxBottom5 + (minBottom5 - maxBottom5) * ratio;
+    icon3.style.left = `${16 + (19.2 - 16) * ratio}%`;
+    icon3.style.bottom = `${9.5 + (14.5 - 9.5) * ratio}%`;
 
-  const right6 = maxRight6 + (minRight6 - maxRight6) * ratio;
-  const top6 = maxTop6 + (minTop6 - maxTop6) * ratio;
+    icon5.style.right = `${9.5 + (19.5 - 9.5) * ratio}%`;
+    icon5.style.bottom = `${1 + (8 - 1) * ratio}%`;
 
-  const left8 = maxLeft8 + (minLeft8 - maxLeft8) * ratio;
-  const top8 = maxTop8 + (minTop8 - maxTop8) * ratio;
+    icon6.style.right = `${16 + (19.2 - 16) * ratio}%`;
+    icon6.style.top = `${9.5 + (14.5 - 9.5) * ratio}%`;
 
-  const right9 = maxRight9 + (minRight9 - maxRight9) * ratio;
-  const bottom9 = maxBottom9 + (minBottom9 - maxBottom9) * ratio;
-  
-  icon2.style.left = `${left2}%`;
-  icon2.style.top = `${top2}%`;
+    heart1.style.left = `${6.5 + (10.5 - 6.5) * ratio}%`;
+    heart1.style.top = `${9 + (14 - 9) * ratio}%`;
 
-  icon3.style.left = `${left3}%`;
-  icon3.style.bottom = `${bottom3}%`;
+    heart2.style.right = `${14.7 + (18 - 14.7) * ratio}%`;
+    heart2.style.bottom = `${31 + (35 - 31) * ratio}%`;
+  } else {
+    // 375px - 1440px
+    const minWidth = 375;
+    const maxWidth = 1440;
+    const ratio = (maxWidth - Math.max(width, minWidth)) / (maxWidth - minWidth);
 
-  icon5.style.right = `${right5}%`;
-  icon5.style.bottom = `${bottom5}%`;
+    icon2.style.left = `${19 + (0 - 19) * ratio}%`;
+    icon2.style.top = `${8.8 + (0 - 8.8) * ratio}%`;
 
-  icon6.style.right = `${right6}%`;
-  icon6.style.top = `${top6}%`;
+    icon3.style.left = `${19.2 + (0 - 19.2) * ratio}%`;
+    icon3.style.bottom = `${14.5 + (41 - 14.5) * ratio}%`;
 
-  heart1.style.left = `${left8}%`;
-  heart1.style.top = `${top8}%`;
+    icon5.style.right = `${19.5 + (0 - 19.5) * ratio}%`;
+    icon5.style.bottom = `${8 + (30.7 - 8) * ratio}%`;
 
-  heart2.style.right = `${right9}%`;
-  heart2.style.bottom = `${bottom9}%`;
+    icon6.style.right = `${19.2 + (0 - 19.2) * ratio}%`;
+    icon6.style.top = `${14.5 + ( - 14.5) * ratio}%`;
+
+    heart1.style.left = `${10.5 + (41 - 10.5) * ratio}%`;
+    heart1.style.top = `${14 + (10.5 - 14) * ratio}%`;
+
+    heart2.style.right = `${18 + (39 - 18) * ratio}%`;
+  }
 }
 
 window.addEventListener('resize', updateIconPosition);
 window.addEventListener('DOMContentLoaded', updateIconPosition);
 
-// отступы % 1440px - 375px
-const maxWidth2 = 1440;
-const minWidth2 = 375;
-
-//диапазон
-  const clampedWidth2 = Math.max(minWidth2, Math.min(maxWidth2, width));
-  const ratio2 = (maxWidth2 - clampedWidth2) / (maxWidth2 - minWidth2);
 
 // Бегущая строка
 const phrases = [
@@ -410,3 +370,37 @@ document.addEventListener('DOMContentLoaded', () => {
   handleResize();
 });
 
+//Burger
+
+let burgerBtn = document.querySelector('.header__burger-menu_button');
+let burgerMenu = document.querySelector('.navigation');
+let content = document.querySelector('.main');
+let body = document.querySelector('body');
+let overlay = document.querySelector('.overlay'); // ➕
+
+burgerBtn.addEventListener('click', function () {
+  burgerBtn.classList.toggle('active');
+  burgerMenu.classList.toggle('active');
+  overlay.classList.toggle('active'); // ➕
+
+  if (burgerMenu.classList.contains('active')) {
+    body.classList.add('lock');
+    content.classList.add('lock');
+  } else {
+    body.classList.remove('lock');
+    content.classList.remove('lock');
+  }
+});
+
+document.addEventListener('click', function (event) {
+  let isClickInsideNavBar = burgerMenu.contains(event.target);
+  let isClickOnBurger = burgerBtn.contains(event.target);
+
+  if (!isClickInsideNavBar && !isClickOnBurger) {
+    burgerMenu.classList.remove('active');
+    burgerBtn.classList.remove('active');
+    overlay.classList.remove('active'); // ➕
+    body.classList.remove('lock');
+    content.classList.remove('lock');
+  }
+});

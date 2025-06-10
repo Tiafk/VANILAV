@@ -297,6 +297,22 @@
     }
 }
 
+@media (max-width:735px) {
+    .block8 .link-block .link-wrapper .link {
+        font-size: clamp(13px, 3vw,20px);
+    }
+    .block8 .stars .stars-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .block8 .stars .stars-wrapper .img-con {
+        padding: 0;
+    }
+    .block8 .stars {
+        margin-top: 90px;
+    }
+}
+
 @media (max-width:550px) {
     .mySwiper2  .swiper-wrapper .swiper-slide {
         width: 250px !important;
