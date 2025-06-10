@@ -974,10 +974,12 @@
             <section class="link-block">
               <ul class="link-wrapper">
                 <li class="link btn-russia">хочу открыть ванлав в россии</li>
-                <li class="link">хочу открыть ванлав в москве</li>
-                <li class="link">хочу открыть ванлав в другой стране</li>
-                <li class="link">хочу предложить помещение</li>
-                <li class="link">хочу стать инвестором</li>
+                <li class="link btn-moscow">хочу открыть ванлав в москве</li>
+                <li class="link btn-other">
+                  хочу открыть ванлав в другой стране
+                </li>
+                <li class="link btn-room">хочу предложить помещение</li>
+                <li class="link btn-investor">хочу стать инвестором</li>
               </ul>
             </section>
             <section class="stars">
@@ -1071,7 +1073,258 @@
               питания</label
             >
             <div class="agree-wrapper">
-              <input type="checkbox" id="agree" required />
+              <input type="checkbox" class="agree-checkbox" required />
+              <label for="agree"
+                >Согласен с условиями пользовательского соглашения и политикой
+                конфиденциальности</label
+              >
+            </div>
+          </div>
+        </div>
+        <button class="submit-btn">ОТПРАВИТЬ</button>
+      </div>
+      <div class="popup moscow">
+        <a class="close-btn">
+          <img src="./img/close.png" alt="закрыть" />
+        </a>
+        <h2>Хочу открыть Ванлав в Москве</h2>
+        <div class="wrapper0">
+          <div class="wrapper1">
+            <label>Имя</label>
+            <input type="text" placeholder="Евгения" />
+
+            <label>Город проживания</label>
+            <input type="text" placeholder="Город проживания" />
+
+            <label>Город, в котором хотите открыть кондитерскую</label>
+            <input
+              type="text"
+              placeholder="Город, в котором хотите открыть кондитерскую"
+            />
+          </div>
+          <div class="row">
+            <div class="column">
+              <div class="phone-group">
+                <label for="phone"
+                  >Телефон<span style="color: #b70000">*</span></label
+                >
+                <input id="phone" type="tel" name="phone" />
+              </div>
+            </div>
+            <div class="column input-wrapper">
+              <label>Эл. почта</label>
+              <input type="email" placeholder="Эл. почта" />
+            </div>
+          </div>
+          <div class="wrapper1">
+            <label class="message"
+              >В каком мессенджере с вами лучше связаться?</label
+            >
+            <div class="radio-group">
+              <label
+                ><input type="radio" name="messenger" checked /> WhatsApp</label
+              >
+              <label><input type="radio" name="messenger" /> Telegram</label>
+            </div>
+          </div>
+          <section class="input-wrapper">
+            <label>Как вы пришли к решению открыть Ванлав?</label>
+            <textarea
+              class="how"
+              rows="3"
+              placeholder="Как вы пришли к решению открыть Ванлав?"
+            ></textarea>
+          </section>
+
+          <section class="input-wrapper">
+            <label>Ваш бюджет на открытие</label>
+            <input type="text" placeholder="Ваш бюджет на открытие" />
+          </section>
+
+          <section class="input-wrapper">
+            <label>Кондитерскую какого формата хотите открыть?</label>
+            <input
+              type="text"
+              placeholder="Кондитерскую какого формата хотите открыть?"
+            />
+          </section>
+
+          <div class="checkbox-group">
+            <label
+              ><input type="checkbox" /> У меня есть управленческий опыт</label
+            >
+            <label
+              ><input type="checkbox" /> У меня есть опыт в сфере общественного
+              питания</label
+            >
+            <div class="agree-wrapper">
+              <input type="checkbox" class="agree-checkbox" required />
+              <label for="agree"
+                >Согласен с условиями пользовательского соглашения и политикой
+                конфиденциальности</label
+              >
+            </div>
+          </div>
+        </div>
+        <button class="submit-btn">ОТПРАВИТЬ</button>
+      </div>
+      <div class="popup other">
+        <a class="close-btn">
+          <img src="./img/close.png" alt="закрыть" />
+        </a>
+        <h2>Хочу открыть Ванлав в другой стране</h2>
+        <div class="wrapper0">
+          <div class="wrapper1">
+            <label>Имя</label>
+            <input type="text" placeholder="Евгения" />
+
+            <label>Город проживания</label>
+            <input type="text" placeholder="Город проживания" />
+
+            <label>Город, в котором хотите открыть кондитерскую</label>
+            <input
+              type="text"
+              placeholder="Город, в котором хотите открыть кондитерскую"
+            />
+          </div>
+          <div class="row">
+            <div class="column">
+              <div class="phone-group">
+                <label for="phone"
+                  >Телефон<span style="color: #b70000">*</span></label
+                >
+                <input id="phone" type="tel" name="phone" />
+              </div>
+            </div>
+            <div class="column input-wrapper">
+              <label>Эл. почта</label>
+              <input type="email" placeholder="Эл. почта" />
+            </div>
+          </div>
+          <section class="input-wrapper">
+            <label>Являетесь ли вы резидентом данной страны?</label>
+            <input
+              type="text"
+              placeholder="Являетесь ли вы резидентом данной страны?"
+            />
+          </section>
+          <section class="input-wrapper">
+            <label>У вас есть бизнес в данной стране?</label>
+            <input
+              type="text"
+              placeholder="У вас есть бизнес в данной стране?"
+            />
+          </section>
+          <section class="input-wrapper">
+            <label>Как вы пришли к решению открыть Ванлав?</label>
+            <textarea
+              class="how"
+              rows="3"
+              placeholder="Как вы пришли к решению открыть Ванлав?"
+            ></textarea>
+          </section>
+
+          <section class="input-wrapper">
+            <label>Ваш бюджет на открытие</label>
+            <input type="text" placeholder="Ваш бюджет на открытие" />
+          </section>
+
+          <section class="input-wrapper">
+            <label>Кондитерскую какого формата хотите открыть?</label>
+            <input
+              type="text"
+              placeholder="Кондитерскую какого формата хотите открыть?"
+            />
+          </section>
+
+          <div class="checkbox-group">
+            <div class="agree-wrapper">
+              <input type="checkbox" class="agree-checkbox" required />
+              <label for="agree"
+                >Согласен с условиями пользовательского соглашения и политикой
+                конфиденциальности</label
+              >
+            </div>
+          </div>
+        </div>
+        <button class="submit-btn">ОТПРАВИТЬ</button>
+      </div>
+      <div class="popup room">
+        <a class="close-btn">
+          <img src="./img/close.png" alt="закрыть" />
+        </a>
+        <h2>Хочу предложить помещение</h2>
+        <div class="wrapper0">
+          <div class="wrapper1">
+            <label>Адрес помещения</label>
+            <input type="text" placeholder="Адрес помещения" />
+
+            <label>Площадь</label>
+            <input type="text" placeholder="Площадь" />
+
+            <label>Арендная ставка</label>
+            <input type="text" placeholder="Арендная ставка" />
+            <label>Электрическая мощность</label>
+            <input type="text" placeholder="Электрическая мощность" />
+            <label>Имя</label>
+            <input type="text" placeholder="Евгения" />
+          </div>
+          <div class="row">
+            <div class="column">
+              <div class="phone-group">
+                <label for="phone"
+                  >Телефон<span style="color: #b70000">*</span></label
+                >
+                <input id="phone" type="tel" name="phone" />
+              </div>
+            </div>
+            <div class="column input-wrapper">
+              <label>Эл. почта</label>
+              <input type="email" placeholder="Эл. почта" />
+            </div>
+          </div>
+          <div class="checkbox-group">
+            <div class="agree-wrapper">
+              <input type="checkbox" class="agree-checkbox" required />
+              <label for="agree"
+                >Согласен с условиями пользовательского соглашения и политикой
+                конфиденциальности</label
+              >
+            </div>
+          </div>
+        </div>
+        <button class="submit-btn">ОТПРАВИТЬ</button>
+      </div>
+      <div class="popup investor">
+        <a class="close-btn">
+          <img src="./img/close.png" alt="закрыть" />
+        </a>
+        <h2>Хочу стать инвестором</h2>
+        <div class="wrapper0">
+          <div class="wrapper1">
+            <label>Имя</label>
+            <input type="text" placeholder="Евгения" />
+
+            <label>Город проживания</label>
+            <input type="text" placeholder="Город проживания" />
+          </div>
+          <div class="row">
+            <div class="column">
+              <div class="phone-group">
+                <label for="phone"
+                  >Телефон<span style="color: #b70000">*</span></label
+                >
+                <input id="phone" type="tel" name="phone" />
+              </div>
+            </div>
+            <div class="column input-wrapper">
+              <label>Эл. почта</label>
+              <input type="email" placeholder="Эл. почта" />
+            </div>
+          </div>
+          <div class="checkbox-group">
+            <div class="agree-wrapper">
+              <input type="checkbox" class="agree-checkbox" required />
               <label for="agree"
                 >Согласен с условиями пользовательского соглашения и политикой
                 конфиденциальности</label
@@ -1087,7 +1340,7 @@
             <div class="top-left">
               <div class="logo">
                 <div class="icon">
-                  <img src="./img/image396.png" alt="#" />
+                  <img src="./img/foooter/Logo.png" alt="#" />
                 </div>
                 <div class="download-con mobile">
                   <div class="icon">

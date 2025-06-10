@@ -3011,6 +3011,7 @@ label {
   font-size: 11px;
   margin-top: 8px;
   margin-bottom: 5px;
+  color: #82828C;
 }
 
 input[type=text], input[type=email], input[type=tel], textarea, select {

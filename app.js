@@ -463,81 +463,91 @@ const input = document.querySelector("#phone");
     autoPlaceholder: "polite",
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
   });
-
-const popupRussia = document.querySelector('.popup.russia');
-const btnRussia = document.querySelector('.btn-russia');
-const btnCloseRussia = document.querySelector('.close-btn');
-
-function openPopup() {
-  popupRussia.classList.add('show');
-  overlay.classList.add('active');
-  body.classList.add('lock');
-  content.classList.add('lock');
-}
-
-function closePopup() {
-  popupRussia.classList.remove('show');
-  overlay.classList.remove('active');
-  body.classList.remove('lock');
-  content.classList.remove('lock');
-}
-
-btnRussia.addEventListener('click', function (e) {
-  e.stopPropagation();
-  console.log(1);
-  openPopup();
-});
-
-btnCloseRussia.addEventListener('click', function (e) {
-  e.stopPropagation();
-  console.log(2);
-  closePopup();
-});
-
-popupRussia.addEventListener('click', function (e) {
-  console.log(3);
-  e.stopPropagation();
-});
-
-overlay.addEventListener('click', function () {
-  closePopup();
-  console.log(4);
-});
-
-const ensureLockState = () => {
-  if (popupRussia.classList.contains('show')) {
-    if (!overlay.classList.contains('active')) overlay.classList.add('active');
-    if (!body.classList.contains('lock')) body.classList.add('lock');
-    if (!content.classList.contains('lock')) content.classList.add('lock');
-  }
+const popupMap = {
+  'btn-russia': document.querySelector('.popup.russia'),
+  'btn-moscow': document.querySelector('.popup.moscow'),
+  'btn-other': document.querySelector('.popup.other'),
+  'btn-room': document.querySelector('.popup.room'),
+  'btn-investor': document.querySelector('.popup.investor'),
 };
 
-setInterval(ensureLockState, 10);
+const openPopup = (popup) => {
+  popup.classList.add('show');
+  overlay.classList.add('active');
+  body.classList.add('lock');
+  if (content) content.classList.add('lock');
+};
+
+const closePopup = () => {
+  document.querySelectorAll('.popup').forEach(p => p.classList.remove('show'));
+  overlay.classList.remove('active');
+  body.classList.remove('lock');
+  if (content) content.classList.remove('lock');
+};
+
+// Назначить обработчики для каждой кнопки
+Object.entries(popupMap).forEach(([btnClass, popup]) => {
+  const btn = document.querySelector(`.${btnClass}`);
+  const closeBtn = popup.querySelector('.close-btn');
+
+  if (btn && popup && closeBtn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      openPopup(popup);
+    });
+
+    closeBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      closePopup();
+    });
+
+    popup.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  }
+});
+
+// Закрытие по оверлею
+overlay.addEventListener('click', closePopup);
+
+// Убедиться, что состояние lock корректно
+setInterval(() => {
+  const visiblePopup = document.querySelector('.popup.show');
+  if (visiblePopup) {
+    overlay.classList.add('active');
+    body.classList.add('lock');
+    if (content) content.classList.add('lock');
+  }
+}, 10);
+
+//checked
 
 document.addEventListener('DOMContentLoaded', function () {
-  const agreeCheckbox = document.getElementById('agree');
-  const submitBtn = document.querySelector('.submit-btn');
+  // Для каждой попап-формы
+  const popups = document.querySelectorAll('.popup');
 
-  console.log('agreeCheckbox:', agreeCheckbox);
-  console.log('submitBtn:', submitBtn);
+  popups.forEach(popup => {
+    const agreeCheckbox = popup.querySelector('.agree-checkbox');
+    const submitBtn = popup.querySelector('.submit-btn');
 
-  if (!agreeCheckbox || !submitBtn) {
-    console.error('agreeCheckbox или submitBtn не найдены в DOM!');
-    return;
-  }
-
-  function toggleSubmitState() {
-    if (agreeCheckbox.checked) {
-      submitBtn.classList.add('active');
-      submitBtn.disabled = false;
-    } else {
-      submitBtn.classList.remove('active');
-      submitBtn.disabled = true;
+    if (!agreeCheckbox || !submitBtn) {
+      console.warn('Чекбокс или кнопка не найдены в одном из попапов');
+      return;
     }
-  }
 
-  toggleSubmitState();
-  agreeCheckbox.addEventListener('change', toggleSubmitState);
+    function toggleSubmitState() {
+      if (agreeCheckbox.checked) {
+        submitBtn.classList.add('active');
+        submitBtn.disabled = false;
+      } else {
+        submitBtn.classList.remove('active');
+        submitBtn.disabled = true;
+      }
+    }
+
+    toggleSubmitState();
+    agreeCheckbox.addEventListener('change', toggleSubmitState);
+  });
 });
 
 
