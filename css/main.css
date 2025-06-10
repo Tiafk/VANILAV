@@ -2944,6 +2944,7 @@ body.lock {
   }
 }
 .popup {
+  display: none;
   font-family: "CeraPro-Regular";
   width: 600px;
   background-color: white;
