@@ -376,12 +376,12 @@ let burgerBtn = document.querySelector('.header__burger-menu_button');
 let burgerMenu = document.querySelector('.navigation');
 let content = document.querySelector('.main');
 let body = document.querySelector('body');
-let overlay = document.querySelector('.overlay'); // ➕
+let overlay = document.querySelector('.overlay');
 
 burgerBtn.addEventListener('click', function () {
   burgerBtn.classList.toggle('active');
   burgerMenu.classList.toggle('active');
-  overlay.classList.toggle('active'); // ➕
+  overlay.classList.toggle('active');
 
   if (burgerMenu.classList.contains('active')) {
     body.classList.add('lock');
@@ -399,7 +399,7 @@ document.addEventListener('click', function (event) {
   if (!isClickInsideNavBar && !isClickOnBurger) {
     burgerMenu.classList.remove('active');
     burgerBtn.classList.remove('active');
-    overlay.classList.remove('active'); // ➕
+    overlay.classList.remove('active');
     body.classList.remove('lock');
     content.classList.remove('lock');
   }
