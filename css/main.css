@@ -6,8 +6,7 @@ header {
   width: 100%;
   box-sizing: border-box;
   background-color: #8D509B;
-  z-index: 11;
-  z-index: 10000;
+  z-index: 100;
 }
 header .shadow-top {
   position: absolute;
@@ -78,7 +77,7 @@ header .wrapper-header .navigation ul li a {
   background-color: rgba(0, 0, 0, 0.5019607843);
   opacity: 0;
   visibility: hidden;
-  z-index: 999;
+  z-index: 99;
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -2949,15 +2948,15 @@ body.lock {
   width: 600px;
   max-height: 90vh;
   background-color: white;
-  padding: 32px;
+  padding: 32px clamp(16px, 5vw, 32px);
   border-radius: 22px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin: 50px auto;
   top: 0;
   overflow-y: auto;
-  z-index: 1000000;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE и Edge */
+  z-index: 100;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .popup::-webkit-scrollbar {
@@ -3086,7 +3085,7 @@ input[type=checkbox] {
 
 input[type=checkbox] {
   border: 2px solid #E1E3EA;
-  width: 22px;
+  min-width: 22px;
   height: 22px;
 }
 
@@ -3193,6 +3192,14 @@ textarea {
   width: 100%;
   margin-top: 28px;
   opacity: 0.3;
+  pointer-events: none;
+  user-select: none;
+}
+
+.submit-btn.active {
+  opacity: 1;
+  pointer-events: auto;
+  user-select: auto;
 }
 
 @media (max-width: 600px) {
@@ -3263,6 +3270,7 @@ textarea {
   margin-right: 6px;
 }
 .back p {
+  color: #3A3839;
   font-size: 13px;
   font-family: "Inter-Medium";
   font-weight: 500;

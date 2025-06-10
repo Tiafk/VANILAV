@@ -411,12 +411,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //Burger
+const content = document.querySelector('.main');
+const body = document.querySelector('body');
+const overlay = document.querySelector('.overlay');
+
 if (document.querySelector('.header__burger-menu_button')) {
   let burgerBtn = document.querySelector('.header__burger-menu_button');
   let burgerMenu = document.querySelector('.navigation');
-  let content = document.querySelector('.main');
-  let body = document.querySelector('body');
-  let overlay = document.querySelector('.overlay');
   
   burgerBtn.addEventListener('click', function () {
     burgerBtn.classList.toggle('active');
@@ -437,7 +438,7 @@ if (document.querySelector('.header__burger-menu_button')) {
     let isClickOnBurger = burgerBtn.contains(event.target);
   
     if (
-      burgerMenu.classList.contains('active') && // бургер открыт
+      burgerMenu.classList.contains('active') &&
       !isClickInsideNavBar && 
       !isClickOnBurger
       ) {
@@ -483,50 +484,65 @@ function closePopup() {
 
 btnRussia.addEventListener('click', function (e) {
   e.stopPropagation();
+  console.log(1);
   openPopup();
 });
 
 btnCloseRussia.addEventListener('click', function (e) {
   e.stopPropagation();
+  console.log(2);
   closePopup();
 });
 
 popupRussia.addEventListener('click', function (e) {
+  console.log(3);
   e.stopPropagation();
 });
 
 overlay.addEventListener('click', function () {
   closePopup();
+  console.log(4);
 });
 
-// Запасная защита: если клик вне попапа и вне кнопки
-document.addEventListener('click', function (e) {
-  if (!popupRussia.contains(e.target) && !btnRussia.contains(e.target)) {
-    closePopup();
+const ensureLockState = () => {
+  if (popupRussia.classList.contains('show')) {
+    if (!overlay.classList.contains('active')) overlay.classList.add('active');
+    if (!body.classList.contains('lock')) body.classList.add('lock');
+    if (!content.classList.contains('lock')) content.classList.add('lock');
   }
-});
+};
 
-//проверка на соглашение
-const checkbox = document.querySelector('.checkbox-group input[required]');
+setInterval(ensureLockState, 10);
+
+document.addEventListener('DOMContentLoaded', function () {
+  const agreeCheckbox = document.getElementById('agree');
   const submitBtn = document.querySelector('.submit-btn');
 
-  checkbox.addEventListener('change', function () {
-    if (this.checked) {
-      submitBtn.style.opacity = '1';
-      submitBtn.disabled = false;
-    } else {
-      submitBtn.style.opacity = '0.3';
-      submitBtn.disabled = true;
-    }
-  });
+  console.log('agreeCheckbox:', agreeCheckbox);
+  console.log('submitBtn:', submitBtn);
 
-  // Инициализация при загрузке страницы
-  if (!checkbox.checked) {
-    submitBtn.style.opacity = '0.3';
-    submitBtn.disabled = true;
+  if (!agreeCheckbox || !submitBtn) {
+    console.error('agreeCheckbox или submitBtn не найдены в DOM!');
+    return;
   }
 
+  function toggleSubmitState() {
+    if (agreeCheckbox.checked) {
+      submitBtn.classList.add('active');
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.classList.remove('active');
+      submitBtn.disabled = true;
+    }
+  }
 
+  toggleSubmitState();
+  agreeCheckbox.addEventListener('change', toggleSubmitState);
+});
+
+
+
+  
 //анимации блоков
 document.addEventListener("DOMContentLoaded", function () {
   const blocks = document.querySelectorAll(".block1, .block2, .block3, .block4, .block5, .block6, .block7, .block8");

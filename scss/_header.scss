@@ -5,7 +5,7 @@ header {
     width: 100%;
     box-sizing: border-box;
     background-color: #8D509B;
-    z-index: 11;
+    z-index: 100;
 
     .shadow-top {
         position: absolute;
@@ -53,7 +53,6 @@ header {
             }
         }
     }
-    z-index: 10000;
 }
 
 .header .wrapper-header .navigation .btn-mob {
@@ -81,7 +80,7 @@ header {
   background-color: #00000080; 
   opacity: 0;
   visibility: hidden;
-  z-index: 999;
+  z-index: 99;
   transition: opacity 0.3s ease-in-out;
 }
 
