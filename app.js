@@ -516,7 +516,7 @@ Object.entries(popupMap).forEach(([btnClass, popup]) => {
 // Закрытие по оверлею
 overlay.addEventListener('click', closePopup);
 
-// Убедиться, что состояние lock корректно
+// состояние lock корректно ?
 setInterval(() => {
   const visiblePopup = document.querySelector('.popup.show');
   if (visiblePopup) {
@@ -528,7 +528,6 @@ setInterval(() => {
 
 //checked
 document.addEventListener('DOMContentLoaded', function () {
-  // Для каждой попап-формы
   const popups = document.querySelectorAll('.popup');
 
   popups.forEach(popup => {
@@ -561,7 +560,7 @@ document.querySelectorAll('.popup .submit-btn').forEach(button => {
     const agreeCheckbox = popup.querySelector('.agree-checkbox');
 
     if (agreeCheckbox && !agreeCheckbox.checked) {
-      return; // Не отправляем, если не согласен
+      return;
     }
 
     // Скрыть попап
@@ -572,8 +571,6 @@ document.querySelectorAll('.popup .submit-btn').forEach(button => {
     if (sentContainer) {
       sentContainer.classList.add('show');
     }
-
-    // overlay и lock уже активны — не трогаем
   });
 });
 
