@@ -485,6 +485,25 @@ document.addEventListener('click', function (e) {
   }
 });
 
+const checkbox = document.querySelector('.checkbox-group input[required]');
+  const submitBtn = document.querySelector('.submit-btn');
+
+  checkbox.addEventListener('change', function () {
+    if (this.checked) {
+      submitBtn.style.opacity = '1';
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.style.opacity = '0.3';
+      submitBtn.disabled = true;
+    }
+  });
+
+  // Инициализация при загрузке страницы
+  if (!checkbox.checked) {
+    submitBtn.style.opacity = '0.3';
+    submitBtn.disabled = true;
+  }
+
 
 //анимации блоков
 document.addEventListener("DOMContentLoaded", function () {

@@ -2976,6 +2976,7 @@ body.lock {
 
 .popup h2 {
   font-family: "CeraPro-Medium";
+  font-weight: 500;
   font-size: 32px;
   margin-top: 0;
   margin-bottom: 28px;
@@ -2983,6 +2984,7 @@ body.lock {
 
 .message {
   font-family: "CeraPro-Medium";
+  font-weight: 500;
   font-size: 20px;
 }
 
@@ -2992,21 +2994,23 @@ body.lock {
 
 .close-btn {
   position: absolute;
-  top: 16px;
+  top: 8px;
   right: 16px;
   max-width: 32px;
-  min-width: 32px;
   max-height: 32px;
   font-size: 32px;
   text-decoration: none;
   color: #82828C;
   cursor: pointer;
 }
+.close-btn img {
+  width: 100%;
+}
 
 label {
   display: block;
   font-size: 11px;
-  margin-top: 15px;
+  margin-top: 8px;
   margin-bottom: 5px;
 }
 
@@ -3026,6 +3030,9 @@ input[type=text], input[type=email], input[type=tel], textarea, select {
 .row {
   display: flex;
   gap: 10px;
+}
+.row label {
+  margin-top: 0;
 }
 
 .row .column {
@@ -3058,6 +3065,76 @@ input[type=tel] {
   font-size: 17px;
 }
 
+input[type=radio],
+input[type=checkbox] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 21px;
+  height: 21px;
+  border: 1px solid #823F91;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-right: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+}
+
+input[type=checkbox] {
+  border: 2px solid #E1E3EA;
+  width: 22px;
+  height: 22px;
+}
+
+input[type=radio] {
+  border-radius: 50%;
+}
+
+.agree-wrapper {
+  display: flex;
+  align-items: center;
+}
+.agree-wrapper input {
+  min-width: 22px;
+}
+
+input[type=radio]:checked::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 14px !important;
+  height: 14px !important;
+  background-color: #823F91;
+  border-radius: 50%;
+}
+
+input[type=checkbox]:checked::before {
+  content: "";
+  background-image: url("../img/Icon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #823F91;
+}
+
+input[type=checkbox]:checked::before,
+input[type=radio]:checked::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #823F91;
+  border-radius: 50%;
+}
+
+input[type=checkbox]:checked::before {
+  width: 21px;
+  height: 21px;
+  border-radius: 4px;
+}
+
 textarea {
   resize: vertical;
 }
@@ -3065,13 +3142,14 @@ textarea {
 .radio-group {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 10px;
+  gap: 16px;
+  margin-top: 16px;
 }
 .radio-group label {
   display: flex;
   align-items: center;
   font-size: 17px;
+  margin: 0;
 }
 .radio-group label input {
   margin-right: 12px;
@@ -3079,15 +3157,22 @@ textarea {
   height: 24px;
 }
 
+.wrapper1 .message {
+  margin: 0;
+}
+
 .checkbox-group {
-  margin-top: 15px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .checkbox-group label {
   display: flex;
   align-items: center;
   font-size: 17px;
-  margin-bottom: 16px;
+  margin: 0;
 }
 
 .checkbox-group input {
@@ -3107,6 +3192,7 @@ textarea {
   border-radius: 100px;
   width: 100%;
   margin-top: 28px;
+  opacity: 0.3;
 }
 
 @media (max-width: 600px) {
@@ -3128,6 +3214,9 @@ textarea {
   }
   .phone-group .iti {
     width: 100%;
+  }
+  .submit-btn {
+    max-width: 100%;
   }
 }
 * {

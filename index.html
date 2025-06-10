@@ -997,7 +997,9 @@
         </div>
       </div>
       <div class="popup russia">
-        <a class="close-btn">×</a>
+        <a class="close-btn">
+          <img src="./img/close.png" alt="закрыть" />
+        </a>
         <h2>Хочу открыть Ванлав в России</h2>
         <div class="wrapper0">
           <div class="wrapper1">
@@ -1068,10 +1070,13 @@
               ><input type="checkbox" /> У меня есть опыт в сфере общественного
               питания</label
             >
-            <label
-              ><input type="checkbox" required /> Согласен с условиями
-              пользовательского соглашения и политикой конфиденциальности</label
-            >
+            <div class="agree-wrapper">
+              <input type="checkbox" id="agree" required />
+              <label for="agree"
+                >Согласен с условиями пользовательского соглашения и политикой
+                конфиденциальности</label
+              >
+            </div>
           </div>
         </div>
         <button class="submit-btn">ОТПРАВИТЬ</button>
