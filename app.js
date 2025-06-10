@@ -436,13 +436,17 @@ if (document.querySelector('.header__burger-menu_button')) {
     let isClickInsideNavBar = burgerMenu.contains(event.target);
     let isClickOnBurger = burgerBtn.contains(event.target);
   
-    if (!isClickInsideNavBar && !isClickOnBurger) {
-      burgerMenu.classList.remove('active');
-      burgerBtn.classList.remove('active');
-      overlay.classList.remove('active');
-      body.classList.remove('lock');
-      content.classList.remove('lock');
-    }
+    if (
+      burgerMenu.classList.contains('active') && // бургер открыт
+      !isClickInsideNavBar && 
+      !isClickOnBurger
+      ) {
+        burgerMenu.classList.remove('active');
+        burgerBtn.classList.remove('active');
+        overlay.classList.remove('active');
+        body.classList.remove('lock');
+        content.classList.remove('lock');
+      }
   });
 }
 
@@ -544,4 +548,17 @@ document.addEventListener("DOMContentLoaded", function () {
   blocks.forEach((block) => {
     observer.observe(block);
   });
+});
+
+
+
+//кондитерская
+
+
+document.getElementById('goBackBtn').addEventListener('click', function () {
+  if (document.referrer === "") {
+    window.location.href = "index.html";
+  } else {
+    window.history.back();
+  }
 });

@@ -3245,9 +3245,10 @@ textarea {
 }
 
 .back {
+  cursor: pointer;
+  user-select: none;
   position: absolute;
   left: 0;
-  cursor: pointer;
   display: flex;
   align-self: center;
   align-items: center;
@@ -3269,13 +3270,15 @@ textarea {
 @media (max-width: 620px) {
   .header-page {
     flex-direction: column;
+    justify-content: start;
     gap: 16px;
   }
   .header-page .title {
     align-items: start;
   }
   .header-page .back {
-    width: 100%;
+    align-self: start;
+    align-items: start;
     justify-content: start;
     position: relative;
   }
