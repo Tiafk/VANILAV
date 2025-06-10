@@ -257,9 +257,6 @@ textarea {
   align-self: center;
   top: calc(50% - 224px);
   z-index: 100000;
-  background-color: #FFFFFF;
-  border-radius: 22px;
-  padding: 32px 20px;
 
   .sent {
     position: relative;
@@ -268,6 +265,9 @@ textarea {
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 32px 20px;
+    background-color: #FFFFFF;
+    border-radius: 22px;
     gap: 12px;
 
     .icon-sucsess {
