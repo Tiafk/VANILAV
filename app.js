@@ -454,15 +454,21 @@ if (document.querySelector('.header__burger-menu_button')) {
 
 //popup
 
-const input = document.querySelector("#phone");
-  const iti = window.intlTelInput(input, {
-    initialCountry: "ru",
-    preferredCountries: ["ru", "kz", "by"],
-    formatOnDisplay: true,
-    nationalMode: false,
-    autoPlaceholder: "polite",
-    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+document.addEventListener('DOMContentLoaded', function () {
+  const phoneInputs = document.querySelectorAll('.phone-input');
+
+  phoneInputs.forEach(input => {
+    window.intlTelInput(input, {
+      initialCountry: 'ru',
+      preferredCountries: ['ru', 'kz', 'by'],
+      formatOnDisplay: true,
+      nationalMode: false,
+      autoPlaceholder: 'polite',
+      utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js',
+    });
   });
+});
+
 const popupMap = {
   'btn-russia': document.querySelector('.popup.russia'),
   'btn-moscow': document.querySelector('.popup.moscow'),
@@ -549,8 +555,6 @@ document.addEventListener('DOMContentLoaded', function () {
     agreeCheckbox.addEventListener('change', toggleSubmitState);
   });
 });
-
-
 
   
 //анимации блоков
