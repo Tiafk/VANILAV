@@ -2804,7 +2804,7 @@ body.lock {
 .footer .footer__wrapper .top .top-left .logo .mobile {
   display: none;
 }
-.footer .footer__wrapper .top .top-left .navigation {
+.footer .footer__wrapper .top .top-left .navigation-bottom {
   display: flex;
   width: 100%;
   align-items: end;
@@ -2813,12 +2813,16 @@ body.lock {
   text-decoration: none;
   list-style-type: none;
 }
-.footer .footer__wrapper .top .top-left .navigation .link {
+.footer .footer__wrapper .top .top-left .navigation-bottom .link {
   font-family: "CeraPro-Regular";
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
   letter-spacing: 0;
+}
+.footer .footer__wrapper .top .top-left .navigation-bottom .link a {
+  color: #fff;
+  text-decoration: none;
 }
 .footer .footer__wrapper .top .contacts {
   display: flex;
@@ -2875,8 +2879,8 @@ body.lock {
   letter-spacing: 0;
 }
 
-@media (max-width: 735px) {
-  .footer .footer__wrapper .top .top-left .navigation {
+@media (max-width: 915px) {
+  .footer .footer__wrapper .top .top-left .navigation-bottom {
     flex-wrap: wrap;
     gap: 16px;
   }
@@ -2885,7 +2889,7 @@ body.lock {
   }
 }
 @media (max-width: 460px) {
-  .footer .footer__wrapper .top .top-left .navigation {
+  .footer .footer__wrapper .top .top-left .navigation-bottom {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -3292,8 +3296,8 @@ textarea {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
-  max-width: 1160px;
+  height: 100%;
+  max-width: 1200px;
   padding: 94px 20px 0 20px;
   z-index: 10;
 }
@@ -3339,6 +3343,46 @@ textarea {
   line-height: 130%;
 }
 
+#card-container {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0 100px 0;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: clamp(10px, 3vw, 40px);
+}
+
+.location-card {
+  cursor: pointer;
+  width: 360px;
+  border: 1px solid #ccc;
+  padding: 30px 30px 40px 30px;
+  border-radius: 15px;
+  background-color: #fff;
+  transition: 0.3s ease;
+}
+.location-card .text {
+  font-family: "CeraPro-Light";
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 27.9px;
+  letter-spacing: 0;
+}
+.location-card .text .bold {
+  font-family: "CeraPro-Bold";
+  font-weight: 700;
+}
+.location-card:hover {
+  border: 1px solid rgba(130, 63, 145, 0.5019607843);
+  background-color: #F9F0F8;
+  transition: 0.3s ease;
+}
+
+@media (max-width: 800px) {
+  .location-card {
+    width: 343px;
+  }
+}
 @media (max-width: 620px) {
   .header-page {
     flex-direction: column;
@@ -3440,6 +3484,18 @@ textarea {
   src: url("../fonts/CeraPro-Regular.woff2");
   font-style: normal;
   font-weight: 400;
+}
+@font-face {
+  font-family: "CeraPro-Regular";
+  src: url("../fonts/CeraPro-Regular.woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "CeraPro-Light";
+  src: url("../fonts/cera-pro-light.eot"), url("../fonts/cera-pro-light.woff"), url("../fonts/cera-pro-light.woff2");
+  font-style: normal;
+  font-weight: 300;
 }
 @font-face {
   font-family: "Inter-Regular";

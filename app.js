@@ -87,6 +87,7 @@ function updateIconPosition() {
   const heart1 = document.querySelector('.block2 .wrapper-img .icon8');
   const heart2 = document.querySelector('.block2 .wrapper-img .icon9');
 
+  if (!icon2 || !icon3 || !icon5 || !icon6 || !heart1 || !heart2) return;
   const width = window.innerWidth;
 
   if (width >= 1440) {
@@ -165,6 +166,8 @@ const phrases = [
 }
 
 function fillMarquee() {
+  const marquee = document.querySelector(".marquee");
+  if (!marquee || !marquee.parentElement) return;
   marquee.innerHTML = "";
 
   // Создаём элементы с учетом следующей фразы
@@ -493,6 +496,7 @@ const closePopup = () => {
 
 // Назначить обработчики для каждой кнопки
 Object.entries(popupMap).forEach(([btnClass, popup]) => {
+  if (!popup) return;
   const btn = document.querySelector(`.${btnClass}`);
   const closeBtn = popup.querySelector('.close-btn');
 

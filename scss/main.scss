@@ -108,6 +108,19 @@
     font-weight: 400;
 }
 @font-face {
+    font-family: 'CeraPro-Regular';
+    src: url('../fonts/CeraPro-Regular.woff2');
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'CeraPro-Light';
+    src: url('../fonts/cera-pro-light.eot'),
+    url('../fonts/cera-pro-light.woff'),url('../fonts/cera-pro-light.woff2');
+    font-style: normal;
+    font-weight: 300;
+}
+@font-face {
     font-family: 'Inter-Regular';
     src: url('../fonts/Inter_18pt-Regular.ttf');
     font-style: normal;
