@@ -26,7 +26,6 @@ function renderCards(dataArray) {
 fetch('./location.json')
   .then(response => response.json())
   .then(data => {
-    console.log('Загруженные данные:', data);
     renderCards(data);
   })
   .catch(error => {
