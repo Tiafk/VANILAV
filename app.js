@@ -1,42 +1,3 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   const leftBlock = document.querySelector('.absolute-wrap1 .absolute-img-container:first-child');
-//   const rightBlock = document.querySelector('.absolute-wrap1 .absolute-img-container:last-child');
-
-//   let leftPos = 0;
-//   let rightPos = 0;
-//   let direction = 1;
-
-//   const speed = 0.5;
-
-//   function animate() {
-//     leftPos += speed * direction;
-//     rightPos -= speed * direction;
-
-//     // Бесшовная прокрутка
-//     const leftHeight = leftBlock.scrollHeight / 2;
-//     const rightHeight = rightBlock.scrollHeight / 2;
-
-//     if (leftPos >= leftHeight) leftPos = 0;
-//     if (leftPos <= -leftHeight) leftPos = 0;
-
-//     if (rightPos >= rightHeight) rightPos = 0;
-//     if (rightPos <= -rightHeight) rightPos = 0;
-
-//     leftBlock.style.transform = `translateY(${-leftPos}px)`;
-//     rightBlock.style.transform = `translateY(${-rightPos}px)`;
-
-//     requestAnimationFrame(animate);
-//   }
-
-//   animate();
-
-//   // Каждые 10 сек меняем направление
-//   setInterval(() => {
-//     direction *= -1;
-//   }, 20000);
-// });
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const leftBlock = document.querySelector('.absolute-wrap1 .absolute-img-container:first-child');
   const rightBlock = document.querySelector('.absolute-wrap1 .absolute-img-container:last-child');
@@ -46,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let rightPos = 0;
 
   let isVertical = window.innerWidth > 975;
-  const speed = 0.3;
+  const speed = 1;
 
   function updateDirectionByWidth() {
     isVertical = window.innerWidth > 975;
@@ -689,7 +650,7 @@ overlay.addEventListener('click', () => {
   
 //анимации блоков
 document.addEventListener("DOMContentLoaded", function () {
-  const blocks = document.querySelectorAll(".block1, .block2, .block3, .block4, .block5, .block6, .block7, .block8");
+  const blocks = document.querySelectorAll(".block2, .block3, .block4, .block5, .block6, .block7, .block8");
 
   const observer = new IntersectionObserver(
     (entries, observer) => {
@@ -701,7 +662,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     },
     {
-      threshold: 0.3, // 30% блока должно быть видно
+      threshold: 0.10, // 10% блока должно быть видно
     }
   );
 

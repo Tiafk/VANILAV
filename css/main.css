@@ -3385,7 +3385,6 @@ textarea {
   box-sizing: border-box;
 }
 
-.block1,
 .block2,
 .block3,
 .block4,
@@ -3435,7 +3434,6 @@ textarea {
 }
 
 @media (max-width: 1070px) {
-  .block1,
   .block2,
   .block3,
   .block4,
