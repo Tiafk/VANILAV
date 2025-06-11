@@ -1,23 +1,111 @@
+// document.addEventListener("DOMContentLoaded", () => {
+//   const leftBlock = document.querySelector('.absolute-wrap1 .absolute-img-container:first-child');
+//   const rightBlock = document.querySelector('.absolute-wrap1 .absolute-img-container:last-child');
+
+//   let leftPos = 0;
+//   let rightPos = 0;
+//   let direction = 1;
+
+//   const speed = 0.5;
+
+//   function animate() {
+//     leftPos += speed * direction;
+//     rightPos -= speed * direction;
+
+//     // Бесшовная прокрутка
+//     const leftHeight = leftBlock.scrollHeight / 2;
+//     const rightHeight = rightBlock.scrollHeight / 2;
+
+//     if (leftPos >= leftHeight) leftPos = 0;
+//     if (leftPos <= -leftHeight) leftPos = 0;
+
+//     if (rightPos >= rightHeight) rightPos = 0;
+//     if (rightPos <= -rightHeight) rightPos = 0;
+
+//     leftBlock.style.transform = `translateY(${-leftPos}px)`;
+//     rightBlock.style.transform = `translateY(${-rightPos}px)`;
+
+//     requestAnimationFrame(animate);
+//   }
+
+//   animate();
+
+//   // Каждые 10 сек меняем направление
+//   setInterval(() => {
+//     direction *= -1;
+//   }, 20000);
+// });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const leftBlock = document.querySelector('.absolute-wrap1 .absolute-img-container:first-child');
+  const rightBlock = document.querySelector('.absolute-wrap1 .absolute-img-container:last-child');
+
+  let direction = 1;
+  let leftPos = 0;
+  let rightPos = 0;
+
+  let isVertical = window.innerWidth > 975;
+  const speed = 0.3;
+
+  function updateDirectionByWidth() {
+    isVertical = window.innerWidth > 975;
+
+    // Обновим структуру на нужную ориентацию (column или row)
+    leftBlock.style.flexDirection = isVertical ? 'column' : 'row';
+    rightBlock.style.flexDirection = isVertical ? 'column' : 'row';
+  }
+
+  window.addEventListener('resize', updateDirectionByWidth);
+  updateDirectionByWidth(); // при загрузке
+
+  function animate() {
+    if (isVertical) {
+      leftPos += speed * direction;
+      rightPos -= speed * direction;
+
+      const lh = leftBlock.scrollHeight / 2;
+      const rh = rightBlock.scrollHeight / 2;
+
+      if (leftPos >= lh || leftPos <= -lh) leftPos = 0;
+      if (rightPos >= rh || rightPos <= -rh) rightPos = 0;
+
+      leftBlock.style.transform = `translateY(${-leftPos}px)`;
+      rightBlock.style.transform = `translateY(${-rightPos}px)`;
+    } else {
+      leftPos += speed * direction;
+      rightPos -= speed * direction;
+
+      const lw = leftBlock.scrollWidth / 2;
+      const rw = rightBlock.scrollWidth / 2;
+
+      if (leftPos >= lw || leftPos <= -lw) leftPos = 0;
+      if (rightPos >= rw || rightPos <= -rw) rightPos = 0;
+
+      leftBlock.style.transform = `translateX(${-leftPos}px)`;
+      rightBlock.style.transform = `translateX(${-rightPos}px)`;
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  // Каждые 10 сек меняем направление
+  setInterval(() => {
+    direction *= -1;
+  }, 10000);
+});
+
 // паралакс
 window.addEventListener('load', () => {
-  const container1 = document.querySelector('.main-p');
   const container2 = document.querySelector('.block2');
 
-  const icons1 = container1?.querySelectorAll('.parallax-img .icon') || [];
   const icons2 = container2?.querySelectorAll('.parallax-img .img-icon') || [];
 
-  if (!container1 || !container2 || icons1.length === 0 && icons2.length === 0) return;
+  if (!container2 || icons2.length === 0) return;
 
-  // Индивидуальные глубины для каждого блока
-  const depths1 = {
-    icon1: 50,
-    icon2: 40,
-    icon3: 50,
-    icon4: 20,
-    icon5: 30,
-    icon6: 50,
-  };
-
+  // Индивидуальные глубины для второго блока
   const depths2 = {
     icon1: 60,
     icon2: 45,
@@ -74,7 +162,6 @@ window.addEventListener('load', () => {
     animate();
   }
 
-  initParallax(container1, icons1, depths1);
   initParallax(container2, icons2, depths2);
 });
 

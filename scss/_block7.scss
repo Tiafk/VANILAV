@@ -129,7 +129,9 @@
   object-position: center;
   border-radius: 22px;
 }
-
+.swiper {
+  user-select: none;
+}
 /* Специфическая разметка */
 .gallery img:nth-child(1) {
   grid-column: 1;
@@ -150,6 +152,7 @@
 //mobile
 
 .address-mobile {
+  align-items: center;
   cursor: pointer;
   font-family: 'CeraPro-Regular';
   font-weight: 400;
@@ -176,10 +179,6 @@
     box-sizing: border-box;
   }
 
-  .address-mobile {
-    border-bottom: 1px solid #3D205012;
-  }
-
   .address-mobile.active{
     border: 0;
   }
@@ -200,18 +199,24 @@
   }
 }
   .address-mobile {
+    user-select: none;
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 100%;
-    margin-bottom: 12px;
     font-size: 18px;
     padding: 19px 0px;
-    border-radius: 12px;
+    border-bottom: 1px solid #3D205012;
+
+    &:first-child {
+      padding: 16px 0;
+    }
 
     .icon {
+      width: 24px;
+      height: 24px;
+      align-items: center;
       margin-left: 10px;
-      padding: 9px 6px;
       transition: .3s ease;
     }
 
