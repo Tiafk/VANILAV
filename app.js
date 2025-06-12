@@ -1,35 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const leftBlock = document.querySelector('.absolute-wrap1 .absolute-img-container:first-child');
-  const rightBlock = document.querySelector('.absolute-wrap1 .absolute-img-container:last-child');
+  const leftBlock = document.querySelector('.scroll-down');
+  const rightBlock = document.querySelector('.scroll-up');
 
+  const speed = 0.7;
   let direction = 1;
   let leftPos = 0;
   let rightPos = 0;
 
   let isVertical = window.innerWidth > 975;
-  const speed = 0.8;
 
   function updateDirectionByWidth() {
     isVertical = window.innerWidth > 975;
 
-    // Обновим структуру на нужную ориентацию (column или row)
     leftBlock.style.flexDirection = isVertical ? 'column' : 'row';
     rightBlock.style.flexDirection = isVertical ? 'column' : 'row';
   }
 
   window.addEventListener('resize', updateDirectionByWidth);
-  updateDirectionByWidth(); // при загрузке
+  updateDirectionByWidth();
 
   function animate() {
+    if (!leftBlock || !rightBlock) return;
+
     if (isVertical) {
       leftPos += speed * direction;
       rightPos -= speed * direction;
 
-      const lh = leftBlock.scrollHeight / 2;
-      const rh = rightBlock.scrollHeight / 2;
+      const lh = leftBlock.scrollHeight;
+      const rh = rightBlock.scrollHeight;
 
-      if (leftPos >= lh || leftPos <= -lh) leftPos = 0;
-      if (rightPos >= rh || rightPos <= -rh) rightPos = 0;
+      if (leftPos >= lh) leftPos = 0;
+      if (rightPos >= rh) rightPos = 0;
 
       leftBlock.style.transform = `translateY(${-leftPos}px)`;
       rightBlock.style.transform = `translateY(${-rightPos}px)`;
@@ -37,11 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
       leftPos += speed * direction;
       rightPos -= speed * direction;
 
-      const lw = leftBlock.scrollWidth / 2;
-      const rw = rightBlock.scrollWidth / 2;
+      const lw = leftBlock.scrollWidth;
+      const rw = rightBlock.scrollWidth;
 
-      if (leftPos >= lw || leftPos <= -lw) leftPos = 0;
-      if (rightPos >= rw || rightPos <= -rw) rightPos = 0;
+      if (leftPos >= lw) leftPos = 0;
+      if (rightPos >= rw) rightPos = 0;
 
       leftBlock.style.transform = `translateX(${-leftPos}px)`;
       rightBlock.style.transform = `translateX(${-rightPos}px)`;
@@ -52,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   animate();
 
-  // Каждые 10 сек меняем направление
   setInterval(() => {
     direction *= -1;
   }, 15000);
