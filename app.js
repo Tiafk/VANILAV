@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let rightPos = 0;
 
   let isVertical = window.innerWidth > 975;
-  const speed = 1;
+  const speed = 0.8;
 
   function updateDirectionByWidth() {
     isVertical = window.innerWidth > 975;
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Каждые 10 сек меняем направление
   setInterval(() => {
     direction *= -1;
-  }, 10000);
+  }, 15000);
 });
 
 // паралакс
