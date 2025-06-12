@@ -394,13 +394,6 @@
     width: clamp(120px, 25vw, 320px);
     height: clamp(131px, 25vw, 350px);
   }
-
-    .scroll-down {
-        align-self: start !important;
-    }
-    .scroll-up {
-        align-self: end !important;
-    }
 }
 
 .scroll-down {
@@ -408,4 +401,11 @@
 }
 .scroll-up {
     align-self: end;
+}
+
+.absolute-img-container.vertical {
+  flex-direction: column;
+}
+.absolute-img-container.horizontal {
+  flex-direction: row;
 }
