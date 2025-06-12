@@ -503,6 +503,9 @@ body.lock {
   }
 }
 @media (max-width: 1400px) {
+  .marquee-wrapper {
+    min-height: 40px;
+  }
   .main-p .absolute-img-container .icon {
     max-width: clamp(120px, 25vw, 320px);
     max-height: clamp(131px, 25vw, 350px);
@@ -621,6 +624,7 @@ body.lock {
   background-color: #F2E1F0;
   padding: 19px 0;
   box-sizing: border-box;
+  min-height: 63px;
 }
 
 .marquee {
