@@ -13,6 +13,7 @@
 
         .btn {
             cursor: pointer;
+            font-family: 'CeraPro-Medium';
             font-weight: 500;
             font-size: 16px;
             line-height: 140%;
@@ -24,6 +25,13 @@
             background-color: #823F91;
             border-radius: 100px;
             margin-top: 16px;
+            transition: .5s ease;
+
+            &:hover {
+                transition: .5s ease;
+                background-color: #581966;
+                color: #FFFFFF;
+            }
         }
     }
     

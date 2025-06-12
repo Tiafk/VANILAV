@@ -10,21 +10,33 @@
         gap: 24px;
 
         .card {
+            cursor: default;
             .title-card {
                 display: flex;
                 flex-direction: column;
                 gap: 13px;
             }
         }
-
         .shadow {
             box-shadow: 0px 4px 20px 0px rgba(130, 63, 145, 0.15);
             background: rgba(255, 255, 255, 1);
             transform: rotate(-8deg);
+            transition:.4s ease;
+
+            &:hover{
+                transform: rotate(8deg);
+                transition:.4s ease;
+            }
         }
         .purple {
             background: rgba(130, 63, 145, 1);
             transform: rotate(8deg);
+            transition:.4s ease;
+
+            &:hover{
+                transform: rotate(-8deg);
+                transition:.4s ease;
+            }
 
             .title-card {
                 color: rgba(255, 255, 255, 1);
@@ -32,6 +44,14 @@
 
             .text {
                 color: rgba(255, 255, 255, 1);
+            }
+        }
+        .card-img {
+                transform: 0;
+                transition:.4s ease;
+            &:hover {
+                transform: rotate(-8deg);
+                transition:.4s ease;
             }
         }
     }
@@ -87,6 +107,9 @@
         .img-container {
             display: block !important;
         }
+    }
+    .block6 .wrapper-card {
+        gap: 12px;
     }
 }
 

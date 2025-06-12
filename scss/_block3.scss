@@ -20,8 +20,25 @@
         .mobile {
             display: none;
         }
+        .card-img1 {
+            transform: 0;
+            transition:  .4s ease;
+            &:hover {
+                transform: rotate(-8deg);
+                transition:  .4s ease;
+            }
+        }
+        .card-img2 {
+            transform: 0;
+            transition:  .4s ease;
+            &:hover {
+                transform: rotate(8deg);
+                transition:  .4s ease;
+            }
+        }
     }
 }
+
 
 .card {
     display: flex;
@@ -60,6 +77,7 @@
         color: rgba(0, 0, 0, 1);
     }
 }
+
 
 .main .wrapper .wrapper-card .card-mobile {
         display: none;
@@ -128,5 +146,8 @@
     }
     .main .wrapper .wrapper-card .card-mobile {
         display: flex;
+    }
+    .block3 .wrapper-card {
+        gap: 12px;
     }
 }

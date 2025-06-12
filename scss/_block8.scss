@@ -162,6 +162,13 @@
                 letter-spacing: 2%;
                 text-transform: uppercase;
                 color: rgba(130, 63, 145, 1);
+                transition: .5s ease;
+
+                &:hover {
+                    background-color: #823F91;
+                    color: #FFFFFF;
+                    transition: .5s ease;
+                }
             }
         }
     }

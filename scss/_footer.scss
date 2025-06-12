@@ -141,12 +141,12 @@
         display: flex;
         flex-direction: column;
         align-items: start;
-        align-self: center;
+        align-self: start;
         max-width: 258px;
         margin-top: 54px;
     }
     .footer .footer__wrapper .top .contacts {
-        align-self: center;
+        align-self: start;
         margin-top: 49px;
     }
     .footer .footer__wrapper .top {
@@ -188,14 +188,5 @@
     }
     .footer .footer__wrapper {
         gap:39px;
-    }
-}
-
-@media (max-width:375px) {
-    .footer .footer__wrapper .top .top-left .navigation-bottom {
-        align-self: start;
-    }
-    .footer .footer__wrapper .top .contacts {
-        align-self: start;
     }
 }

@@ -1,10 +1,9 @@
 header {
-    position: absolute;
+    position: fixed;
     top: 0;
     display: flex;
     width: 100%;
     box-sizing: border-box;
-    // background-color: #8D509B;
     z-index: 100;
 
     .shadow-top {
@@ -43,12 +42,38 @@ header {
                     font-size: 16px;
                     line-height: 140%;
                     letter-spacing: 0;
+                    height: 22px;
+                    align-items: center;
+                    display: flex;
+                    border-bottom: 1px solid transparent;
+                    transition: .4s ease;
+
+                    &:hover {
+                        border-bottom: 1px solid #fff;
+                        transition: .4s ease;
+                    }
                     
                     a {
                         color: #fff;
                         text-decoration: none;
                     }
                 }
+            }
+        }
+    }
+}
+
+.header.scrolled {
+    background-color: #8D509B;
+    // max-height: 50px;
+    .wrapper-header {
+        // padding: 10px 16px 8px;
+
+        .logo {
+            // max-width: 109px;
+
+            img {
+                width: 100%;
             }
         }
     }
@@ -93,7 +118,7 @@ body.lock {
   height: 100vh;
 }
 
-@media (max-width:975px) {
+@media (max-width:1250px) {
     .header {
         background-color: transparent;    
     }
@@ -105,6 +130,18 @@ body.lock {
 }
 
 @media (max-width:590px) {
+    .header {
+        max-height: 50px;
+    .wrapper-header {
+        padding: 10px 16px 8px;
+        .logo {
+            max-width: 109px;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
     .header .wrapper-header .navigation {
         display: none;
     }
@@ -142,7 +179,7 @@ body.lock {
         text-align: center;
         display: flex;
         position: absolute;
-        top: 0;
+        top: -300%;
         left: 0;
         width: 100%;
         background-color: #823F91;
@@ -169,6 +206,7 @@ body.lock {
 
 .header .wrapper-header .navigation.active {
     opacity: 1;
+    top: 0;
     pointer-events: auto;
 }
 }

@@ -10,6 +10,7 @@
             background: rgba(130, 63, 145, 1);
             border-radius: 100px;
             padding: 10px 26px;
+            font-family: 'Arial';
             font-weight: 500;
             font-size: 16px;
             line-height: 140%;
@@ -17,6 +18,13 @@
             text-transform: uppercase;
             color: rgba(255, 255, 255, 1);
             margin-top: 12px;
+            transition: .5s ease;
+
+          &:hover {
+              transition: .5s ease;
+              background-color: #581966;
+              color: #FFFFFF;
+          }
         }
     }
     .left-panel h2 {
@@ -187,6 +195,20 @@
     padding-bottom: 16px;
     border-bottom: 1px solid #3D205012;
   }
+  .address-mobile {
+      transition: .3s ease;
+  .icon {
+      transition: .3s ease;
+    svg {
+      transform: 0;
+      transition: .3s ease;
+      path{
+        stroke: black;
+        transition: .3s ease;
+      }
+    }
+  }
+}
 .address-mobile.active {
   .icon {
     svg {
@@ -194,6 +216,7 @@
       transition: .3s ease;
       path{
         stroke: rgba(130, 63, 145, 1);
+        transition: .3s ease;
       }
     }
   }

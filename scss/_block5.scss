@@ -72,14 +72,15 @@
     }
     .btn {
         cursor: pointer;
+        font-family: 'Arial';
+        font-weight: 500;
         display: flex;
         align-self: center;
         border: 1px solid rgba(130, 63, 145, 1);
         background-color: transparent;
         color: rgba(130, 63, 145, 1);
-        font-weight: 500;
         font-size: 18px;
-        line-height: 120%;
+        line-height: 22px;
         letter-spacing: 0;
         padding: 10px 21px;
         border-radius: 100px;

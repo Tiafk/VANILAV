@@ -2,14 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const leftBlock = document.querySelector('.scroll-down');
   const rightBlock = document.querySelector('.scroll-up');
 
-  const speed = 0.6;
-  let direction = 1;
-  let leftPos = 0;
-  let rightPos = 0;
+  const speed = 0.5;
+  let isVertical = window.innerWidth > 1250;
 
-  let isVertical = window.innerWidth > 975;
-
-  // Список URL картинок для примера
   const imagesLeft = [
     './img/main/5.webp',
     './img/main/3.webp',
@@ -26,92 +21,106 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   function renderImages(block, images) {
-    block.innerHTML = ''; // очищаем
+    block.innerHTML = '';
+    for (let i = 0; i < 2; i++) {
+      images.forEach(src => {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('icon');
 
-    images.forEach(src => {
-      const wrapper = document.createElement('div');
-      wrapper.classList.add('icon');
+        const img = document.createElement('img');
+        img.src = src;
+        img.style.userSelect = 'none';
+        img.style.pointerEvents = 'none';
+        img.style.flexShrink = '0';
 
-      const img = document.createElement('img');
-      img.src = src;
-      img.style.userSelect = 'none';
-      img.style.pointerEvents = 'none';
-      img.style.flexShrink = '0';
-
-      wrapper.appendChild(img);
-      block.appendChild(wrapper);
-    });
-
-    // Дублируем для бесшовного эффекта
-    images.forEach(src => {
-      const wrapper = document.createElement('div');
-      wrapper.classList.add('icon');
-
-      const img = document.createElement('img');
-      img.src = src;
-      img.style.userSelect = 'none';
-      img.style.pointerEvents = 'none';
-      img.style.flexShrink = '0';
-
-      wrapper.appendChild(img);
-      block.appendChild(wrapper);
-    });
+        wrapper.appendChild(img);
+        block.appendChild(wrapper);
+      });
+    }
   }
 
-  function updateDirectionByWidth() {
-    isVertical = window.innerWidth > 975;
+  function updateLayout() {
+    isVertical = window.innerWidth > 1250;
 
     leftBlock.style.flexDirection = isVertical ? 'column' : 'row';
     rightBlock.style.flexDirection = isVertical ? 'column' : 'row';
+
+    // Сброс позиции (важно при ресайзе)
+    leftBlock.style.transform = `translate(0, 0)`;
+    rightBlock.style.transform = `translate(0, 0)`;
   }
 
   renderImages(leftBlock, imagesLeft);
   renderImages(rightBlock, imagesRight);
+  updateLayout();
 
-  updateDirectionByWidth();
-  window.addEventListener('resize', () => {
-    updateDirectionByWidth();
-  });
+  window.addEventListener('resize', updateLayout);
+
+  let leftOffset = 0;
+  let rightOffset = 0;
 
   function animate() {
-    if (!leftBlock || !rightBlock) return;
+  if (!leftBlock || !rightBlock) return;
 
-    if (isVertical) {
-      leftPos += speed * direction;
-      rightPos -= speed * direction;
+  const direction = isVertical ? 'Y' : 'X';
+  const speedVal = speed;
+  
+  if (isVertical) {
+    leftOffset -= speedVal;
+    rightOffset += speedVal;
 
-      const lh = leftBlock.scrollHeight / 2;
-      const rh = rightBlock.scrollHeight / 2;
+    const leftResetPoint = leftBlock.scrollHeight / 2;
+    const rightResetPoint = rightBlock.scrollHeight / 2;
 
-      if (leftPos >= lh) leftPos = 0;
-      if (rightPos >= rh) rightPos = 0;
-
-      leftBlock.style.transform = `translateY(${-leftPos}px)`;
-      rightBlock.style.transform = `translateY(${-rightPos}px)`;
-    } else {
-      leftPos += speed * direction;
-      rightPos -= speed * direction;
-
-      const lw = leftBlock.scrollWidth / 2;
-      const rw = rightBlock.scrollWidth / 2;
-
-      if (leftPos >= lw) leftPos = 0;
-      if (rightPos >= rw) rightPos = 0;
-
-      leftBlock.style.transform = `translateX(${-leftPos}px)`;
-      rightBlock.style.transform = `translateX(${-rightPos}px)`;
+    if (Math.abs(leftOffset) >= leftResetPoint) {
+      leftOffset = 0;
+    }
+    if (rightOffset >= rightResetPoint) {
+      rightOffset = 0;
     }
 
-    requestAnimationFrame(animate);
+    leftBlock.style.transform = `translateY(${leftOffset}px)`;
+    rightBlock.style.transform = `translateY(${rightOffset}px)`;
+  } else {
+    leftOffset -= speedVal;
+    rightOffset += speedVal;
+
+    const leftResetPoint = leftBlock.scrollWidth / 2;
+    const rightResetPoint = rightBlock.scrollWidth / 2;
+
+    if (Math.abs(leftOffset) >= leftResetPoint) {
+      leftOffset = 0;
+    }
+    if (rightOffset >= rightResetPoint) {
+      rightOffset = 0;
+    }
+
+    leftBlock.style.transform = `translateX(${leftOffset}px)`;
+    rightBlock.style.transform = `translateX(${rightOffset}px)`;
   }
 
-  animate();
+  requestAnimationFrame(animate);
+}
 
-  setInterval(() => {
-    direction *= -1;
-  }, 15000);
+
+  animate();
 });
 
+
+//scroll
+
+window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    const shadowTop = document.querySelector(".shadow-top");
+
+    if (window.scrollY > 10) {
+      header.classList.add("scrolled");
+      if (shadowTop) shadowTop.style.display = "none";
+    } else {
+      header.classList.remove("scrolled");
+      if (shadowTop) shadowTop.style.display = "block";
+    }
+  });
 
 
 // паралакс
@@ -124,15 +133,15 @@ window.addEventListener('load', () => {
 
   // Индивидуальные глубины для второго блока
   const depths2 = {
-    icon1: 60,
-    icon2: 45,
-    icon3: 70,
-    icon4: 25,
-    icon5: 35,
-    icon6: 40,
-    icon7: 50,
-    icon8: 30,
-    icon9: 30,
+    icon1: 20,
+    icon2: 15,
+    icon3: 13,
+    icon4: 16,
+    icon5: 16,
+    icon6: 20,
+    icon7: 15,
+    icon8: 17,
+    icon9: 13,
   };
 
   function initParallax(container, icons, depths) {
@@ -293,7 +302,7 @@ function fillMarquee() {
     totalWidth = marquee.scrollWidth;
   }
 
-  const speed = 100; // px/sec
+  const speed = 300; // px/sec
   const duration = totalWidth / speed;
   marquee.style.animationDuration = `${duration}s`;
 }
@@ -442,13 +451,21 @@ function setupMobileListeners() {
 }
 
 function handleResize() {
-  if (window.innerWidth <= 1310) {
+  const isMobile = window.innerWidth <= 1310;
+
+  if (isMobile) {
     document.querySelector(".right-panel")?.style.setProperty("display", "none");
     document.getElementById("addressListMobile")?.style.setProperty("display", "block");
 
     destroyMobileSlider();
     resetMobileActive();
     setupMobileListeners();
+
+    // Активируем первый адрес по умолчанию
+    const firstMobileAddress = document.querySelector(".address-mobile[data-index='0']");
+    if (firstMobileAddress) {
+      firstMobileAddress.click();
+    }
   } else {
     document.querySelector(".right-panel")?.style.setProperty("display", "block");
     document.getElementById("addressListMobile")?.style.setProperty("display", "none");
@@ -456,7 +473,7 @@ function handleResize() {
     destroyMobileSlider();
     resetMobileActive();
 
-    showContent(0);
+    showContent(0); // для десктопа тоже по умолчанию первый
   }
 }
 
