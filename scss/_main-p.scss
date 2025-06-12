@@ -413,23 +413,23 @@
   .main-p .absolute-img-container .icon-2 {
     padding-bottom: 3.5%;
   }
+    .scroll-down {
+      align-self: start;
+    }
+    .scroll-up {
+        align-self: end;
+    }
 }
 
 .scroll-down {
     align-self: start;
+    align-items: start;
+    justify-content: start;
 }
 .scroll-up {
     align-self: end;
-}
-
-.scroll-down,
-.scroll-up {
-  display: flex;
-  flex-direction: column; /* или row для горизонтали, будет переопределено скриптом */
-  flex-wrap: nowrap;
-  overflow: hidden;
-  position: relative;
-  flex: 1 1 auto;
+    align-items: end;
+    justify-content: end;
 }
 
 .absolute-img-container.vertical {
