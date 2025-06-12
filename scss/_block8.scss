@@ -242,6 +242,9 @@
 }
 
 @media (max-width: 750px) {
+    .block8 .container-card .card-container__card .content .text-container {
+        padding: 0;
+    }
     .block8 .container-card .card-container__card .card__image {
         border-radius: 16px;
     }
