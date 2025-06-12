@@ -249,12 +249,12 @@ function fillMarquee() {
 
 // блок 7 адресса
 const imageSets = [
-  ["./img/block7/1/1.png", "./img/block7/1/2.png", "./img/block7/1/3.png", "./img/block7/1/4.png"],
-  ["./img/block7/2/1.png", "./img/block7/2/2.png", "./img/block7/2/3.png"],
-  ["./img/block7/3/1.png", "./img/block7/3/2.png", "./img/block7/3/3.png"],
-  ["./img/block7/4/1.png", "./img/block7/4/2.png", "./img/block7/4/3.png", "./img/block7/4/4.png"],
-  ["./img/block7/5/1.png", "./img/block7/5/2.png", "./img/block7/5/3.png"],
-  ["./img/block7/6/1.png", "./img/block7/6/2.png", "./img/block7/6/3.png", "./img/block7/6/4.png", "./img/block7/6/5.png", "./img/block7/6/6.png", "./img/block7/6/7.png", "./img/block7/6/8.png", "./img/block7/6/9.png"]
+  ["./img/block7/1/1.webp", "./img/block7/1/2.webp", "./img/block7/1/3.webp", "./img/block7/1/4.webp"],
+  ["./img/block7/2/1.webp", "./img/block7/2/2.webp", "./img/block7/2/3.webp"],
+  ["./img/block7/3/1.webp", "./img/block7/3/2.webp", "./img/block7/3/3.webp"],
+  ["./img/block7/4/1.webp", "./img/block7/4/2.webp", "./img/block7/4/3.webp", "./img/block7/4/4.webp"],
+  ["./img/block7/5/1.webp", "./img/block7/5/2.webp", "./img/block7/5/3.webp"],
+  ["./img/block7/6/1.webp", "./img/block7/6/2.webp", "./img/block7/6/3.webp", "./img/block7/6/4.webp", "./img/block7/6/5.webp", "./img/block7/6/6.webp", "./img/block7/6/7.webp", "./img/block7/6/8.webp", "./img/block7/6/9.webp"]
 ];
 
 const isSlider = [true, false, false, true, false, true];

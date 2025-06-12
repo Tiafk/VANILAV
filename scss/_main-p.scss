@@ -322,6 +322,9 @@
 }
 
 @media (max-width: 975px) {
+    .main-p .wrapper-mobile-img .shadow-bot {
+        display: block;
+    }
     .shadow-bot {
         display: none;
     }
