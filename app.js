@@ -178,12 +178,13 @@ function updateIconPosition() {
     icon5.style.bottom = `${8 + (30.7 - 8) * ratio}%`;
 
     icon6.style.right = `${19.2 + (0 - 19.2) * ratio}%`;
-    icon6.style.top = `${14.5 + ( - 14.5) * ratio}%`;
+    icon6.style.top = `${14.5 + (0 - 14.5) * ratio}%`;
 
     heart1.style.left = `${10.5 + (41 - 10.5) * ratio}%`;
     heart1.style.top = `${14 + (10.5 - 14) * ratio}%`;
 
     heart2.style.right = `${18 + (39 - 18) * ratio}%`;
+    heart2.style.bottom = `${31 + (35 - 31) * ratio}%`;
   }
 }
 
