@@ -1,68 +1,8 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   const leftBlock = document.querySelector('.scroll-down');
-//   const rightBlock = document.querySelector('.scroll-up');
-
-//   const speed = 0.7;
-//   let direction = 1;
-//   let leftPos = 0;
-//   let rightPos = 0;
-
-//   let isVertical = window.innerWidth > 975;
-
-//   function updateDirectionByWidth() {
-//     isVertical = window.innerWidth > 975;
-
-//     leftBlock.style.flexDirection = isVertical ? 'column' : 'row';
-//     rightBlock.style.flexDirection = isVertical ? 'column' : 'row';
-//   }
-
-//   window.addEventListener('resize', updateDirectionByWidth);
-//   updateDirectionByWidth();
-
-//   function animate() {
-//     if (!leftBlock || !rightBlock) return;
-
-//     if (isVertical) {
-//       leftPos += speed * direction;
-//       rightPos -= speed * direction;
-
-//       const lh = leftBlock.scrollHeight;
-//       const rh = rightBlock.scrollHeight;
-
-//       if (leftPos >= lh) leftPos = 0;
-//       if (rightPos >= rh) rightPos = 0;
-
-//       leftBlock.style.transform = `translateY(${-leftPos}px)`;
-//       rightBlock.style.transform = `translateY(${-rightPos}px)`;
-//     } else {
-//       leftPos += speed * direction;
-//       rightPos -= speed * direction;
-
-//       const lw = leftBlock.scrollWidth;
-//       const rw = rightBlock.scrollWidth;
-
-//       if (leftPos >= lw) leftPos = 0;
-//       if (rightPos >= rw) rightPos = 0;
-
-//       leftBlock.style.transform = `translateX(${-leftPos}px)`;
-//       rightBlock.style.transform = `translateX(${-rightPos}px)`;
-//     }
-
-//     requestAnimationFrame(animate);
-//   }
-
-//   animate();
-
-//   setInterval(() => {
-//     direction *= -1;
-//   }, 15000);
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
   const leftBlock = document.querySelector('.scroll-down');
   const rightBlock = document.querySelector('.scroll-up');
 
-  const speed = 0.7;
+  const speed = 0.6;
   let direction = 1;
   let leftPos = 0;
   let rightPos = 0;
