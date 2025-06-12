@@ -2333,7 +2333,7 @@ body.lock {
     padding-bottom: 16px;
     border-bottom: 1px solid rgba(61, 32, 80, 0.0705882353);
   }
-  .address-mobile.active .icon {
+  .address-mobile.active .icon svg {
     transform: rotate(180deg);
     transition: 0.3s ease;
   }
@@ -2483,6 +2483,7 @@ body.lock {
   border-radius: 0;
   max-width: none;
   margin: 0 0 100px 0;
+  overflow: visible;
 }
 .block8 .container-card .card-container__card {
   cursor: pointer;
@@ -2672,6 +2673,9 @@ body.lock {
   }
 }
 @media (max-width: 750px) {
+  .block8 .container-card .card-container__card .content .text-container {
+    padding: 0;
+  }
   .block8 .container-card .card-container__card .card__image {
     border-radius: 16px;
   }
