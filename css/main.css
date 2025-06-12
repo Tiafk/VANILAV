@@ -528,8 +528,11 @@ body.lock {
     min-height: clamp(812px, 70vw, 1020px);
     max-height: none;
   }
+  .wrappepr-main-p {
+    padding: 0 !important;
+  }
   .main-p .text-container {
-    margin-bottom: 52px;
+    margin-bottom: clamp(33px, 8vw, 52px);
   }
   .main-p .line2 {
     display: none;
@@ -549,6 +552,8 @@ body.lock {
   }
   .main-p .wrapper-absolute-img {
     flex-direction: column;
+    padding: 0;
+    gap: clamp(8.5px, 2vw, 24px);
   }
   .main-p .absolute-img-container {
     flex-direction: row;
@@ -557,9 +562,6 @@ body.lock {
   }
   .main-p .absolute-img-container .icon img {
     width: auto;
-  }
-  .main-p .wrapper-absolute-img {
-    padding: 0;
   }
   .main-p .wrappepr-main-p {
     margin-bottom: 70.75px;
@@ -582,16 +584,22 @@ body.lock {
     max-height: auto;
     overflow: visible;
   }
-  .absolute-img-container {
+  .main-p .absolute-img-container {
     flex-direction: row;
     height: auto;
     max-width: none;
-    gap: 16px;
+    gap: clamp(8px, 2vw, 24px);
     animation: none !important; /* отключаем вертикальную анимацию на мобиле */
   }
   .main-p .absolute-img-container .icon {
     width: clamp(120px, 25vw, 320px);
     height: clamp(131px, 25vw, 350px);
+  }
+  .scroll-down {
+    align-self: end !important;
+  }
+  .scroll-up {
+    align-self: start !important;
   }
 }
 .scroll-down {

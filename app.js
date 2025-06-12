@@ -58,6 +58,36 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 15000);
 });
 
+function animate() {
+  if (isVertical) {
+    leftPos += speed * direction;
+    rightPos -= speed * direction;
+
+    const lh = leftBlock.scrollHeight / 2;
+    const rh = rightBlock.scrollHeight / 2;
+
+    if (leftPos >= lh || leftPos <= -lh) leftPos = 0;
+    if (rightPos >= rh || rightPos <= -rh) rightPos = 0;
+
+    leftBlock.style.transform = `translateY(${-leftPos}px)`;
+    rightBlock.style.transform = `translateY(${-rightPos}px)`;
+  } else {
+    leftPos += speed * direction;
+    rightPos -= speed * direction;
+
+    const lw = leftBlock.scrollWidth / 2;
+    const rw = rightBlock.scrollWidth / 2;
+
+    if (leftPos >= lw || leftPos <= -lw) leftPos = 0;
+    if (rightPos >= rw || rightPos <= -rw) rightPos = 0;
+
+    leftBlock.style.transform = `translateX(${-leftPos}px)`;
+    rightBlock.style.transform = `translateX(${-rightPos}px)`;
+  }
+
+  requestAnimationFrame(animate);
+}
+
 // паралакс
 window.addEventListener('load', () => {
   const container2 = document.querySelector('.block2');
