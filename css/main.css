@@ -275,9 +275,9 @@ body.lock {
   bottom: 63px;
   left: 0;
   width: 100%;
-  height: 58px;
+  height: 80px;
   background: #823F91;
-  background: linear-gradient(0deg, rgb(130, 63, 145) 0%, rgba(130, 63, 145, 0.55) 47%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(0deg, rgb(130, 63, 145) 0%, rgba(130, 63, 145, 0.6) 39%, rgba(255, 255, 255, 0) 100%);
   z-index: 6;
 }
 .main-p .text-container {
@@ -504,7 +504,7 @@ body.lock {
 }
 @media (max-width: 1400px) {
   .marquee-wrapper {
-    min-height: 40px;
+    min-height: auto !important;
   }
   .main-p .absolute-img-container .icon {
     max-width: clamp(120px, 25vw, 320px);
@@ -525,6 +525,9 @@ body.lock {
   }
 }
 @media (max-width: 975px) {
+  .shadow-bot {
+    display: none;
+  }
   .main-p {
     height: auto;
     justify-content: space-between;
