@@ -1,3 +1,63 @@
+// document.addEventListener("DOMContentLoaded", () => {
+//   const leftBlock = document.querySelector('.scroll-down');
+//   const rightBlock = document.querySelector('.scroll-up');
+
+//   const speed = 0.7;
+//   let direction = 1;
+//   let leftPos = 0;
+//   let rightPos = 0;
+
+//   let isVertical = window.innerWidth > 975;
+
+//   function updateDirectionByWidth() {
+//     isVertical = window.innerWidth > 975;
+
+//     leftBlock.style.flexDirection = isVertical ? 'column' : 'row';
+//     rightBlock.style.flexDirection = isVertical ? 'column' : 'row';
+//   }
+
+//   window.addEventListener('resize', updateDirectionByWidth);
+//   updateDirectionByWidth();
+
+//   function animate() {
+//     if (!leftBlock || !rightBlock) return;
+
+//     if (isVertical) {
+//       leftPos += speed * direction;
+//       rightPos -= speed * direction;
+
+//       const lh = leftBlock.scrollHeight;
+//       const rh = rightBlock.scrollHeight;
+
+//       if (leftPos >= lh) leftPos = 0;
+//       if (rightPos >= rh) rightPos = 0;
+
+//       leftBlock.style.transform = `translateY(${-leftPos}px)`;
+//       rightBlock.style.transform = `translateY(${-rightPos}px)`;
+//     } else {
+//       leftPos += speed * direction;
+//       rightPos -= speed * direction;
+
+//       const lw = leftBlock.scrollWidth;
+//       const rw = rightBlock.scrollWidth;
+
+//       if (leftPos >= lw) leftPos = 0;
+//       if (rightPos >= rw) rightPos = 0;
+
+//       leftBlock.style.transform = `translateX(${-leftPos}px)`;
+//       rightBlock.style.transform = `translateX(${-rightPos}px)`;
+//     }
+
+//     requestAnimationFrame(animate);
+//   }
+
+//   animate();
+
+//   setInterval(() => {
+//     direction *= -1;
+//   }, 15000);
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
   const leftBlock = document.querySelector('.scroll-down');
   const rightBlock = document.querySelector('.scroll-up');
@@ -9,6 +69,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let isVertical = window.innerWidth > 975;
 
+  // Список URL картинок для примера
+  const imagesLeft = [
+    './img/main/5.webp',
+    './img/main/3.webp',
+    './img/main/E.webp',
+    './img/main/B.webp',
+    './img/main/F.webp',
+  ];
+  const imagesRight = [
+    './img/main/2.webp',
+    './img/main/7.webp',
+    './img/main/D.webp',
+    './img/main/A.webp',
+    './img/main/C.webp'
+  ];
+
+  function renderImages(block, images) {
+    block.innerHTML = ''; // очищаем
+
+    images.forEach(src => {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('icon');
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.style.userSelect = 'none';
+      img.style.pointerEvents = 'none';
+      img.style.flexShrink = '0';
+
+      wrapper.appendChild(img);
+      block.appendChild(wrapper);
+    });
+
+    // Дублируем для бесшовного эффекта
+    images.forEach(src => {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('icon');
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.style.userSelect = 'none';
+      img.style.pointerEvents = 'none';
+      img.style.flexShrink = '0';
+
+      wrapper.appendChild(img);
+      block.appendChild(wrapper);
+    });
+  }
+
   function updateDirectionByWidth() {
     isVertical = window.innerWidth > 975;
 
@@ -16,8 +125,13 @@ document.addEventListener("DOMContentLoaded", () => {
     rightBlock.style.flexDirection = isVertical ? 'column' : 'row';
   }
 
-  window.addEventListener('resize', updateDirectionByWidth);
+  renderImages(leftBlock, imagesLeft);
+  renderImages(rightBlock, imagesRight);
+
   updateDirectionByWidth();
+  window.addEventListener('resize', () => {
+    updateDirectionByWidth();
+  });
 
   function animate() {
     if (!leftBlock || !rightBlock) return;
@@ -26,8 +140,8 @@ document.addEventListener("DOMContentLoaded", () => {
       leftPos += speed * direction;
       rightPos -= speed * direction;
 
-      const lh = leftBlock.scrollHeight;
-      const rh = rightBlock.scrollHeight;
+      const lh = leftBlock.scrollHeight / 2;
+      const rh = rightBlock.scrollHeight / 2;
 
       if (leftPos >= lh) leftPos = 0;
       if (rightPos >= rh) rightPos = 0;
@@ -38,8 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
       leftPos += speed * direction;
       rightPos -= speed * direction;
 
-      const lw = leftBlock.scrollWidth;
-      const rw = rightBlock.scrollWidth;
+      const lw = leftBlock.scrollWidth / 2;
+      const rw = rightBlock.scrollWidth / 2;
 
       if (leftPos >= lw) leftPos = 0;
       if (rightPos >= rw) rightPos = 0;
@@ -57,6 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
     direction *= -1;
   }, 15000);
 });
+
 
 
 // паралакс

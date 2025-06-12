@@ -144,11 +144,12 @@
             img {
                 display: flex;
                 min-width: 100%;
+                max-width: 100%;
                 min-height: 350px;
             }
         }
 
-        .icon2 {
+        .icon:nth-child(2) {
             padding-bottom: 7em;
         }
     }
@@ -297,6 +298,9 @@
 }
 
 @media (max-width:1400px) {
+    .main-p .absolute-img-container .icon:nth-child(2) {
+        padding: 0;
+    }
     .marquee-wrapper {
         min-height: auto !important;
     }
@@ -322,6 +326,9 @@
 }
 
 @media (max-width: 975px) {
+    .main-p .absolute-img-container .icon:nth-child(2) {
+        padding-bottom: 4em;
+    }
     .main-p .wrapper-mobile-img .shadow-bot {
         display: block;
     }
