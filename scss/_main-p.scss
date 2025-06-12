@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     min-height: 1020px;
     max-height: 1020px;
     background-color: #823F91;
@@ -420,6 +420,16 @@
 }
 .scroll-up {
     align-self: end;
+}
+
+.scroll-down,
+.scroll-up {
+  display: flex;
+  flex-direction: column; /* или row для горизонтали, будет переопределено скриптом */
+  flex-wrap: nowrap;
+  overflow: hidden;
+  position: relative;
+  flex: 1 1 auto;
 }
 
 .absolute-img-container.vertical {
