@@ -1123,7 +1123,7 @@ body.lock {
     transition: none;
   }
   .block1 .wrapper-con .container1 p {
-    z-index: 100;
+    z-index: 10;
     margin: 0;
   }
   .block1 .wrapper-con .container1 .bg-img {
