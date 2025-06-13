@@ -404,13 +404,16 @@ body.lock {
 .main-p .absolute-img-container {
   position: relative;
   display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: 320px;
   height: 100%;
-  gap: 24px;
   will-change: transform;
   transition: transform 0.1s ease-out;
+}
+.main-p .absolute-img-container .track {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 .main-p .absolute-img-container .icon {
   display: flex;
@@ -460,6 +463,7 @@ body.lock {
 
 .marquee-wrapper {
   position: absolute;
+  display: flex;
   bottom: 0;
   left: 0;
   overflow: hidden;
@@ -501,14 +505,6 @@ body.lock {
   margin: 0 18px !important;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 @media (max-width: 730px) {
   .marquee-item {
     font-size: 16px;
@@ -663,16 +659,19 @@ body.lock {
     padding: clamp(11px, 2vw, 19px) 0 !important;
   }
   .wrapper-absolute-img {
-    flex-direction: row;
+    flex-direction: column;
     max-height: auto;
     overflow: visible;
+    gap: clamp(8px, 2vw, 24px);
   }
   .main-p .absolute-img-container {
     flex-direction: row;
     height: auto;
     max-width: none;
-    gap: clamp(8px, 2vw, 24px);
     animation: none !important; /* отключаем вертикальную анимацию на мобиле */
+  }
+  .main-p .absolute-img-container .track {
+    gap: clamp(8px, 2vw, 24px);
   }
   .main-p .absolute-img-container .icon {
     width: clamp(120px, 25vw, 320px);

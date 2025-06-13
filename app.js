@@ -1,110 +1,73 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const leftBlock = document.querySelector('.scroll-down');
-  const rightBlock = document.querySelector('.scroll-up');
+      const imagesLeft = [
+        './img/main/5.webp', './img/main/3.webp', './img/main/E.webp',
+        './img/main/B.webp', './img/main/F.webp'
+      ];
+      const imagesRight = [
+        './img/main/2.webp', './img/main/7.webp', './img/main/D.webp',
+        './img/main/A.webp', './img/main/C.webp'
+      ];
 
-  const speed = 0.5;
-  let isVertical = window.innerWidth > 1250;
+      function initMarquee(containerSelector, images, directionBase) {
+        const container = document.querySelector(containerSelector);
+        const track = container.querySelector('.track');
+        let position = 0;
+        let direction = directionBase;
+        const speed = 0.5;
 
-  const imagesLeft = [
-    './img/main/5.webp',
-    './img/main/3.webp',
-    './img/main/E.webp',
-    './img/main/B.webp',
-    './img/main/F.webp',
-  ];
-  const imagesRight = [
-    './img/main/2.webp',
-    './img/main/7.webp',
-    './img/main/D.webp',
-    './img/main/A.webp',
-    './img/main/C.webp'
-  ];
+        function render() {
+          const isVertical = window.innerWidth > 1250;
+          direction = isVertical ? directionBase : (directionBase === 'up' ? 'left' : 'right');
+          track.innerHTML = '';
 
-  function renderImages(block, images) {
-    block.innerHTML = '';
-    for (let i = 0; i < 2; i++) {
-      images.forEach(src => {
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('icon');
+          const fragment = document.createDocumentFragment();
+          for (let i = 0; i < 2; i++) {
+            images.forEach(src => {
+              const div = document.createElement('div');
+              div.classList.add('icon');
+              const img = document.createElement('img');
+              img.src = src;
+              img.draggable = false;
+              div.appendChild(img);
+              fragment.appendChild(div);
+            });
+          }
+          track.appendChild(fragment);
 
-        const img = document.createElement('img');
-        img.src = src;
-        img.style.userSelect = 'none';
-        img.style.pointerEvents = 'none';
-        img.style.flexShrink = '0';
+          // Set proper direction styles
+          track.style.flexDirection = isVertical ? 'column' : 'row';
+          container.style.flexDirection = isVertical ? 'column' : 'row';
+        }
 
-        wrapper.appendChild(img);
-        block.appendChild(wrapper);
-      });
-    }
-  }
+        function animate() {
+          const isVertical = window.innerWidth > 1250;
+          const sign = (direction === 'up' || direction === 'left') ? -1 : 1;
+          position += sign * speed;
 
-  function updateLayout() {
-    isVertical = window.innerWidth > 1250;
+          const size = isVertical ? track.scrollHeight / 2 : track.scrollWidth / 2;
+          if (Math.abs(position) >= size) position = 0;
 
-    leftBlock.style.flexDirection = isVertical ? 'column' : 'row';
-    rightBlock.style.flexDirection = isVertical ? 'column' : 'row';
+          track.style.transform = isVertical
+            ? `translateY(${position}px)`
+            : `translateX(${position}px)`;
 
-    // Сброс позиции (важно при ресайзе)
-    leftBlock.style.transform = `translate(0, 0)`;
-    rightBlock.style.transform = `translate(0, 0)`;
-  }
+          requestAnimationFrame(animate);
+        }
 
-  renderImages(leftBlock, imagesLeft);
-  renderImages(rightBlock, imagesRight);
-  updateLayout();
+        render();
+        animate();
 
-  window.addEventListener('resize', updateLayout);
+        window.addEventListener('resize', () => {
+          position = 0;
+          render();
+        });
+      }
 
-  let leftOffset = 0;
-  let rightOffset = 0;
-
-  function animate() {
-  if (!leftBlock || !rightBlock) return;
-
-  const direction = isVertical ? 'Y' : 'X';
-  const speedVal = speed;
-  
-  if (isVertical) {
-    leftOffset -= speedVal;
-    rightOffset += speedVal;
-
-    const leftResetPoint = leftBlock.scrollHeight / 2;
-    const rightResetPoint = rightBlock.scrollHeight / 2;
-
-    if (Math.abs(leftOffset) >= leftResetPoint) {
-      leftOffset = 0;
-    }
-    if (rightOffset >= rightResetPoint) {
-      rightOffset = 0;
-    }
-
-    leftBlock.style.transform = `translateY(${leftOffset}px)`;
-    rightBlock.style.transform = `translateY(${rightOffset}px)`;
-  } else {
-    leftOffset -= speedVal;
-    rightOffset += speedVal;
-
-    const leftResetPoint = leftBlock.scrollWidth / 2;
-    const rightResetPoint = rightBlock.scrollWidth / 2;
-
-    if (Math.abs(leftOffset) >= leftResetPoint) {
-      leftOffset = 0;
-    }
-    if (rightOffset >= rightResetPoint) {
-      rightOffset = 0;
-    }
-
-    leftBlock.style.transform = `translateX(${leftOffset}px)`;
-    rightBlock.style.transform = `translateX(${rightOffset}px)`;
-  }
-
-  requestAnimationFrame(animate);
-}
+      initMarquee('.scroll-down', imagesLeft, 'up');
+      initMarquee('.scroll-up', imagesRight, 'down');
+    });
 
 
-  animate();
-});
 
 
 //scroll
@@ -126,22 +89,21 @@ window.addEventListener("scroll", () => {
 // паралакс
 window.addEventListener('load', () => {
   const container2 = document.querySelector('.block2');
-
   const icons2 = container2?.querySelectorAll('.parallax-img .img-icon') || [];
 
   if (!container2 || icons2.length === 0) return;
 
-  // Индивидуальные глубины для второго блока
+  // Глубины: меньшая глубина → больше движение (ближе к переднему плану)
   const depths2 = {
-    icon1: 20,
-    icon2: 15,
-    icon3: 13,
+    icon1: 8,   // передний план
+    icon2: 10,
+    icon3: 12,
     icon4: 16,
-    icon5: 16,
-    icon6: 20,
-    icon7: 15,
-    icon8: 17,
-    icon9: 13,
+    icon5: 20,
+    icon6: 25,
+    icon7: 30,
+    icon8: 35,
+    icon9: 40  // задний план
   };
 
   function initParallax(container, icons, depths) {
@@ -170,7 +132,7 @@ window.addEventListener('load', () => {
 
       for (const className in iconStates) {
         const { element, baseTransform } = iconStates[className];
-        const depth = depths[className] || 30;
+        const depth = depths[className] || 20;
         const tx = posX / depth;
         const ty = posY / depth;
         element.style.transform = `translate(${tx}px, ${ty}px) ${baseTransform}`;
@@ -179,17 +141,49 @@ window.addEventListener('load', () => {
       requestAnimationFrame(animate);
     }
 
-    container.addEventListener('mousemove', e => {
-      const rect = container.getBoundingClientRect();
-      mouseX = e.clientX - rect.left - rect.width / 2;
-      mouseY = e.clientY - rect.top - rect.height / 2;
-    });
+    const enableMouseParallax = () => {
+      container.addEventListener('mousemove', e => {
+        const rect = container.getBoundingClientRect();
+        mouseX = e.clientX - rect.left - rect.width / 2;
+        mouseY = e.clientY - rect.top - rect.height / 2;
+      });
+    };
+
+    const enableGyroParallax = () => {
+      const handleOrientation = event => {
+        const tiltX = event.gamma || 0;
+        const tiltY = event.beta || 0;
+        mouseX = tiltX * 10;
+        mouseY = tiltY * 10;
+      };
+
+      if (typeof DeviceOrientationEvent?.requestPermission === 'function') {
+        // iOS: запрашиваем разрешение
+        DeviceOrientationEvent.requestPermission()
+          .then(state => {
+            if (state === 'granted') {
+              window.addEventListener('deviceorientation', handleOrientation);
+            }
+          })
+          .catch(console.error);
+      } else {
+        // Android и старые iOS
+        window.addEventListener('deviceorientation', handleOrientation);
+      }
+    };
+
+    if (window.matchMedia('(pointer: fine)').matches) {
+      enableMouseParallax(); // Десктоп
+    } else {
+      enableGyroParallax(); // Мобильные
+    }
 
     animate();
   }
 
   initParallax(container2, icons2, depths2);
 });
+
 
 // отступы % 1900px - 1440px
 function updateIconPosition() {
@@ -302,7 +296,7 @@ function fillMarquee() {
     totalWidth = marquee.scrollWidth;
   }
 
-  const speed = 300; // px/sec
+  const speed = 200; // px/sec
   const duration = totalWidth / speed;
   marquee.style.animationDuration = `${duration}s`;
 }
