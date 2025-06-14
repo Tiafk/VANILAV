@@ -65,13 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       initMarquee('.scroll-down', imagesLeft, 'up');
       initMarquee('.scroll-up', imagesRight, 'down');
-    });
-
-
-
+});
 
 //scroll
-
 window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
     const shadowTop = document.querySelector(".shadow-top");
@@ -83,8 +79,7 @@ window.addEventListener("scroll", () => {
       header.classList.remove("scrolled");
       if (shadowTop) shadowTop.style.display = "block";
     }
-  });
-
+});
 
 // паралакс
 window.addEventListener('load', () => {
@@ -184,7 +179,6 @@ window.addEventListener('load', () => {
   initParallax(container2, icons2, depths2);
 });
 
-
 // отступы % 1900px - 1440px
 function updateIconPosition() {
   const icon2 = document.querySelector('.block2 .wrapper-img .icon2');
@@ -249,7 +243,6 @@ function updateIconPosition() {
 window.addEventListener('resize', updateIconPosition);
 window.addEventListener('DOMContentLoaded', updateIconPosition);
 
-
 // Бегущая строка
 const phrases = [
     "все будет фиолетово",
@@ -260,11 +253,11 @@ const phrases = [
     "сделано в ванлав",
     "все будет фиолетово",
     "ванлав"
-  ];
+];
 
-  const marquee = document.querySelector(".marquee");
+const marquee = document.querySelector(".marquee");
 
-  function createPhraseWithDot(text, isLast = false, nextText = "") {
+function createPhraseWithDot(text, isLast = false, nextText = "") {
   const wrapper = document.createElement("span");
   wrapper.classList.add("marquee-item");
   // Если это последний элемент ИЛИ следующая фраза совпадает — точки не ставим
@@ -301,8 +294,8 @@ function fillMarquee() {
   marquee.style.animationDuration = `${duration}s`;
 }
 
-  window.addEventListener("load", fillMarquee);
-  window.addEventListener("resize", fillMarquee);
+window.addEventListener("load", fillMarquee);
+window.addEventListener("resize", fillMarquee);
 
 
 // блок 7 адресса
@@ -479,8 +472,6 @@ window.addEventListener("load", () => {
   }
 });
 
-
-
 //блок8
 document.addEventListener('DOMContentLoaded', () => {
   let swiper2 = null;
@@ -570,9 +561,7 @@ if (document.querySelector('.header__burger-menu_button')) {
   });
 }
 
-
 //popup
-
 document.addEventListener('DOMContentLoaded', function () {
   const phoneInputs = document.querySelectorAll('.phone-input');
 
@@ -715,7 +704,6 @@ overlay.addEventListener('click', () => {
   if (content) content.classList.remove('lock');
 });
 
-  
 //анимации блоков
 document.addEventListener("DOMContentLoaded", function () {
   const blocks = document.querySelectorAll(".block2, .block3, .block4, .block5, .block6, .block7, .block8");
@@ -739,9 +727,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
 //кондитерская
-
 document.getElementById('goBackBtn').addEventListener('click', function () {
   if (document.referrer === "") {
     window.location.href = "index.html";
