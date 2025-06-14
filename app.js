@@ -388,7 +388,7 @@ function initMobileSlider(index, container) {
   mobileSwiper = new Swiper(container.parentElement, {
     loop: true,
     spaceBetween: 10,
-    slidesPerView: 1.4
+    slidesPerView: 'auto'
   });
 
   container.parentElement.style.display = "block";
@@ -493,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loop: true,
         breakpoints: {
       0: {
-        slidesPerView: 1.6,
+        slidesPerView: 1.35,
         spaceBetween: 16
       },
       551: {

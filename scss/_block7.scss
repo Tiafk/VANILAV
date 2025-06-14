@@ -139,6 +139,7 @@
 }
 .swiper {
   user-select: none;
+  overflow: visible;
 }
 /* Специфическая разметка */
 .gallery img:nth-child(1) {
@@ -354,6 +355,7 @@
 }
 @media (max-width:560px) {
   .block7  .swiper-slide {
+    min-width: 265px;
     min-height: 353px;
     img {
       height: 100%;
