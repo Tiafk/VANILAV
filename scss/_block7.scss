@@ -139,7 +139,6 @@
 }
 .swiper {
   user-select: none;
-  overflow: visible;
 }
 /* Специфическая разметка */
 .gallery img:nth-child(1) {
@@ -328,6 +327,13 @@
   }
   #mobileSliderContainer {
     display: none !important;
+  }
+}
+@media (max-width:750px) {
+  .mobile-slider-container {
+    .swiper {
+      overflow: visible;
+    }
   }
 }
 @media (max-width: 768px) {

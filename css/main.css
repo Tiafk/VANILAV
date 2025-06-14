@@ -2428,7 +2428,6 @@ body.lock {
 
 .swiper {
   user-select: none;
-  overflow: visible;
 }
 
 /* Специфическая разметка */
@@ -2599,6 +2598,11 @@ body.lock {
   }
   #mobileSliderContainer {
     display: none !important;
+  }
+}
+@media (max-width: 750px) {
+  .mobile-slider-container .swiper {
+    overflow: visible;
   }
 }
 @media (max-width: 768px) {
