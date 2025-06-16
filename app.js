@@ -301,14 +301,14 @@ window.addEventListener('DOMContentLoaded', updateIconPosition);
 
 // Бегущая строка
 const phrases = [
-    "все будет фиолетово",
-    "сделано в ванлав",
-    "все будет фиолетово",
-    "сделано в ванлав",
-    "все будет фиолетово",
-    "сделано в ванлав",
-    "все будет фиолетово",
-    "ванлав"
+  "все будет фиолетово",
+  "сделано в ванлав",
+  "все будет фиолетово",
+  "сделано в ванлав",
+  "все будет фиолетово",
+  "сделано в ванлав",
+  "все будет фиолетово",
+  "ванлав"
 ];
 
 const marquee = document.querySelector(".marquee");
@@ -316,7 +316,6 @@ const marquee = document.querySelector(".marquee");
 function createPhraseWithDot(text, isLast = false, nextText = "") {
   const wrapper = document.createElement("span");
   wrapper.classList.add("marquee-item");
-  // Если это последний элемент ИЛИ следующая фраза совпадает — точки не ставим
   const shouldAddDot = !isLast && text !== nextText;
   wrapper.innerHTML = shouldAddDot ? `${text} <span class="dot"></span>` : text;
   return wrapper;
@@ -327,7 +326,6 @@ function fillMarquee() {
   if (!marquee || !marquee.parentElement) return;
   marquee.innerHTML = "";
 
-  // Создаём элементы с учетом следующей фразы
   const originalItems = phrases.map((phrase, index) =>
     createPhraseWithDot(phrase, index === phrases.length - 1, phrases[index + 1] || "")
   );
@@ -345,13 +343,15 @@ function fillMarquee() {
     totalWidth = marquee.scrollWidth;
   }
 
-  const speed = 200; // px/sec
-  const duration = totalWidth / speed;
+  // скорость
+  const baseSpeed = window.innerWidth < 1100 ? 80 : 200; 
+  const duration = totalWidth / baseSpeed;
   marquee.style.animationDuration = `${duration}s`;
 }
 
 window.addEventListener("load", fillMarquee);
 window.addEventListener("resize", fillMarquee);
+
 
 
 // блок 7 адресса
