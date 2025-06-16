@@ -2626,6 +2626,12 @@ body.lock {
   .mobile-slider-container .swiper {
     overflow: visible;
   }
+  .block8 .swiper-slide {
+    border-radius: 0;
+  }
+  .block8 .swiper-slide .card-container__card {
+    border-radius: 0 !important;
+  }
 }
 @media (max-width: 768px) {
   .address-mobile p {

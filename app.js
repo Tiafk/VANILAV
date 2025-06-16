@@ -540,11 +540,11 @@ document.addEventListener('DOMContentLoaded', () => {
         loop: true,
         breakpoints: {
       0: {
-        slidesPerView: 1.35,
+        slidesPerView: 'auto',
         spaceBetween: 16
       },
       551: {
-        slidesPerView: 2.5,
+        slidesPerView: 'auto',
       },
       820: {
         slidesPerView: 'auto',

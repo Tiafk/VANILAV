@@ -341,6 +341,13 @@
       overflow: visible;
     }
   }
+  .block8 .swiper-slide {
+    border-radius: 0;
+
+    .card-container__card {
+      border-radius: 0 !important;
+    }
+  }
 }
 @media (max-width: 768px) {
   .address-mobile p {
