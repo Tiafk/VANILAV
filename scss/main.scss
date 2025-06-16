@@ -20,7 +20,6 @@
     box-sizing: border-box;
 }
 
-// .block1,
 .block2,
 .block3,
 .block4,
@@ -33,7 +32,24 @@
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.visible {
+.block2.visible,
+.block3.visible,
+.block4.visible,
+.block5.visible,
+.block6.visible,
+.block7.visible,
+.block8.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.block2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.3s ease; /* ускорено */
+}
+
+.block2.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -73,7 +89,6 @@
 }
 
 @media (max-width:1070px) {
-    // .block1,
     .block2,
     .block3,
     .block4,

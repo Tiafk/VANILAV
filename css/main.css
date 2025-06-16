@@ -290,8 +290,8 @@ body.lock {
   align-items: center;
   width: 100%;
   height: 100vh;
-  min-height: 1020px;
-  max-height: 1020px;
+  min-height: 950px;
+  max-height: 1080px;
   background-color: #823F91;
   overflow: hidden;
 }
@@ -384,6 +384,7 @@ body.lock {
   margin-top: 6px;
   padding: 10px 26px;
   transition: 0.3s ease;
+  margin-top: 20px;
 }
 .main-p .text-container .btn:hover {
   background-color: #F2E1F0;
@@ -3034,6 +3035,9 @@ body.lock {
   align-items: center;
   gap: 26px;
 }
+.footer .footer__wrapper .top .contacts .wrap-2 .icon-container .icon {
+  cursor: pointer;
+}
 .footer .footer__wrapper .bot {
   display: flex;
   align-items: center;
@@ -3584,7 +3588,24 @@ textarea {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.visible {
+.block2.visible,
+.block3.visible,
+.block4.visible,
+.block5.visible,
+.block6.visible,
+.block7.visible,
+.block8.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.block2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.3s ease; /* ускорено */
+}
+
+.block2.visible {
   opacity: 1;
   transform: translateY(0);
 }
