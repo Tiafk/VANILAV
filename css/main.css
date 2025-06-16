@@ -497,7 +497,6 @@ body.lock {
 
 .marquee-item {
   display: inline-block;
-  margin-right: 0.5rem;
   font-size: 20px;
   font-weight: 500 !important;
   color: #9d59aa;
@@ -508,6 +507,8 @@ body.lock {
 
 .dot {
   display: inline-block;
+  align-items: center;
+  align-content: center;
   color: #9d59aa;
   font-weight: bold;
   font-size: 1.2rem;
