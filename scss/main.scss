@@ -32,6 +32,10 @@
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+a {
+    text-decoration: none;
+}
+
 .block2.visible,
 .block3.visible,
 .block4.visible,

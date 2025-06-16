@@ -582,14 +582,14 @@ const body = document.querySelector('body');
 const overlay = document.querySelector('.overlay');
 
 if (document.querySelector('.header__burger-menu_button')) {
-  let burgerBtn = document.querySelector('.header__burger-menu_button');
-  let burgerMenu = document.querySelector('.navigation');
-  
+  const burgerBtn = document.querySelector('.header__burger-menu_button');
+  const burgerMenu = document.querySelector('.navigation');
+
   burgerBtn.addEventListener('click', function () {
     burgerBtn.classList.toggle('active');
     burgerMenu.classList.toggle('active');
     overlay.classList.toggle('active');
-  
+
     if (burgerMenu.classList.contains('active')) {
       body.classList.add('lock');
       content.classList.add('lock');
@@ -598,24 +598,38 @@ if (document.querySelector('.header__burger-menu_button')) {
       content.classList.remove('lock');
     }
   });
-  
+
+  // Закрытие при клике по <a> внутри меню
+  burgerMenu.addEventListener('click', function (event) {
+    if (event.target.closest('li') || event.target.closest('a')) {
+      burgerMenu.classList.remove('active');
+      burgerBtn.classList.remove('active');
+      overlay.classList.remove('active');
+      body.classList.remove('lock');
+      content.classList.remove('lock');
+    }
+  });
+
+  // Закрытие при клике вне меню и кнопки
   document.addEventListener('click', function (event) {
-    let isClickInsideNavBar = burgerMenu.contains(event.target);
-    let isClickOnBurger = burgerBtn.contains(event.target);
-  
+    const isClickInsideNavBar = burgerMenu.contains(event.target);
+    const isClickOnBurger = burgerBtn.contains(event.target);
+
     if (
       burgerMenu.classList.contains('active') &&
-      !isClickInsideNavBar && 
+      !isClickInsideNavBar &&
       !isClickOnBurger
-      ) {
-        burgerMenu.classList.remove('active');
-        burgerBtn.classList.remove('active');
-        overlay.classList.remove('active');
-        body.classList.remove('lock');
-        content.classList.remove('lock');
-      }
+    ) {
+      burgerMenu.classList.remove('active');
+      burgerBtn.classList.remove('active');
+      overlay.classList.remove('active');
+      body.classList.remove('lock');
+      content.classList.remove('lock');
+    }
   });
 }
+
+
 
 //popup
 document.addEventListener('DOMContentLoaded', function () {
