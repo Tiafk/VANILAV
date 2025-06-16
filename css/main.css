@@ -160,7 +160,7 @@ body.lock {
   .header .wrapper-header .navigation .btn-mob {
     display: flex;
     font-family: "CeraPro-Medium";
-    color: #000;
+    color: #823F91;
     font-weight: 500;
     font-size: 13px;
     line-height: 140%;
@@ -391,6 +391,7 @@ body.lock {
   line-height: 140%;
   text-transform: uppercase;
   background-color: #fff;
+  color: #823F91;
   border: 0;
   border-radius: 100px;
   margin-top: 6px;
