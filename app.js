@@ -191,7 +191,6 @@ const targets4 = [
 ];
 
 if (container4 && window.matchMedia('(pointer: fine)').matches) {
-  // Только для устройств с точным указателем — десктопов
   const iconStates4 = [];
 
   targets4.forEach(({ selector, depth }) => {
@@ -776,7 +775,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     },
     {
-      threshold: 0.10, // 10% блока должно быть видно
+      threshold: 0.10,
     }
   );
 
