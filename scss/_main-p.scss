@@ -203,8 +203,6 @@
 .marquee {
     display: flex;
     white-space: nowrap;
-    font-size: 20px;
-    font-weight: 500;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-name: marquee;
@@ -215,6 +213,7 @@
     display: inline-block;
     margin-right: 0.5rem;
     font-size: 20px;
+    font-weight: 500 !important;
     color: #9d59aa;
     font-weight: bold;
     white-space: nowrap;
