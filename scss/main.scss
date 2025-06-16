@@ -13,6 +13,7 @@
 @import './footer';
 @import './popup';
 @import './confectionery';
+@import './poly';
 
 * {
     margin: 0;
@@ -155,6 +156,13 @@ a {
     src: url('../fonts/Inter_18pt-Medium.ttf');
     font-style: normal;
     font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Inter-Bold';
+    src: url('../fonts/Inter_24pt-Bold.ttf');
+    font-style: normal;
+    font-weight: 700;
 }
 
 

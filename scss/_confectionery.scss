@@ -9,10 +9,12 @@
 }
 
 .confectionery-header {
-    background-color: #8D509B;
+    background-color: #823F91 !important;
     z-index: 100000;
 }
-
+.fz .title h2 {
+    font-size: 32px;
+}
 .header-page {
     position: relative;
     display: flex;

@@ -173,6 +173,9 @@
 }
 
 @media (max-width:1440px) {
+    .block2 {
+        margin: clamp(42px, 8vw, 92px) 0 72px 0;
+    }
     .block2 .wrapper-img .icon7 {
         right: 0;
     }
