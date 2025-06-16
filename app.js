@@ -599,7 +599,7 @@ if (document.querySelector('.header__burger-menu_button')) {
     }
   });
 
-  // Закрытие при клике по <a> внутри меню
+  // Закрытие при клике по <a> || <li> внутри меню
   burgerMenu.addEventListener('click', function (event) {
     if (event.target.closest('li') || event.target.closest('a')) {
       burgerMenu.classList.remove('active');

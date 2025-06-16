@@ -621,7 +621,7 @@ body.lock {
     margin-top: 20px;
   }
   .main-p .text-container .btn {
-    margin-top: 17px;
+    margin-top: clamp(12px, 2vw, 17px);
   }
   .main-p .wrapper-mobile-img {
     display: flex;
