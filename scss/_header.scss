@@ -173,6 +173,15 @@ body.lock {
         top: 0;
         flex-direction: column;
         margin-top: 83px;
+
+        li {
+            align-self: center;
+
+            &:hover {
+                border: 0;
+                transition: none;
+            }
+        }
     }
 
     .header .wrapper-header .navigation .btn-mob {

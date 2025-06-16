@@ -157,6 +157,13 @@ body.lock {
     flex-direction: column;
     margin-top: 83px;
   }
+  .header .wrapper-header .navigation ul li {
+    align-self: center;
+  }
+  .header .wrapper-header .navigation ul li:hover {
+    border: 0;
+    transition: none;
+  }
   .header .wrapper-header .navigation .btn-mob {
     display: flex;
     font-family: "CeraPro-Medium";
