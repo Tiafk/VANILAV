@@ -182,12 +182,12 @@ window.addEventListener('load', () => {
 
   //блок 4
 
-const container4 = document.querySelector('.block4 .img-container');
+const container4 = document.querySelector('.block4');
 const targets4 = [
-  { selector: '.img-wrap', depth: 24 },
-  { selector: '.img-wrap2', depth: 10 },
-  { selector: '.heart-mini', depth: 14 },
-  { selector: '.heart-mini2', depth: 15 },
+  { selector: '.img-wrap', depth: 30 },
+  { selector: '.img-wrap2', depth: 20 },
+  { selector: '.heart-mini', depth: 20 },
+  { selector: '.heart-mini2', depth: 18 },
 ];
 
 if (container4 && window.matchMedia('(pointer: fine)').matches) {
