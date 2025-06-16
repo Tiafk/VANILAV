@@ -181,58 +181,57 @@ window.addEventListener('load', () => {
 
 
   //блок 4
+  const container4 = document.querySelector('.block4');
+  const targets4 = [
+    { selector: '.img-wrap', depth: 30 },
+    { selector: '.img-wrap2', depth: 20 },
+    { selector: '.heart-mini', depth: 15 },
+    { selector: '.heart-mini2', depth: 18 },
+  ];
 
-const container4 = document.querySelector('.block4');
-const targets4 = [
-  { selector: '.img-wrap', depth: 30 },
-  { selector: '.img-wrap2', depth: 20 },
-  { selector: '.heart-mini', depth: 20 },
-  { selector: '.heart-mini2', depth: 18 },
-];
+  if (container4 && window.matchMedia('(pointer: fine)').matches) {
+    const iconStates4 = [];
 
-if (container4 && window.matchMedia('(pointer: fine)').matches) {
-  const iconStates4 = [];
-
-  targets4.forEach(({ selector, depth }) => {
-    const element = container4.querySelector(selector);
-    if (element) {
-      iconStates4.push({
-        element,
-        depth,
-        baseTransform: window.getComputedStyle(element).transform !== 'none'
-          ? window.getComputedStyle(element).transform
-          : '',
-      });
-    }
-  });
-
-  let mouseX4 = 0, mouseY4 = 0;
-  let posX4 = 0, posY4 = 0;
-  const speed4 = 0.05;
-
-  function animateBlock4() {
-    const dx = mouseX4 - posX4;
-    const dy = mouseY4 - posY4;
-    posX4 += dx * speed4;
-    posY4 += dy * speed4;
-
-    iconStates4.forEach(({ element, depth, baseTransform }) => {
-      const tx = posX4 / depth;
-      const ty = posY4 / depth;
-      element.style.transform = `translate(${tx}px, ${ty}px) ${baseTransform}`;
+    targets4.forEach(({ selector, depth }) => {
+      const element = container4.querySelector(selector);
+      if (element) {
+        iconStates4.push({
+          element,
+          depth,
+          baseTransform: window.getComputedStyle(element).transform !== 'none'
+            ? window.getComputedStyle(element).transform
+            : '',
+        });
+      }
     });
 
-    requestAnimationFrame(animateBlock4);
+    let mouseX4 = 0, mouseY4 = 0;
+    let posX4 = 0, posY4 = 0;
+    const speed4 = 0.05;
+
+    function animateBlock4() {
+      const dx = mouseX4 - posX4;
+      const dy = mouseY4 - posY4;
+      posX4 += dx * speed4;
+      posY4 += dy * speed4;
+
+      iconStates4.forEach(({ element, depth, baseTransform }) => {
+        const tx = posX4 / depth;
+        const ty = posY4 / depth;
+        element.style.transform = `translate(${tx}px, ${ty}px) ${baseTransform}`;
+      });
+
+      requestAnimationFrame(animateBlock4);
+    }
+
+    container4.addEventListener('mousemove', e => {
+      const rect = container4.getBoundingClientRect();
+      mouseX4 = e.clientX - rect.left - rect.width / 2;
+      mouseY4 = e.clientY - rect.top - rect.height / 2;
+    });
+
+    animateBlock4();
   }
-
-  container4.addEventListener('mousemove', e => {
-    const rect = container4.getBoundingClientRect();
-    mouseX4 = e.clientX - rect.left - rect.width / 2;
-    mouseY4 = e.clientY - rect.top - rect.height / 2;
-  });
-
-  animateBlock4();
-}
 
 });
 
