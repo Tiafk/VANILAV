@@ -368,6 +368,10 @@ const isSlider = [true, false, false, true, false, true];
 let desktopSwiper = null;
 let mobileSwiper = null;
 
+function isMobileDevice() {
+  return window.matchMedia("(max-width: 1310px)").matches;
+}
+
 function showContent(index) {
   const gallery = document.getElementById("galleryContainer");
   const swiperContainer = document.getElementById("swiperContainer");
@@ -493,8 +497,13 @@ function setupMobileListeners() {
   });
 }
 
+let lastDeviceType = null;
+
 function handleResize() {
-  const isMobile = window.innerWidth <= 1310;
+  const isMobile = isMobileDevice();
+
+  if (lastDeviceType === isMobile) return;
+  lastDeviceType = isMobile;
 
   if (isMobile) {
     document.querySelector(".right-panel")?.style.setProperty("display", "none");
@@ -503,30 +512,28 @@ function handleResize() {
     destroyMobileSlider();
     resetMobileActive();
     setupMobileListeners();
-
-    // Активируем первый адрес по умолчанию
+    
     const firstMobileAddress = document.querySelector(".address-mobile[data-index='0']");
-    if (firstMobileAddress) {
-      firstMobileAddress.click();
-    }
+
+  if (firstMobileAddress) firstMobileAddress.click();
   } else {
     document.querySelector(".right-panel")?.style.setProperty("display", "block");
     document.getElementById("addressListMobile")?.style.setProperty("display", "none");
 
     destroyMobileSlider();
     resetMobileActive();
-
-    showContent(0); // для десктопа тоже по умолчанию первый
+    showContent(0);
   }
 }
 
 window.addEventListener("resize", handleResize);
 window.addEventListener("load", () => {
   handleResize();
-  if (window.innerWidth > 1310) {
+  if (!isMobileDevice()) {
     showContent(0);
   }
 });
+
 
 //блок8
 document.addEventListener('DOMContentLoaded', () => {

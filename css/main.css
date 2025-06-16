@@ -3130,6 +3130,7 @@ body.lock {
   .footer .footer__wrapper .top .top-left .logo .icon {
     display: flex;
     justify-self: center;
+    margin: 0 auto;
     min-width: 176px;
   }
   .footer .footer__wrapper .top .top-left {
