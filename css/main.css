@@ -3821,6 +3821,10 @@ textarea {
   }
 }
 @media (max-width: 720px) {
+  .delivery .img-container .img-wrapper img {
+    width: 100%;
+    height: auto;
+  }
   .delivery .title {
     margin-bottom: 47px !important;
   }
