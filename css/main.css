@@ -3814,6 +3814,12 @@ textarea {
     font-size: clamp(20px, 2vw, 24px);
   }
 }
+@media (max-width: 1300px) {
+  .delivery .img-container .img-wrapper img {
+    width: auto;
+    height: 100%;
+  }
+}
 @media (max-width: 720px) {
   .delivery .title {
     margin-bottom: 47px !important;
@@ -3847,6 +3853,7 @@ textarea {
   }
   .delivery .img-container img {
     height: fit-content;
+    object-fit: contain;
   }
   .delivery .left-block {
     margin-bottom: 71px;
