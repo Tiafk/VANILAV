@@ -3570,7 +3570,7 @@ textarea {
 
 #card-container {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   margin: 32px 0 100px 0;
   width: 100%;
   flex-wrap: wrap;
@@ -3613,6 +3613,11 @@ textarea {
   transition: 0.3s ease;
 }
 
+@media (max-width: 1200px) {
+  #card-container {
+    justify-content: center;
+  }
+}
 @media (max-width: 800px) {
   .location-card {
     width: 343px;

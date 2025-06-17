@@ -60,7 +60,7 @@
 
 #card-container {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     margin: 32px 0 100px 0;
     width: 100%;
     flex-wrap: wrap;
@@ -103,6 +103,12 @@
         border: 1px solid #823F9180;
         background-color: #F9F0F8;
         transition: .3s ease;
+    }
+}
+
+@media (max-width:1200px) {
+    #card-container {
+        justify-content: center;
     }
 }
 
