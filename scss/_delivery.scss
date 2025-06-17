@@ -44,6 +44,13 @@
                 cursor: pointer;
                 text-decoration: none;
                 color: #823F91;
+                border-bottom: 1px solid transparent;
+                transition: .3s ease;
+
+                &:hover {
+                    border-bottom: 1px solid #823F91;
+                    transition: .3s ease;
+                }
                 li {
                     text-decoration: none;
                     list-style-type: none;

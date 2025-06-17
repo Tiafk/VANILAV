@@ -370,6 +370,7 @@ body.lock {
   align-items: start;
   font-family: "CeraPro-Bold";
   margin-bottom: 24px;
+  margin-right: 24px;
   z-index: 10;
 }
 .main-p .text-container h1 {
@@ -580,7 +581,7 @@ body.lock {
 }
 @media (max-width: 1440px) {
   .main-p .text-container h1 {
-    font-size: clamp(44px, 11vw, 90px);
+    font-size: clamp(44px, 6.3vw, 90px);
   }
   .main-p .text-container p {
     font-size: clamp(15px, 2vw, 24px);
@@ -3769,6 +3770,12 @@ textarea {
   cursor: pointer;
   text-decoration: none;
   color: #823F91;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s ease;
+}
+.delivery .left-block .nav-delivery ul a:hover {
+  border-bottom: 1px solid #823F91;
+  transition: 0.3s ease;
 }
 .delivery .left-block .nav-delivery ul a li {
   text-decoration: none;

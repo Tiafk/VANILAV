@@ -70,6 +70,7 @@
         align-items: start;
         font-family: 'CeraPro-Bold';
         margin-bottom: 24px;
+        margin-right: 24px;
         z-index: 10;
 
         h1 {
@@ -286,7 +287,7 @@
 }
 @media (max-width:1440px) {
     .main-p .text-container h1 {
-        font-size: clamp(44px,11vw,90px);
+        font-size: clamp(44px,6.3vw,90px);
     }
 
     .main-p .text-container p {

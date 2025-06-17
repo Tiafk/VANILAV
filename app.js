@@ -317,7 +317,7 @@ function createPhraseWithDot(text, isLast = false, nextText = "") {
   const wrapper = document.createElement("span");
   wrapper.classList.add("marquee-item");
   const shouldAddDot = !isLast && text !== nextText;
-  wrapper.innerHTML = shouldAddDot ? `${text} <span class="dot"></span>` : text;
+  wrapper.innerHTML = shouldAddDot ? `${text} <span class="dot"></span>` : `${text} <span class="dot"></span>`;
   return wrapper;
 }
 
