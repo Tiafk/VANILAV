@@ -2732,8 +2732,10 @@ body.lock {
   flex-direction: column;
   justify-content: end;
   width: 100%;
+  max-height: 180px;
+  overflow: hidden;
+  transition: 0.8s ease;
   z-index: 10;
-  transition: 0.4s ease;
 }
 .block8 .container-card .card-container__card .content .text-container {
   display: flex;
@@ -2762,26 +2764,25 @@ body.lock {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
   overflow: visible;
 }
 .block8 .container-card .card-container__card .content:hover {
-  transition: 0.4s ease;
-  max-height: 70%;
+  max-height: 320px;
+  transition: 0.8s ease;
 }
 .block8 .container-card .card-container__card .content:hover .dropdown-text {
   overflow: visible;
   height: auto;
-  max-height: 100%;
+  max-height: 200px;
   opacity: 1;
-  transition: 0.4s ease;
+  transition: 0.5s ease;
 }
 .block8 .container-card .card-container__card .shadow {
   position: absolute;
   bottom: 0;
   width: 200%;
   height: 55%;
-  filter: blur(2px);
   background: linear-gradient(to top, rgb(130, 63, 145) 40%, rgba(130, 63, 145, 0) 100%);
   transition: 0.4s ease;
   z-index: 2;
