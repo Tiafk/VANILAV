@@ -23,6 +23,7 @@
             position: relative;
             display: flex;
             align-items: end;
+            max-width: 100%;
             width: 333px;
             height: 466px;
             border-radius: 22px;
@@ -93,7 +94,7 @@
                     .dropdown-text {
                         overflow: visible;
                         height: auto;
-                        max-height: 66px;
+                        max-height: 100%;
                         opacity: 1;
                         transition: .4s ease;
                     }

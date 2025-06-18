@@ -2042,6 +2042,7 @@ body.lock {
 .block5 .wrapper-city {
   position: relative;
   display: flex;
+  width: 100%;
   gap: 57.95px;
   margin-bottom: 50px;
   z-index: 10;
@@ -2128,6 +2129,9 @@ body.lock {
     padding: 0;
     min-height: auto;
     margin-top: clamp(90px, 15vw, 147px);
+  }
+  .block5 .wrapper-city {
+    width: auto;
   }
   .block5 .bg-map {
     display: flex;
@@ -2701,6 +2705,7 @@ body.lock {
   position: relative;
   display: flex;
   align-items: end;
+  max-width: 100%;
   width: 333px;
   height: 466px;
   border-radius: 22px;
@@ -2767,7 +2772,7 @@ body.lock {
 .block8 .container-card .card-container__card .content:hover .dropdown-text {
   overflow: visible;
   height: auto;
-  max-height: 66px;
+  max-height: 100%;
   opacity: 1;
   transition: 0.4s ease;
 }

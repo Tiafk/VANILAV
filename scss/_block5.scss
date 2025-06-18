@@ -26,6 +26,7 @@
     .wrapper-city {
         position: relative;
         display: flex;
+        width: 100%;
         gap: 57.95px;
         margin-bottom: 50px;
         z-index: 10;
@@ -120,7 +121,9 @@
         min-height: auto;
         margin-top: clamp(90px, 15vw, 147px);
     }
-
+    .block5 .wrapper-city {
+        width: auto;
+    }
     .block5 .bg-map {
         display: flex;
         width: 100%;
