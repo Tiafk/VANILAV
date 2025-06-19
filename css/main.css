@@ -1809,14 +1809,14 @@ body.lock {
   display: flex !important;
   justify-content: space-between;
   width: 100%;
-  max-width: 584px;
+  max-width: 600px;
   flex-direction: column;
   align-items: start;
   overflow: visible;
 }
 .block4 .wrapper-prtners .right-panel h2 {
   display: flex;
-  max-width: 481px;
+  max-width: 100%;
   font-weight: 500;
   font-size: 40px;
   line-height: 120%;
@@ -1917,6 +1917,9 @@ body.lock {
   .block4 .wrapper-prtners .left-panel .img-container {
     margin-left: 0;
   }
+  .block4 .wrapper-prtners.prtners2 .left-panel .img-container {
+    margin-left: 37px;
+  }
   .block4 .wrapper-prtners .left-panel {
     padding-right: 10px;
   }
@@ -1952,6 +1955,9 @@ body.lock {
   }
 }
 @media (max-width: 1045px) {
+  .block4 .wrapper-prtners.prtners2 .left-panel .img-container {
+    margin-left: 0;
+  }
   .block4 .prtners1 {
     margin-bottom: clamp(8px, 2vw, 24px);
   }
