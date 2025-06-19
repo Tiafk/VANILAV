@@ -1932,9 +1932,6 @@ body.lock {
   }
   .block4 .wrapper-prtners .right-panel .btn {
     font-size: clamp(13px, 3vw, 16px);
-    width: 100%;
-    padding: 10px 0;
-    justify-content: center;
   }
 }
 @media (max-width: 1260px) {
@@ -2060,6 +2057,14 @@ body.lock {
   .block4 .wrapper-prtners .right-panel .colmn-container .colmn {
     min-width: 141.5px;
     max-width: 141.5px;
+  }
+  .block4 .wrapper-prtners .right-panel a {
+    width: 100%;
+  }
+  .block4 .wrapper-prtners .right-panel a .btn {
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
   }
 }
 .block5 {
