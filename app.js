@@ -656,7 +656,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const popupMap = {
   'btn-russia': document.querySelector('.popup.russia'),
+  'btn-russia-block4': document.querySelector('.popup.russia'),
   'btn-moscow': document.querySelector('.popup.moscow'),
+  'btn-moscow-block4': document.querySelector('.popup.moscow'),
   'btn-other': document.querySelector('.popup.other'),
   'btn-room': document.querySelector('.popup.room'),
   'btn-investor': document.querySelector('.popup.investor'),

@@ -36,6 +36,10 @@
     }
     .prtners1 {
         margin-bottom: 24px;
+        flex-direction: row;
+    }
+    .prtners2 {
+        flex-direction: row-reverse;
     }
     .wrapper-prtners {
         display: flex;
@@ -427,10 +431,7 @@
         min-width: 141.5px;
         max-width: 141.5px;
     }
-    .block4 .wrapper-prtners .right-panel a {
-        width: 100%;
-    }
-    .block4 .wrapper-prtners .right-panel a .btn {
+    .block4 .wrapper-prtners .right-panel .btn {
         justify-content: center;
         width: 100%;
         padding: 10px 0;

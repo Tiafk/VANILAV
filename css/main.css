@@ -1703,6 +1703,10 @@ body.lock {
 }
 .block4 .prtners1 {
   margin-bottom: 24px;
+  flex-direction: row;
+}
+.block4 .prtners2 {
+  flex-direction: row-reverse;
 }
 .block4 .wrapper-prtners {
   display: flex;
@@ -2058,10 +2062,7 @@ body.lock {
     min-width: 141.5px;
     max-width: 141.5px;
   }
-  .block4 .wrapper-prtners .right-panel a {
-    width: 100%;
-  }
-  .block4 .wrapper-prtners .right-panel a .btn {
+  .block4 .wrapper-prtners .right-panel .btn {
     justify-content: center;
     width: 100%;
     padding: 10px 0;
@@ -3234,7 +3235,7 @@ body.lock {
   margin: 50px auto;
   top: 0;
   overflow-y: auto;
-  z-index: 100;
+  z-index: 100000;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -3972,6 +3973,7 @@ a {
 }
 
 .main {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
