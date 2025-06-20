@@ -655,13 +655,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const popupMap = {
-  'btn-russia': document.querySelector('form.popup.russia'),
-  'btn-russia-block4': document.querySelector('form.popup.russia'),
-  'btn-moscow': document.querySelector('form.popup.moscow'),
-  'btn-moscow-block4': document.querySelector('form.popup.moscow'),
-  'btn-other': document.querySelector('form.popup.other'),
-  'btn-room': document.querySelector('form.popup.room'),
-  'btn-investor': document.querySelector('form.popup.investor'),
+  'btn-russia': document.querySelector('.popup.russia'),
+  'btn-russia-block4': document.querySelector('.popup.russia'),
+  'btn-moscow': document.querySelector('.popup.moscow'),
+  'btn-moscow-block4': document.querySelector('.popup.moscow'),
+  'btn-other': document.querySelector('.popup.other'),
+  'btn-room': document.querySelector('.popup.room'),
+  'btn-investor': document.querySelector('.popup.investor'),
 };
 
 const openPopup = (popup) => {
@@ -762,39 +762,7 @@ document.querySelectorAll('.popup .submit-btn').forEach(button => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("form.popup.russia");
-  const popup = document.querySelector(".popup.russia");
-  const sentContainer = document.querySelector(".sent-container");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-
-    fetch(form.action, {
-      method: "POST",
-      body: formData,
-      headers: {
-        Accept: "application/json",
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          sentContainer.style.display = "flex"; // Показываем блок
-          form.reset(); // Очищаем форму
-          popup.style.display = "none"; // Прячем саму форму
-        } else {
-          alert("Ошибка отправки. Попробуйте позже.");
-        }
-      })
-      .catch(() => {
-        alert("Ошибка сети. Попробуйте позже.");
-      });
-  });
-});
-
-// // Закрытие sent-контейнера по крестику
+// Закрытие sent-контейнера по крестику
 const sentCloseBtn = document.querySelector('.sent-container .close-btn');
 if (sentCloseBtn) {
   sentCloseBtn.addEventListener('click', () => {
