@@ -581,7 +581,7 @@ body.lock {
 }
 @media (max-width: 1440px) {
   .main-p .text-container h1 {
-    font-size: clamp(44px, 6.3vw, 90px);
+    font-size: clamp(41px, 6.3vw, 90px);
   }
   .main-p .text-container p {
     font-size: clamp(15px, 2vw, 24px);
