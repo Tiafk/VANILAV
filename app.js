@@ -652,6 +652,31 @@ document.addEventListener('DOMContentLoaded', function () {
       utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js',
     });
   });
+
+  const popups = document.querySelectorAll('.popup');
+
+  popups.forEach(popup => {
+    const agreeCheckbox = popup.querySelector('.agree-checkbox');
+    const submitBtn = popup.querySelector('.submit-btn');
+
+    if (!agreeCheckbox || !submitBtn) {
+      console.warn('Чекбокс или кнопка не найдены в одном из попапов');
+      return;
+    }
+
+    function toggleSubmitState() {
+      if (agreeCheckbox.checked) {
+        submitBtn.classList.add('active');
+        submitBtn.disabled = false;
+      } else {
+        submitBtn.classList.remove('active');
+        submitBtn.disabled = true;
+      }
+    }
+
+    toggleSubmitState();
+    agreeCheckbox.addEventListener('change', toggleSubmitState);
+  });
 });
 
 const popupMap = {
@@ -701,51 +726,12 @@ Object.entries(popupMap).forEach(([btnClass, popup]) => {
   }
 });
 
-// Закрытие по оверлею
-overlay.addEventListener('click', closePopup);
-
-// состояние lock корректно ?
-setInterval(() => {
-  const visiblePopup = document.querySelector('.popup.show');
-  if (visiblePopup) {
-    overlay.classList.add('active');
-    body.classList.add('lock');
-    if (content) content.classList.add('lock');
-  }
-}, 10);
-
-//checked
-document.addEventListener('DOMContentLoaded', function () {
-  const popups = document.querySelectorAll('.popup');
-
-  popups.forEach(popup => {
-    const agreeCheckbox = popup.querySelector('.agree-checkbox');
-    const submitBtn = popup.querySelector('.submit-btn');
-
-    if (!agreeCheckbox || !submitBtn) {
-      console.warn('Чекбокс или кнопка не найдены в одном из попапов');
-      return;
-    }
-
-    function toggleSubmitState() {
-      if (agreeCheckbox.checked) {
-        submitBtn.classList.add('active');
-        submitBtn.disabled = false;
-      } else {
-        submitBtn.classList.remove('active');
-        submitBtn.disabled = true;
-      }
-    }
-
-    toggleSubmitState();
-    agreeCheckbox.addEventListener('change', toggleSubmitState);
-  });
-});
 
 document.querySelectorAll('.popup .submit-btn').forEach(button => {
-  button.addEventListener('click', function () {
+  button.addEventListener('click', function (e) {
     const popup = this.closest('.popup');
     const agreeCheckbox = popup.querySelector('.agree-checkbox');
+    e.preventDefault()
 
     if (agreeCheckbox && !agreeCheckbox.checked) {
       return;
@@ -774,10 +760,15 @@ if (sentCloseBtn) {
   });
 }
 
-// Закрытие sent-контейнера по overlay
+// Закрытие по оверлею
 overlay.addEventListener('click', () => {
+  // Закрываем попапы
   document.querySelectorAll('.popup').forEach(p => p.classList.remove('show'));
+
+  // Закрываем контейнер благодарности
   document.querySelector('.sent-container')?.classList.remove('show');
+
+  // Убираем блокировки
   overlay.classList.remove('active');
   body.classList.remove('lock');
   if (content) content.classList.remove('lock');
