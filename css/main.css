@@ -4419,6 +4419,9 @@ textarea {
   padding: 0 16px;
   margin-bottom: 160px;
 }
+.about-main .app-wrapper .block5 .wrapper-city {
+  justify-content: center;
+}
 .about-main .app-wrapper .slider-block-con {
   display: flex;
   flex-direction: column;
