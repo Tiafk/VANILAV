@@ -1,84 +1,85 @@
 document.addEventListener("DOMContentLoaded", () => {
-      const imagesLeft = [
-        './img/main/5.webp', './img/main/3.webp', './img/main/E.webp',
-        './img/main/B.webp', './img/main/F.webp'
-      ];
-      const imagesRight = [
-        './img/main/2.webp', './img/main/7.webp', './img/main/D.webp',
-        './img/main/A.webp', './img/main/C.webp'
-      ];
+  const imagesLeft = [
+    './img/main/5.webp', './img/main/3.webp', './img/main/E.webp',
+    './img/main/B.webp', './img/main/F.webp'
+  ];
+  const imagesRight = [
+    './img/main/2.webp', './img/main/7.webp', './img/main/D.webp',
+    './img/main/A.webp', './img/main/C.webp'
+  ];
 
-      function initMarquee(containerSelector, images, directionBase) {
-        const container = document.querySelector(containerSelector);
-        const track = container.querySelector('.track');
-        let position = 0;
-        let direction = directionBase;
-        const speed = 0.5;
+  function initMarquee(containerSelector, images, directionBase) {
+    const container = document.querySelector(containerSelector);
+    const track = container.querySelector('.track');
+    let position = 0;
+    let direction = directionBase;
+    const speed = 0.5;
 
-        function render() {
-          const isVertical = window.innerWidth > 1250;
-          direction = isVertical ? directionBase : (directionBase === 'up' ? 'left' : 'right');
-          track.innerHTML = '';
+    function render() {
+      const isVertical = window.innerWidth > 1250;
+      direction = isVertical ? directionBase : (directionBase === 'up' ? 'left' : 'right');
+      track.innerHTML = '';
 
-          const fragment = document.createDocumentFragment();
-          for (let i = 0; i < 2; i++) {
-            images.forEach(src => {
-              const div = document.createElement('div');
-              div.classList.add('icon');
-              const img = document.createElement('img');
-              img.src = src;
-              img.draggable = false;
-              div.appendChild(img);
-              fragment.appendChild(div);
-            });
-          }
-          track.appendChild(fragment);
-
-          // Set proper direction styles
-          track.style.flexDirection = isVertical ? 'column' : 'row';
-          container.style.flexDirection = isVertical ? 'column' : 'row';
-        }
-
-        function animate() {
-          const isVertical = window.innerWidth > 1250;
-          const sign = (direction === 'up' || direction === 'left') ? -1 : 1;
-          position += sign * speed;
-
-          const size = isVertical ? track.scrollHeight / 2 : track.scrollWidth / 2;
-          if (Math.abs(position) >= size) position = 0;
-
-          track.style.transform = isVertical
-            ? `translateY(${position}px)`
-            : `translateX(${position}px)`;
-
-          requestAnimationFrame(animate);
-        }
-
-        render();
-        animate();
-
-        window.addEventListener('resize', () => {
-          position = 0;
-          render();
+      const fragment = document.createDocumentFragment();
+      for (let i = 0; i < 2; i++) {
+        images.forEach(src => {
+          const div = document.createElement('div');
+          div.classList.add('icon');
+          const img = document.createElement('img');
+          img.src = src;
+          img.draggable = false;
+          div.appendChild(img);
+          fragment.appendChild(div);
         });
       }
+      track.appendChild(fragment);
 
-      initMarquee('.scroll-down', imagesLeft, 'up');
-      initMarquee('.scroll-up', imagesRight, 'down');
+      // Set proper direction styles
+      track.style.flexDirection = isVertical ? 'column' : 'row';
+      container.style.flexDirection = isVertical ? 'column' : 'row';
+    }
+
+    function animate() {
+      const isVertical = window.innerWidth > 1250;
+      const sign = (direction === 'up' || direction === 'left') ? -1 : 1;
+      position += sign * speed;
+
+      const size = isVertical ? track.scrollHeight / 2 : track.scrollWidth / 2;
+      if (Math.abs(position) >= size) position = 0;
+
+      track.style.transform = isVertical
+        ? `translateY(${position}px)`
+        : `translateX(${position}px)`;
+
+      requestAnimationFrame(animate);
+    }
+
+    render();
+    animate();
+
+    window.addEventListener('resize', () => {
+      position = 0;
+      render();
+    });
+  }
+
+  initMarquee('.scroll-down', imagesLeft, 'up');
+  initMarquee('.scroll-up', imagesRight, 'down');
+
 });
 
 //scroll
 window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    const shadowTop = document.querySelector(".shadow-top");
+  const header = document.querySelector("header");
+  const shadowTop = document.querySelector(".shadow-top");
 
-    if (window.scrollY > 10) {
-      header.classList.add("scrolled");
-      if (shadowTop) shadowTop.style.display = "none";
-    } else {
-      header.classList.remove("scrolled");
-      if (shadowTop) shadowTop.style.display = "block";
-    }
+  if (window.scrollY > 10) {
+    header.classList.add("scrolled");
+    if (shadowTop) shadowTop.style.display = "none";
+  } else {
+    header.classList.remove("scrolled");
+    if (shadowTop) shadowTop.style.display = "block";
+  }
 });
 
 // паралакс
@@ -182,55 +183,55 @@ window.addEventListener('load', () => {
 
   //блок 4
   const container4 = document.querySelector('.block4');
-const targets4 = [
-  { selector: '.img-wrap', depth: 30 },
-  { selector: '.img-wrap2', depth: 20 },
-  { selector: '.heart-mini', depth: 15 },
-  { selector: '.heart-mini2', depth: 18 },
-];
+  const targets4 = [
+    { selector: '.img-wrap', depth: 30 },
+    { selector: '.img-wrap2', depth: 20 },
+    { selector: '.heart-mini', depth: 15 },
+    { selector: '.heart-mini2', depth: 18 },
+  ];
 
-if (container4 && window.matchMedia('(pointer: fine)').matches) {
-  const iconStates4 = [];
+  if (container4 && window.matchMedia('(pointer: fine)').matches) {
+    const iconStates4 = [];
 
-  targets4.forEach(({ selector, depth }) => {
-    const elements = container4.querySelectorAll(selector);
-    elements.forEach(element => {
-      iconStates4.push({
-        element,
-        depth,
-        baseTransform: window.getComputedStyle(element).transform !== 'none'
-          ? window.getComputedStyle(element).transform
-          : '',
+    targets4.forEach(({ selector, depth }) => {
+      const elements = container4.querySelectorAll(selector);
+      elements.forEach(element => {
+        iconStates4.push({
+          element,
+          depth,
+          baseTransform: window.getComputedStyle(element).transform !== 'none'
+            ? window.getComputedStyle(element).transform
+            : '',
+        });
       });
     });
-  });
 
-  let mouseX4 = 0, mouseY4 = 0;
-  let posX4 = 0, posY4 = 0;
-  const speed4 = 0.05;
+    let mouseX4 = 0, mouseY4 = 0;
+    let posX4 = 0, posY4 = 0;
+    const speed4 = 0.05;
 
-  function animateBlock4() {
-    const dx = mouseX4 - posX4;
-    const dy = mouseY4 - posY4;
-    posX4 += dx * speed4;
-    posY4 += dy * speed4;
+    function animateBlock4() {
+      const dx = mouseX4 - posX4;
+      const dy = mouseY4 - posY4;
+      posX4 += dx * speed4;
+      posY4 += dy * speed4;
 
-    iconStates4.forEach(({ element, depth, baseTransform }) => {
-      const tx = posX4 / depth;
-      const ty = posY4 / depth;
-      element.style.transform = `translate(${tx}px, ${ty}px) ${baseTransform}`;
+      iconStates4.forEach(({ element, depth, baseTransform }) => {
+        const tx = posX4 / depth;
+        const ty = posY4 / depth;
+        element.style.transform = `translate(${tx}px, ${ty}px) ${baseTransform}`;
+      });
+
+      requestAnimationFrame(animateBlock4);
+    }
+
+    container4.addEventListener('mousemove', e => {
+      const rect = container4.getBoundingClientRect();
+      mouseX4 = e.clientX - rect.left - rect.width / 2;
+      mouseY4 = e.clientY - rect.top - rect.height / 2;
     });
 
-    requestAnimationFrame(animateBlock4);
-  }
-
-  container4.addEventListener('mousemove', e => {
-    const rect = container4.getBoundingClientRect();
-    mouseX4 = e.clientX - rect.left - rect.width / 2;
-    mouseY4 = e.clientY - rect.top - rect.height / 2;
-  });
-
-  animateBlock4();
+    animateBlock4();
   }
 
 });
@@ -344,7 +345,7 @@ function fillMarquee() {
   }
 
   // скорость
-  const baseSpeed = window.innerWidth < 1100 ? 80 : 200; 
+  const baseSpeed = window.innerWidth < 1100 ? 80 : 200;
   const duration = totalWidth / baseSpeed;
   marquee.style.animationDuration = `${duration}s`;
 }
@@ -512,10 +513,10 @@ function handleResize() {
     destroyMobileSlider();
     resetMobileActive();
     setupMobileListeners();
-    
+
     const firstMobileAddress = document.querySelector(".address-mobile[data-index='0']");
 
-  if (firstMobileAddress) firstMobileAddress.click();
+    if (firstMobileAddress) firstMobileAddress.click();
   } else {
     document.querySelector(".right-panel")?.style.setProperty("display", "block");
     document.getElementById("addressListMobile")?.style.setProperty("display", "none");
@@ -546,17 +547,17 @@ document.addEventListener('DOMContentLoaded', () => {
         spaceBetween: 16,
         loop: true,
         breakpoints: {
-      0: {
-        slidesPerView: 'auto',
-        spaceBetween: 16
-      },
-      551: {
-        slidesPerView: 'auto',
-      },
-      820: {
-        slidesPerView: 'auto',
-      }
-    }
+          0: {
+            slidesPerView: 'auto',
+            spaceBetween: 16
+          },
+          551: {
+            slidesPerView: 'auto',
+          },
+          820: {
+            slidesPerView: 'auto',
+          }
+        }
       });
     }
   }
@@ -776,7 +777,7 @@ overlay.addEventListener('click', () => {
 
 //анимации блоков
 document.addEventListener("DOMContentLoaded", function () {
-  const blocks = document.querySelectorAll(".block2, .block3, .block4, .block5, .block6, .block7, .block8");
+  const blocks = document.querySelectorAll(".block2, .block3, .block4, .block5, .block6, .block7, .block8, .about-block1, .about-block2, .tite-noblock, .slider-block-con");
 
   const observer = new IntersectionObserver(
     (entries, observer) => {

@@ -15,6 +15,7 @@
 @import './confectionery';
 @import './poly';
 @import './delivery';
+@import './about/about';
 
 * {
     margin: 0;
@@ -28,10 +29,14 @@
 .block5,
 .block6,
 .block7,
-.block8 {
-  opacity: 0;
-  transform: translateY(10%);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+.block8,
+.about-block1,
+.about-block2,
+.tite-noblock,
+.slider-block-con {
+    opacity: 0;
+    transform: translateY(10%);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 a {
@@ -44,20 +49,25 @@ a {
 .block5.visible,
 .block6.visible,
 .block7.visible,
-.block8.visible {
-  opacity: 1;
-  transform: translateY(0);
+.block8.visible,
+.about-block1.visible,
+.about-block2.visible,
+.tite-noblock.visible,
+.slider-block-con.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .block2 {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.3s ease; /* ускорено */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.3s ease;
+    /* ускорено */
 }
 
 .block2.visible {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
@@ -85,6 +95,7 @@ a {
         max-width: 1440px;
         padding: 0 18px;
     }
+
     .text {
         font-family: 'CeraPro-Regular';
         font-weight: 400;
@@ -96,15 +107,20 @@ a {
 }
 
 @media (max-width:1070px) {
+
     .block2,
     .block3,
     .block4,
     .block5,
     .block6,
     .block7,
-    .block8 {
-      opacity: 1;
-      transform: translateY(0);
+    .block8,
+    .about-block1,
+    .about-block2,
+    .tite-noblock,
+    .slider-block-con {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -114,6 +130,7 @@ a {
     font-style: normal;
     font-weight: 500;
 }
+
 @font-face {
     font-family: 'CeraPro-Bold';
     src: url('../fonts/CeraPro-Bold.woff2');
@@ -134,25 +151,29 @@ a {
     font-style: normal;
     font-weight: 400;
 }
+
 @font-face {
     font-family: 'CeraPro-Regular';
     src: url('../fonts/CeraPro-Regular.woff2');
     font-style: normal;
     font-weight: 400;
 }
+
 @font-face {
     font-family: 'CeraPro-Light';
     src: url('../fonts/cera-pro-light.eot'),
-    url('../fonts/cera-pro-light.woff'),url('../fonts/cera-pro-light.woff2');
+        url('../fonts/cera-pro-light.woff'), url('../fonts/cera-pro-light.woff2');
     font-style: normal;
     font-weight: 300;
 }
+
 @font-face {
     font-family: 'Inter-Regular';
     src: url('../fonts/Inter_18pt-Regular.ttf');
     font-style: normal;
     font-weight: 400;
 }
+
 @font-face {
     font-family: 'Inter-Medium';
     src: url('../fonts/Inter_18pt-Medium.ttf');

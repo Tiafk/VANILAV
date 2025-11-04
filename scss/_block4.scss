@@ -3,7 +3,7 @@
     flex-direction: column;
     width: 100%;
     margin: 99.5px 0 60.5px 0;
-    
+
     .title {
         justify-self: center;
 
@@ -34,13 +34,16 @@
             }
         }
     }
+
     .prtners1 {
         margin-bottom: 24px;
         flex-direction: row;
     }
+
     .prtners2 {
         flex-direction: row-reverse;
     }
+
     .wrapper-prtners {
         display: flex;
         background-color: #823F91;
@@ -48,7 +51,8 @@
         padding: 68px 67px 67px 67px;
         justify-content: space-between;
         color: #fff;
-        
+        overflow: hidden;
+
         .left-panel {
             position: relative;
             display: flex;
@@ -74,6 +78,7 @@
                     right: 20.2%;
                     top: 34%;
                 }
+
                 .procent-rotate1-2 {
                     top: 32%;
                 }
@@ -95,6 +100,7 @@
                         overflow: hidden;
                     }
                 }
+
                 .img-wrap2 {
                     position: absolute;
                     align-items: center;
@@ -103,9 +109,11 @@
                     max-width: 217px;
                     max-height: 246px;
                 }
+
                 .heart-mini {
                     position: absolute;
                 }
+
                 .heart-mini2 {
                     left: -16%;
                     bottom: -10.26%;
@@ -126,19 +134,19 @@
             }
 
             .bg-heart {
-                user-select: none;  
+                user-select: none;
                 position: absolute;
                 width: 100%;
                 height: 100%;
                 right: 0%;
                 top: -11%;
                 z-index: 5;
-                
+
                 img {
                     width: 100%;
                 }
             }
-            
+
             .bg-heart2 {
                 transform: rotate(-35.41deg);
                 left: -28%;
@@ -147,7 +155,7 @@
                 top: 58%;
             }
         }
-        
+
         .right-panel {
             position: relative;
             display: flex !important;
@@ -181,11 +189,11 @@
                 display: grid;
                 gap: 25px 30px;
                 grid-template-columns: 1fr 1fr;
-                grid-template-areas: 
-                'con1 con2'
-                'procent1 procent2'
-                'con5 con6'
-                'con7 con8';
+                grid-template-areas:
+                    'con1 con2'
+                    'procent1 procent2'
+                    'con5 con6'
+                    'con7 con8';
                 margin-top: 44px;
                 margin-bottom: 44px;
 
@@ -198,12 +206,13 @@
                     border-bottom: 1px solid #FFFFFF38;
                     align-items: start;
 
-                    h2{
-                            font-weight: 500;
-                            font-size: 40px;
-                            line-height: 120%;
-                            letter-spacing: 0;
+                    h2 {
+                        font-weight: 500;
+                        font-size: 40px;
+                        line-height: 120%;
+                        letter-spacing: 0;
                     }
+
                     p {
                         font-family: 'CeraPro-Regular';
                         font-weight: 400;
@@ -218,37 +227,47 @@
                 .con1 {
                     grid-area: con1;
                 }
+
                 .con1 {
                     grid-area: con2;
                 }
+
                 .procent1 {
                     grid-area: procent1;
                 }
+
                 .procent2 {
                     grid-area: procent2;
                 }
+
                 .con5 {
                     grid-area: con5;
                 }
+
                 .con6 {
                     grid-area: con6;
                 }
+
                 .con7 {
                     grid-area: con7;
                 }
+
                 .con8 {
                     grid-area: con8;
                 }
             }
+
             hr {
                 grid-area: line;
                 display: none;
             }
+
             .img-con {
                 position: absolute;
                 right: 0;
                 bottom: -4.6%;
             }
+
             .btn {
                 cursor: pointer;
                 color: #823F91;
@@ -270,75 +289,91 @@
         display: flex !important;
     }
 }
+
 @media (max-width:1280px) {
     .block4 .wrapper-prtners .left-panel .img-container {
         margin-left: 0;
     }
+
     .block4 .wrapper-prtners.prtners2 .left-panel .img-container {
         margin-left: 37px;
     }
+
     .block4 .wrapper-prtners .left-panel {
         padding-right: 10px;
     }
+
     .block4 .wrapper-prtners .right-panel h2 {
         font-size: clamp(21px, 3vw, 40px);
     }
+
     .block4 .wrapper-prtners .right-panel .colmn-container .content h2 {
         font-size: clamp(23px, 3vw, 40px);
     }
+
     .block4 .wrapper-prtners .right-panel .colmn-container .content p {
         font-size: clamp(13px, 2vw, 16px);
         text-align: left;
     }
+
     .block4 .wrapper-prtners .right-panel .colmn-container .min72 {
         display: flex;
         justify-content: end;
     }
+
     .block4 .wrapper-prtners .right-panel .btn {
-        font-size: clamp(13px,3vw,16px);
+        font-size: clamp(13px, 3vw, 16px);
     }
 }
+
 @media (max-width:1260px) {
     .block4 .wrapper-prtners .right-panel .colmn-container {
-        grid-template-areas: 
-        'con1 con2'
-        'con5 con6'
-        'con7 con8'
-        'procent1 procent1'
-        'procent2 procent2';
+        grid-template-areas:
+            'con1 con2'
+            'con5 con6'
+            'con7 con8'
+            'procent1 procent1'
+            'procent2 procent2';
         gap: 32px 10px;
         margin-top: 32px;
         margin-bottom: 32px;
     }
+
     .block4 .wrapper-prtners .right-panel .colmn-container .procent1,
     .block4 .wrapper-prtners .right-panel .colmn-container .procent2 {
         min-width: 100%;
         display: flex;
     }
 }
+
 @media (max-width:1045px) {
     .block4 .wrapper-prtners.prtners2 .left-panel .img-container {
         margin-left: 0;
     }
+
     .block4 .prtners1 {
-        margin-bottom: clamp(8px,2vw,24px);
+        margin-bottom: clamp(8px, 2vw, 24px);
     }
+
     .block4 .wrapper-prtners .left-panel .img-container {
         margin: 0;
     }
+
     .block4 .wrapper-prtners .left-panel .text {
         display: none;
     }
+
     .block4 .wrapper-prtners .right-panel .colmn-container {
         width: 100%;
         grid-template-columns: 1fr 1px 1fr;
-        grid-template-areas: 
-        'con5 line con6'
-        'con7 line con8'
-        'con2 line con1'
-        'procent1 procent1 procent1'
-        'procent2 procent2 procent2';
+        grid-template-areas:
+            'con5 line con6'
+            'con7 line con8'
+            'con2 line con1'
+            'procent1 procent1 procent1'
+            'procent2 procent2 procent2';
     }
+
     .block4 .wrapper-prtners {
         align-items: center;
         flex-direction: column;
@@ -346,9 +381,11 @@
         align-self: center;
         padding: 0;
     }
+
     .block4 .wrapper-prtners .left-panel {
         padding: 32px 32px 36.5px 32px;
     }
+
     .block4 .wrapper-prtners .right-panel {
         padding: 0 20px 35.5px 20px;
 
@@ -356,9 +393,11 @@
             display: none;
         }
     }
+
     .block4 .wrapper-prtners .right-panel .colmn-container .content {
         padding-bottom: 8px;
     }
+
     .block4 .wrapper-prtners .right-panel hr {
         display: block;
         min-width: 1px;
@@ -367,76 +406,94 @@
         min-height: 100%;
         background: #FFFFFF38;
     }
+
     .block4 .wrapper-prtners .left-panel .img-container .img-wrap2 {
         bottom: 0;
         right: 0;
     }
+
     .block4 .wrapper-prtners .left-panel .img-container .heart-mini-rotate {
         transform: rotate(-8deg);
     }
+
     .block4 .wrapper-prtners .left-panel .img-container .heart-mini2 {
-        max-width: clamp(57px, 10vw,165.14px);
-        max-height: clamp(57px, 10vw,165.14px);
+        max-width: clamp(57px, 10vw, 165.14px);
+        max-height: clamp(57px, 10vw, 165.14px);
         transform: 0;
         left: 1.5%;
         right: auto;
         top: auto;
+
         img {
             width: 100%;
         }
     }
+
     .block4 .wrapper-prtners .left-panel .img-container {
         width: auto;
     }
+
     .block4 .wrapper-prtners .left-panel .img-container .img-wrap {
         align-items: anchor-center;
         max-width: 292px;
         max-height: 419px;
     }
+
     .block4 .wrapper-prtners .left-panel .img-container .img-wrap2 {
         max-width: 187px;
         max-height: 207px;
     }
 }
+
 @media (max-width:600px) {
     .block4 .wrapper-prtners .left-panel .img-container {
-        min-height: clamp(322px, 85vw,507px);
+        min-height: clamp(322px, 85vw, 507px);
     }
+
     .block4 .wrapper-prtners .left-panel .img-container .img-wrap {
         max-width: clamp(211px, 50vw, 292px);
         max-height: clamp(291px, 72vw, 419px);
     }
+
     .block4 .wrapper-prtners .left-panel .img-container .img-wrap2 {
         max-width: clamp(125px, 32vw, 187px);
         max-height: clamp(142px, 36vw, 207px);
     }
+
     .block4 .wrapper-prtners .left-panel .bg-heart {
         display: none;
     }
+
     .block4 .wrapper-prtners .left-panel .bg-heart2 {
         display: none;
-    
+
     }
+
     .block4 .wrapper-prtners .left-panel .img-container .procent-rotate1 {
         right: 3.65%;
         top: 36%;
     }
+
     .block4 .wrapper-prtners .left-panel .img-container .procent-rotate2 {
         left: 2.5%;
         bottom: 0;
     }
+
     .block4 .wrapper-prtners .left-panel .img-container .procent-rotate2-2 {
         bottom: 5%;
     }
 }
+
 @media (max-width:450px) {
     .block4 .wrapper-prtners .right-panel .colmn-container {
         justify-content: space-between;
     }
+
     .block4 .wrapper-prtners .right-panel .colmn-container .colmn {
         min-width: 141.5px;
         max-width: 141.5px;
     }
+
     .block4 .wrapper-prtners .right-panel .btn {
         justify-content: center;
         width: 100%;
