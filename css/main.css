@@ -4672,6 +4672,9 @@ textarea {
   }
 }
 @media (max-width: 800px) {
+  .about-main .app-wrapper .slider-block-con .slider-block .slider-wrapper .swiper .swiper-slide:hover {
+    border-radius: 22px;
+  }
   .about-main .app-wrapper .block5 {
     display: none;
     margin-bottom: 90px;
