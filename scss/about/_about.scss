@@ -36,10 +36,16 @@
                 justify-content: space-between;
                 max-width: 1451px;
 
+                .img-content-con {
+                    .text-container {
+                        padding: 0;
+                    }
+                }
 
                 .text-container {
                     max-width: 727px;
                     margin: 0;
+                    padding: 0;
 
                     h1 {
                         font-family: 'CeraPro-Medium';

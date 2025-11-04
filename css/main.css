@@ -3965,9 +3965,13 @@ textarea {
   justify-content: space-between;
   max-width: 1451px;
 }
+.about-main .app-wrapper .main-p .wrappepr-main-p .img-content-con .text-container {
+  padding: 0;
+}
 .about-main .app-wrapper .main-p .wrappepr-main-p .text-container {
   max-width: 727px;
   margin: 0;
+  padding: 0;
 }
 .about-main .app-wrapper .main-p .wrappepr-main-p .text-container h1 {
   font-family: "CeraPro-Medium";
