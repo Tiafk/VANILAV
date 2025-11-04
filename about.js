@@ -23,13 +23,60 @@ function createMarqueeSlider(container, images, direction) {
     track.className = 'swiper-track';
     container.appendChild(track);
 
-    const slideWidth = 471 + 30; // width + margin
+    // Функция для получения адаптивных размеров
+    function getAdaptiveSizes() {
+        const containerWidth = container.clientWidth;
+        const containerHeight = container.clientHeight;
+
+        if (containerWidth <= 1400) {
+            // Адаптивные размеры для мобильных устройств
+            const slideWidth = Math.max(235, Math.min(471, containerWidth * 0.5 - 30));
+            const slideHeight = containerHeight; // Высота равна высоте контейнера
+            const gap = Math.max(16, Math.min(30, containerWidth * 0.04));
+
+            return {
+                slideWidth: Math.floor(slideWidth),
+                slideHeight: Math.floor(slideHeight),
+                gap: Math.floor(gap)
+            };
+        } else {
+            // Десктопные размеры
+            return {
+                slideWidth: 471,
+                slideHeight: containerHeight, // Высота равна высоте контейнера
+                gap: 30
+            };
+        }
+    }
+
+    let sizes = getAdaptiveSizes();
     let animationId = null;
     let isScrolling = true;
     let isDragging = false;
     let position = 0;
     let dragStartX = 0;
     let dragStartPosition = 0;
+
+    // Функция для обновления размеров
+    function updateSizes() {
+        sizes = getAdaptiveSizes();
+
+        // Обновляем стили трека
+        track.style.gap = sizes.gap + 'px';
+        track.style.height = sizes.slideHeight + 'px';
+
+        // Обновляем стили всех слайдов
+        const slides = track.querySelectorAll('.swiper-slide');
+        slides.forEach(slide => {
+            slide.style.width = sizes.slideWidth + 'px';
+            slide.style.height = sizes.slideHeight + 'px';
+            slide.style.minWidth = sizes.slideWidth + 'px';
+            slide.style.minHeight = sizes.slideHeight + 'px';
+        });
+
+        // Пересчитываем общую ширину
+        totalWidth = images.length * (sizes.slideWidth + sizes.gap);
+    }
 
     // Создаем слайды
     function createSlides() {
@@ -39,7 +86,11 @@ function createMarqueeSlider(container, images, direction) {
         images.forEach((src, index) => {
             const slide = document.createElement('div');
             slide.className = 'swiper-slide';
-            slide.innerHTML = `<img src="${src}" alt="Slide ${index + 1}" loading="lazy">`;
+            slide.style.width = sizes.slideWidth + 'px';
+            slide.style.height = sizes.slideHeight + 'px';
+            slide.style.minWidth = sizes.slideWidth + 'px';
+            slide.style.minHeight = sizes.slideHeight + 'px';
+            slide.innerHTML = `<img src="${src}" alt="Slide ${index + 1}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">`;
             track.appendChild(slide);
         });
 
@@ -47,16 +98,25 @@ function createMarqueeSlider(container, images, direction) {
         images.forEach((src, index) => {
             const slide = document.createElement('div');
             slide.className = 'swiper-slide';
-            slide.innerHTML = `<img src="${src}" alt="Slide ${index + 1}" loading="lazy">`;
+            slide.style.width = sizes.slideWidth + 'px';
+            slide.style.height = sizes.slideHeight + 'px';
+            slide.style.minWidth = sizes.slideWidth + 'px';
+            slide.style.minHeight = sizes.slideHeight + 'px';
+            slide.innerHTML = `<img src="${src}" alt="Slide ${index + 1}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">`;
             track.appendChild(slide);
         });
+
+        // Устанавливаем gap и высоту для трека
+        track.style.gap = sizes.gap + 'px';
+        track.style.height = sizes.slideHeight + 'px';
     }
 
     createSlides();
 
-    const totalWidth = images.length * slideWidth;
+    let totalWidth = images.length * (sizes.slideWidth + sizes.gap);
+
     // === НАСТРОЙКА СКОРОСТИ ===
-    const baseSpeed = 1; // Меняйте это значение для регулировки скорости
+    const baseSpeed = 1;
     const speed = direction === 'right' ? -baseSpeed : baseSpeed;
 
     function animate() {
@@ -92,8 +152,6 @@ function createMarqueeSlider(container, images, direction) {
         dragStartX = e.clientX || (e.touches && e.touches[0].clientX);
         dragStartPosition = position;
         container.style.cursor = 'grabbing';
-
-        // Предотвращаем выделение текста при перетаскивании
         e.preventDefault();
     }
 
@@ -124,7 +182,6 @@ function createMarqueeSlider(container, images, direction) {
             else if (position >= 0) position -= totalWidth;
         }
 
-        // Перезапускаем анимацию
         if (animationId) {
             cancelAnimationFrame(animationId);
         }
@@ -156,12 +213,10 @@ function createMarqueeSlider(container, images, direction) {
 
     // === ИНИЦИАЛИЗАЦИЯ СОБЫТИЙ ===
     function setupEvents() {
-        // События мыши
         container.addEventListener('mousedown', startDrag);
         document.addEventListener('mousemove', doDrag);
         document.addEventListener('mouseup', endDrag);
 
-        // События тач
         container.addEventListener('touchstart', startDrag, { passive: false });
         document.addEventListener('touchmove', doDrag, { passive: false });
         document.addEventListener('touchend', endDrag);
@@ -171,6 +226,24 @@ function createMarqueeSlider(container, images, direction) {
 
     setupEvents();
 
+    // Обработчик изменения размера окна
+    function handleResize() {
+        updateSizes();
+
+        // Корректируем позицию после изменения размеров
+        if (direction === 'right') {
+            if (position > 0) position -= totalWidth;
+            else if (position <= -totalWidth) position += totalWidth;
+        } else {
+            if (position < -totalWidth) position += totalWidth;
+            else if (position >= 0) position -= totalWidth;
+        }
+
+        track.style.transform = `translateX(${position}px)`;
+    }
+
+    window.addEventListener('resize', handleResize);
+
     // Запуск анимации
     animate();
 
@@ -179,13 +252,14 @@ function createMarqueeSlider(container, images, direction) {
         updateImages: (newImages) => {
             images = newImages;
             createSlides();
+            updateSizes();
             setupHoverPause();
         },
         destroy: () => {
             if (animationId) {
                 cancelAnimationFrame(animationId);
             }
-            // Удаляем все обработчики событий
+            window.removeEventListener('resize', handleResize);
             container.removeEventListener('mousedown', startDrag);
             document.removeEventListener('mousemove', doDrag);
             document.removeEventListener('mouseup', endDrag);
@@ -201,15 +275,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const topSlider = document.querySelector('.swiper-right');
     const bottomSlider = document.querySelector('.swiper-left');
 
-    // Проверяем что элементы существуют
     if (topSlider && bottomSlider) {
-        // Создаем слайдеры
         const topSliderInstance = createMarqueeSlider(topSlider, topSliderImages, 'right');
         const bottomSliderInstance = createMarqueeSlider(bottomSlider, bottomSliderImages, 'left');
 
         console.log('Бесшовные слайдеры запущены!');
 
-        // Сохраняем инстансы в глобальной области для отладки
         window.sliderInstances = {
             top: topSliderInstance,
             bottom: bottomSliderInstance

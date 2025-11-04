@@ -846,6 +846,10 @@
 }
 
 @media (max-width:1019px) {
+    .about-main .block6 .wrapper-card .shadow:hover {
+        transform: none;
+    }
+
     .about-main .app-wrapper .wrapper .about-block1 {
         display: flex;
         flex-direction: column;
@@ -902,11 +906,13 @@
 
 @media (max-width: 800px) {
     .about-main .app-wrapper .block5 {
+        display: none;
         margin-bottom: 90px;
     }
 
     .about-main .app-wrapper .slider-block-con {
         margin-top: 90px;
+        margin-bottom: 90px;
     }
 
     .about-main .app-wrapper .wrapper .block4 .wrapper-prtners {
