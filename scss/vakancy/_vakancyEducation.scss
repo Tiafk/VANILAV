@@ -12,12 +12,13 @@
   }
   .mySwiper_education {
     overflow: visible;
+    height: 430px;
     .swiper-wrapper {
       .swiper-slide {
         display: flex;
         justify-content: center;
-        max-width: 360px;
-        max-height: 430px;
+        min-width: 360px;
+        min-height: 430px;
         border-radius: 33px;
         overflow: hidden;
         img {
@@ -28,18 +29,36 @@
     }
   }
 }
-
+.education .mySwiper_education-mobile {
+  display: none;
+}
 @media (max-width: 960px) {
-  .education .mySwiper_education-mobile .swiper-wrapper .swiper-slide {
-    max-width: clamp(150px, 40vw, 265px) !important;
-    max-height: clamp(180px, 47vw, 353px) !important;
+  .education .mySwiper_education-mobile {
+    display: flex;
+    overflow: visible !important;
   }
   .education .mySwiper_education {
     margin-bottom: 24px;
+    height: clamp(180px, 47vw, 430px) !important;
+    min-height: clamp(180px, 47vw, 430px) !important;
+    max-height: 100%;
   }
-  .education .mySwiper_education .swiper-wrapper .swiper-slide {
-    max-width: clamp(150px, 40vw, 265px) !important;
-    max-height: clamp(180px, 47vw, 353px) !important;
+  .education .mySwiper_education .swiper-track {
+    min-height: 100%;
+    max-height: 100%;
+  }
+  .education .mySwiper_desc .swiper-track .swiper-slide {
+    min-width: clamp(150px, 40vw, 265px) !important;
+    height: clamp(180px, 47vw, 430px) !important;
+    min-height: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
+  }
+  .education .mySwiper_education .swiper-track .swiper-slide {
+    min-width: clamp(150px, 40vw, 265px) !important;
+    height: clamp(180px, 47vw, 430px) !important;
+    max-height: clamp(180px, 47vw, 430px) !important;
+    min-height: clamp(180px, 47vw, 430px) !important;
   }
   .education .title {
     margin-bottom: clamp(24px, 4vw, 50px);
