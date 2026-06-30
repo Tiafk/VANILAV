@@ -5454,6 +5454,7 @@ textarea {
 .values-block .values-wrapper .values-container .title {
   font-family: "CeraPro-Medium";
   font-size: 40px;
+  line-height: 120%;
   color: #823f91;
   align-items: start;
   margin-bottom: 0;
@@ -5468,6 +5469,7 @@ textarea {
   font-family: "CeraPro-Regular";
   font-size: 22px;
   color: #000000;
+  line-height: 120%;
 }
 .values-block .values-wrapper .values-container .values-block {
   display: flex;
@@ -5488,7 +5490,9 @@ textarea {
   gap: 11px;
 }
 .values-block .values-wrapper .values-container .values-block .values-list li p {
+  font-family: "CeraPro-Regular";
   font-size: 22px;
+  line-height: 120%;
 }
 .values-block .values-wrapper .values-container .abs-img {
   position: absolute;
