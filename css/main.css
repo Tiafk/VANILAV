@@ -5116,7 +5116,9 @@ textarea {
   gap: 15px;
 }
 .offer-page .offer-wrapper .offer-list .offer .ico {
+  width: 100%;
   max-width: 50px;
+  max-height: 50px;
 }
 .offer-page .offer-wrapper .offer-list .offer .ico img {
   width: 100%;
@@ -5126,11 +5128,15 @@ textarea {
 .offer-page .offer-wrapper .offer-list .offer .text {
   font-family: "CeraPro-Regular";
   font-size: 22px;
+  line-height: 28px;
   vertical-align: middle;
   color: #1c1c1e;
 }
 .offer-page .offer-wrapper .offer-list a {
   width: 100%;
+}
+.offer-page .offer-wrapper .offer-list a .btn {
+  padding: 12px 0;
 }
 .offer-page .offer-wrapper .myOfferSlider .swiper-wrapper .swiper-slide {
   display: flex;

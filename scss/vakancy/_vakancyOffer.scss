@@ -24,7 +24,9 @@
         display: flex;
         gap: 15px;
         .ico {
+          width: 100%;
           max-width: 50px;
+          max-height: 50px;
           img {
             width: 100%;
             object-fit: cover;
@@ -33,12 +35,16 @@
         .text {
           font-family: "CeraPro-Regular";
           font-size: 22px;
+          line-height: 28px;
           vertical-align: middle;
           color: #1c1c1e;
         }
       }
       a {
         width: 100%;
+        .btn {
+          padding: 12px 0;
+        }
       }
     }
     .myOfferSlider {
