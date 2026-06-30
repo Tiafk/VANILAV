@@ -1,0 +1,97 @@
+.header__burger-menu_button {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    z-index: 1000;
+    .burger-container_lines {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        background-color: transparent;
+        min-width: 18px;
+        min-height: 18px;
+
+        .close-btn {
+            display: none;
+        }
+    .burger-menu_lines {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 2px;
+        border-radius: 100px;
+        background-color: white;
+    }
+    
+    &::before {
+      content: "";
+      position: absolute;
+      display: flex;
+      align-self: center;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      border-radius: 100px;
+      top: 1px;
+    }
+    
+    &::after {
+      content: "";
+      position: absolute;
+      display: flex;
+      align-self: center;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      border-radius: 100px;
+      bottom: 1px;
+    }     
+}  
+}
+.header__burger-menu_button.active {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    .burger-menu_lines {
+        display: none;
+    }
+    .burger-container_lines {
+        width: 32px;
+        height: 32px;
+        &::after {
+        display: none;
+        transform: rotate(45deg);
+        top: 0;
+        bottom: 0px;
+    }
+    &::before {
+        display: none;
+        transform: rotate(-45deg);
+        bottom: 0px;
+    }
+    }
+    .close-btn {
+        display: flex;
+        align-items: center;
+        align-self: center;
+        top: 0;
+        right: 0;
+        min-width: 32px;
+        max-height: 32px;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width:590px) {
+    .header__burger-menu_button {
+        display: flex;
+    }
+}

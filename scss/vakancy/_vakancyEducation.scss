@@ -1,0 +1,47 @@
+.education {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  .title {
+    max-width: 680px;
+    margin-bottom: 50px;
+    .text {
+      margin-top: 12px;
+    }
+  }
+  .mySwiper_education {
+    overflow: visible;
+    .swiper-wrapper {
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+        max-width: 360px;
+        max-height: 430px;
+        border-radius: 33px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .education .mySwiper_education-mobile .swiper-wrapper .swiper-slide {
+    max-width: clamp(150px, 40vw, 265px) !important;
+    max-height: clamp(180px, 47vw, 353px) !important;
+  }
+  .education .mySwiper_education {
+    margin-bottom: 24px;
+  }
+  .education .mySwiper_education .swiper-wrapper .swiper-slide {
+    max-width: clamp(150px, 40vw, 265px) !important;
+    max-height: clamp(180px, 47vw, 353px) !important;
+  }
+  .education .title {
+    margin-bottom: clamp(24px, 4vw, 50px);
+  }
+}

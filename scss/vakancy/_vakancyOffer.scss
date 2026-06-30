@@ -1,0 +1,104 @@
+.mt-100 {
+  margin-top: 100px;
+}
+.offer-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .title {
+    max-width: none;
+    margin-bottom: 0;
+  }
+  .offer-wrapper {
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+    .offer-list {
+      display: flex;
+      width: 100%;
+      max-width: 447px;
+      flex-direction: column;
+      gap: 30px;
+      .offer {
+        display: flex;
+        gap: 15px;
+        .ico {
+          max-width: 50px;
+          img {
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+        .text {
+          font-family: "CeraPro-Regular";
+          font-size: 22px;
+          vertical-align: middle;
+          color: #1c1c1e;
+        }
+      }
+      a {
+        width: 100%;
+      }
+    }
+    .myOfferSlider {
+      .swiper-wrapper {
+        .swiper-slide {
+          display: flex;
+          width: 100%;
+          max-width: 446px !important;
+          max-height: 618px !important;
+          justify-content: center;
+          border-radius: 33px;
+          overflow: hidden;
+          img {
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 965px) {
+  .offer-page .offer-wrapper {
+    flex-direction: column-reverse;
+  }
+  .offer-page .offer-wrapper .offer-list {
+    max-width: 100%;
+    gap: clamp(15px, 4vw, 30px);
+  }
+  .offer-page .offer-wrapper .myOfferSlider .swiper-wrapper .swiper-slide {
+    max-width: clamp(216px, 55vw, 446px) !important;
+    max-height: clamp(300px, 55vw, 618px) !important;
+  }
+  .offer-page .myOfferSlider {
+    overflow: visible;
+  }
+  .offer-page .offer-wrapper {
+    margin-top: clamp(24px, 6vw, 50px);
+    gap: clamp(24px, 6vw, 30px);
+  }
+  .offer-page .offer-wrapper .offer-list .offer .text {
+    font-size: clamp(15px, 3vw, 22px);
+  }
+  .offer-page .offer-wrapper .offer-list .offer .ico {
+    max-width: clamp(32px, 8vw, 50px);
+  }
+}
+
+@media (max-width: 760px) {
+  .mt-100 {
+    margin-top: clamp(60px, 16vw, 100px);
+  }
+  .education.mt-100 {
+    margin-top: clamp(90px, 24vw, 100px);
+  }
+}
+
+@media (max-width: 475px) {
+  .offer-page .offer-wrapper .offer-list a {
+    margin-top: 9px;
+  }
+}

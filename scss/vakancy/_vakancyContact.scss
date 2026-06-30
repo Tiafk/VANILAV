@@ -1,0 +1,48 @@
+.vakancy-contact {
+  margin-bottom: 150px;
+  align-items: center;
+  .title {
+    margin-bottom: 36px;
+  }
+  .wrapper-contact-img {
+    display: flex;
+    // width: 100%;
+    // max-width: 281px;
+    gap: 20px;
+  }
+}
+.vakancy-main
+  .app-wrapper
+  .wrapper-vakancy
+  .wrapper
+  .vakancy-contact
+  .wrapper-contact-img
+  .img-contact {
+  width: 100%;
+  max-width: 56px;
+  max-height: 56px;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 580px) {
+  .vakancy-main
+    .app-wrapper
+    .wrapper-vakancy
+    .wrapper
+    .vakancy-contact
+    .wrapper-contact-img
+    .img-contact {
+    max-width: clamp(44px, 10vw, 56px);
+    max-height: clamp(44px, 10vw, 56px);
+  }
+  .vakancy-contact .wrapper-contact-img {
+    gap: clamp(15px, 4vw, 20px);
+  }
+
+  .vakancy-contact {
+    margin-bottom: clamp(59px, 15vw, 150px);
+  }
+}
