@@ -121,6 +121,7 @@ function createMarqueeSlider(
   let dragStartX = 0;
   let dragStartPosition = 0;
   let totalWidth = 0;
+  let isInitialized = false;
 
   // Функция для обновления размеров
   function updateSizes() {
@@ -331,6 +332,9 @@ function createMarqueeSlider(
   // Запуск анимации
   animate();
 
+  // Помечаем как инициализированный
+  isInitialized = true;
+
   // Функция для обновления слайдов
   return {
     updateImages: (newImages) => {
@@ -338,6 +342,22 @@ function createMarqueeSlider(
       createSlides();
       updateSizes();
       setupHoverPause();
+    },
+    updateSizes: updateSizes, // Добавляем метод для внешнего обновления
+    refresh: () => {
+      // Принудительное обновление всех размеров
+      setTimeout(() => {
+        updateSizes();
+        // Корректируем позицию
+        if (direction === "right") {
+          if (position > 0) position -= totalWidth;
+          else if (position <= -totalWidth) position += totalWidth;
+        } else {
+          if (position < -totalWidth) position += totalWidth;
+          else if (position >= 0) position -= totalWidth;
+        }
+        track.style.transform = `translateX(${position}px)`;
+      }, 50);
     },
     destroy: () => {
       if (animationId) {
@@ -354,43 +374,52 @@ function createMarqueeSlider(
   };
 }
 
-// Инициализация после загрузки DOM
-document.addEventListener("DOMContentLoaded", () => {
+// Функция для инициализации всех слайдеров
+function initAllSliders() {
   // Десктопный слайдер
   const desktopSlider = document.querySelector(".mySwiper_desc");
   // Мобильный слайдер
   const mobileSlider = document.querySelector(".mySwiper_education-mobile");
 
-  if (desktopSlider) {
+  if (desktopSlider && !window.desktopSliderInstance) {
     const desktopInstance = createMarqueeSlider(
       desktopSlider,
       sliderImages,
       "left",
       false,
     );
+    window.desktopSliderInstance = desktopInstance;
     console.log("Десктопный слайдер запущен!");
 
-    // Сохраняем экземпляр для возможного обновления
-    window.desktopSliderInstance = desktopInstance;
+    // Принудительно обновляем размеры после инициализации
+    desktopInstance.refresh();
+  } else if (desktopSlider) {
+    console.log("Десктопный слайдер уже инициализирован");
   } else {
     console.error("Не найден десктопный слайдер .mySwiper_desc");
   }
 
-  if (mobileSlider) {
+  if (mobileSlider && !window.mobileSliderInstance) {
     const mobileInstance = createMarqueeSlider(
       mobileSlider,
       sliderImages,
       "right",
       true,
     );
+    window.mobileSliderInstance = mobileInstance;
     console.log("Мобильный слайдер запущен!");
 
-    // Сохраняем экземпляр для возможного обновления
-    window.mobileSliderInstance = mobileInstance;
+    // Принудительно обновляем размеры после инициализации
+    mobileInstance.refresh();
+  } else if (mobileSlider) {
+    console.log("Мобильный слайдер уже инициализирован");
   } else {
     console.error("Не найден мобильный слайдер .mySwiper_education-mobile");
   }
+}
 
+// Инициализация после загрузки DOM
+document.addEventListener("DOMContentLoaded", function () {
   // Добавляем стили для слайдеров
   const style = document.createElement("style");
   style.textContent = `
@@ -400,9 +429,9 @@ document.addEventListener("DOMContentLoaded", () => {
       position: relative;
       margin-bottom:24px;
     }
-      .mySwiper_education-mobile { 
+    .mySwiper_education-mobile { 
       overflow: hidden !important;
-      }
+    }
     
     .swiper-track {
       display: flex !important;
@@ -444,6 +473,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   `;
   document.head.appendChild(style);
+
+  // Инициализируем слайдеры
+  initAllSliders();
+});
+
+// Дополнительная инициализация после полной загрузки страницы
+window.addEventListener("load", function () {
+  // Обновляем слайдеры после полной загрузки всех ресурсов
+  setTimeout(function () {
+    if (window.desktopSliderInstance) {
+      window.desktopSliderInstance.refresh();
+    }
+    if (window.mobileSliderInstance) {
+      window.mobileSliderInstance.refresh();
+    }
+    console.log("Слайдеры обновлены после полной загрузки страницы");
+  }, 300);
 });
 
 // Обработка ошибок загрузки изображений
@@ -458,3 +504,17 @@ document.addEventListener(
   },
   true,
 );
+
+// Обработчик изменения ориентации экрана на мобильных устройствах
+if (window.screen && window.screen.orientation) {
+  window.screen.orientation.addEventListener("change", function () {
+    setTimeout(function () {
+      if (window.desktopSliderInstance) {
+        window.desktopSliderInstance.refresh();
+      }
+      if (window.mobileSliderInstance) {
+        window.mobileSliderInstance.refresh();
+      }
+    }, 300);
+  });
+}
