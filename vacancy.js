@@ -61,16 +61,16 @@ const offerSlider = new Swiper(".myOfferSlider", {
 
 // Массив с изображениями для слайдера
 const sliderImages = [
-  "./img/vakancy/B_slider/slide_1.png",
-  "./img/vakancy/B_slider/slide_2.png",
-  "./img/vakancy/B_slider/slide_3.png",
-  "./img/vakancy/B_slider/slide_4.png",
-  "./img/vakancy/B_slider/slide_5.png",
-  "./img/vakancy/B_slider/slide_6.png",
-  "./img/vakancy/B_slider/slide_7.png",
-  "./img/vakancy/B_slider/slide_8.png",
-  "./img/vakancy/B_slider/slide_9.jpg",
-  "./img/vakancy/B_slider/slide_10.png",
+  "./img/vakancy/B_slider/slide_1.webp",
+  "./img/vakancy/B_slider/slide_2.webp",
+  "./img/vakancy/B_slider/slide_3.webp",
+  "./img/vakancy/B_slider/slide_4.webp",
+  "./img/vakancy/B_slider/slide_5.webp",
+  "./img/vakancy/B_slider/slide_6.webp",
+  "./img/vakancy/B_slider/slide_7.webp",
+  "./img/vakancy/B_slider/slide_8.webp",
+  "./img/vakancy/B_slider/slide_9.webp",
+  "./img/vakancy/B_slider/slide_10.webp",
 ];
 
 function createMarqueeSlider(
