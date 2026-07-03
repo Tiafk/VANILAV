@@ -166,6 +166,11 @@ button {
     height: 380px;
   }
 }
+@media (max-width: 590px) {
+  .vakancy-main .app-wrapper {
+    padding-top: 50px;
+  }
+}
 
 @media (max-width: 580px) {
   .vakancy-main .app-wrapper .main-page .text-wrap .text .img-con-mobile {
