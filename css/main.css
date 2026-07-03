@@ -4171,7 +4171,7 @@ textarea {
   width: 234px;
   height: 234px;
   border-radius: 50%;
-  background: #F2E1F0;
+  background: #f2e1f0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -4200,7 +4200,7 @@ textarea {
 .about-main .app-wrapper .main-p .wrappepr-main-p .img-content-con .text-path {
   width: 100%;
   height: 100%;
-  fill: #823F91;
+  fill: #823f91;
   font-family: "CeraPro-Regular";
   font-size: 12px;
   font-weight: bold;
@@ -4341,17 +4341,17 @@ textarea {
 }
 .about-main .app-wrapper .wrapper .block4 .wrapper-prtners .right-panel .colmn-container .content {
   max-width: none;
-  border-bottom: 1px solid #D8CDDB;
+  border-bottom: 1px solid #d8cddb;
 }
 .about-main .app-wrapper .wrapper .block4 .wrapper-prtners .right-panel .colmn-container .content h2 {
-  color: #823F91;
+  color: #823f91;
 }
 .about-main .app-wrapper .wrapper .block4 .wrapper-prtners .right-panel .colmn-container .content p {
   color: #000000;
 }
 .about-main .app-wrapper .wrapper .block4 .wrapper-prtners .right-panel .colmn-container .content button {
-  background-color: #823F91;
-  color: #FFFFFF;
+  background-color: #823f91;
+  color: #ffffff;
   margin-top: 16px;
 }
 .about-main .app-wrapper .wrapper .block4 .wrapper-prtners .left-panel {
@@ -4443,7 +4443,7 @@ textarea {
   letter-spacing: 0%;
   text-align: center;
   text-transform: uppercase;
-  color: #823F91;
+  color: #823f91;
 }
 .about-main .app-wrapper .wrapper .about-block2 .wrapper-content .text-wrap .text {
   font-weight: 400;
@@ -4661,9 +4661,6 @@ textarea {
   .about-main .main-p .text-container h1 {
     text-align: start;
   }
-  .main-p .text-container {
-    align-items: start;
-  }
   .about-main .app-wrapper .main-p .wrappepr-main-p .text-container h1 {
     margin-top: 49px;
     font-size: clamp(32px, 8vw, 60px);
@@ -4736,7 +4733,7 @@ textarea {
     display: flex;
     width: 100%;
     align-items: center;
-    background-color: #F9F0F8;
+    background-color: #f9f0f8;
   }
   .about-main .app-wrapper .wrapper .about-block1 .mobile-text-block .cursive-p {
     font-size: 19px;
@@ -4928,10 +4925,10 @@ textarea {
   }
 }
 .vakancy-main .app-wrapper a {
+  cursor: pointer;
   width: 364px;
 }
 .vakancy-main .app-wrapper a .btn {
-  cursor: pointer;
   border-radius: 46px;
   text-transform: uppercase;
   color: #fff;
@@ -4943,6 +4940,15 @@ textarea {
   line-height: 28px;
   text-align: center;
   border: 0;
+  transition: 0.3s ease;
+}
+.vakancy-main .app-wrapper a .btn:hover {
+  transition: 0.3s ease;
+  background-color: #511e62;
+}
+
+button {
+  cursor: pointer;
 }
 
 .vakancy-main .app-wrapper {
@@ -4950,6 +4956,8 @@ textarea {
 }
 .vakancy-main .app-wrapper .main-page {
   display: flex;
+  height: calc(100vh - 55px);
+  overflow: hidden;
   width: 100%;
   background-color: #f9f0f8;
 }
@@ -4977,6 +4985,7 @@ textarea {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  line-height: 1;
 }
 .vakancy-main .app-wrapper .main-page .text-wrap .text .sub {
   margin-bottom: 0;
@@ -5011,8 +5020,6 @@ textarea {
   align-items: center;
   width: 100%;
   max-width: 50%;
-  max-height: 950px;
-  padding-top: 9%;
   overflow: hidden;
 }
 .vakancy-main .app-wrapper .main-page .img-con img {
@@ -5055,7 +5062,11 @@ textarea {
     font-size: clamp(17px, 2vw, 22px);
   }
   .vakancy-main .app-wrapper a .btn {
-    font-size: clamp(16px, 2vw, 18px) !important;
+    font-size: clamp(13px, 2vw, 18px) !important;
+    padding: clamp(11px, 2vw, 16px) 0;
+  }
+  .vakancy-main .app-wrapper .main-page {
+    height: auto;
   }
 }
 @media (max-width: 800px) {
@@ -5074,6 +5085,9 @@ textarea {
   }
   .vakancy-main .app-wrapper .main-page .text-wrap .text {
     gap: clamp(10px, 3vw, 20px);
+  }
+  .vakancy-main .app-wrapper .main-page .text-wrap .text .img-con-mobile {
+    height: 380px;
   }
 }
 @media (max-width: 580px) {
@@ -5128,7 +5142,7 @@ textarea {
 .offer-page .offer-wrapper .offer-list .offer .text {
   font-family: "CeraPro-Regular";
   font-size: 22px;
-  line-height: 28px;
+  line-height: 1;
   vertical-align: middle;
   color: #1c1c1e;
 }
@@ -5146,6 +5160,13 @@ textarea {
   justify-content: center;
   border-radius: 33px;
   overflow: hidden;
+}
+.offer-page .offer-wrapper .myOfferSlider .swiper-wrapper .swiper-slide video {
+  width: 100%;
+  height: auto;
+  border-radius: 33px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .offer-page .offer-wrapper .myOfferSlider .swiper-wrapper .swiper-slide img {
   width: 100%;
@@ -5177,6 +5198,9 @@ textarea {
   }
   .offer-page .offer-wrapper .offer-list .offer .ico {
     max-width: clamp(32px, 8vw, 50px);
+  }
+  .offer-page .offer-wrapper .offer-list a .btn {
+    padding: clamp(11px, 2vw, 12px) 0;
   }
 }
 @media (max-width: 760px) {
@@ -5327,6 +5351,9 @@ textarea {
 .vakancy-block .wrapper-work-block .work-block .plus-list li .ico-img {
   margin-right: 11px;
 }
+.vakancy-block .wrapper-work-block .work-block a {
+  text-decoration: none;
+}
 .vakancy-block .wrapper-work-block .work-block .btn {
   margin-top: 15px;
   color: #823f91;
@@ -5342,6 +5369,12 @@ textarea {
   border: 0;
   background-color: #fff;
   text-transform: uppercase;
+  transition: 0.3s ease;
+}
+.vakancy-block .wrapper-work-block .work-block .btn:hover {
+  transition: 0.3s ease;
+  background-color: #823f91;
+  color: #fff;
 }
 
 @media (max-width: 1121px) {

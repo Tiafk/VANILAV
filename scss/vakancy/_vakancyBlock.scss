@@ -68,6 +68,9 @@
           }
         }
       }
+      a {
+        text-decoration: none;
+      }
       .btn {
         margin-top: 15px;
         color: #823f91;
@@ -83,6 +86,13 @@
         border: 0;
         background-color: #fff;
         text-transform: uppercase;
+        transition: 0.3s ease;
+
+        &:hover {
+          transition: 0.3s ease;
+          background-color: #823f91;
+          color: #fff;
+        }
       }
     }
   }

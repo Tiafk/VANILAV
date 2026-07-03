@@ -6,60 +6,20 @@ const offerSlider = new Swiper(".myOfferSlider", {
   freeMode: true,
   pagination: false,
   navigation: false,
+  breakpoints: {
+    0: {
+      spaceBetween: 15,
+      slidesPerView: "auto",
+      freeMode: true,
+    },
+    641: {
+      spaceBetween: 30,
+      slidesPerView: "auto",
+      freeMode: true,
+    },
+  },
 });
 
-// const vacancySlider = new Swiper(".mySwiper_desc", {
-//   slidesPerView: "auto",
-//   spaceBetween: 30,
-//   loop: true,
-//   lazy: false,
-//   speed: 3000, // Скорость анимации (чем меньше, тем быстрее)
-//   autoplay: {
-//     delay: 0, // Без задержки
-//     disableOnInteraction: false, // Не отключать автоплей при взаимодействии
-//     pauseOnMouseEnter: true, // Пауза при наведении мыши
-//   },
-//   freeMode: {
-//     enabled: true,
-//     momentum: true, // Включаем инерцию для плавного перетаскивания
-//     momentumRatio: 0.5, // Коэффициент инерции
-//     momentumVelocityRatio: 0.5,
-//   },
-//   loopedSlides: 10, // Количество слайдов в цикле
-//   watchSlidesProgress: true,
-//   watchSlidesVisibility: true,
-//   // Отключаем пагинацию и навигацию, если они не нужны
-//   pagination: false,
-//   navigation: false,
-// });
-
-// const vacancySliderSec = new Swiper(".mySwiper_education-mobile", {
-//   slidesPerView: "auto",
-//   spaceBetween: 15,
-//   loop: true,
-//   lazy: false,
-//   speed: 3000, // Скорость анимации (чем меньше, тем быстрее)
-//   autoplay: {
-//     delay: 0, // Без задержки
-//     reverseDirection: true,
-//     disableOnInteraction: false, // Не отключать автоплей при взаимодействии
-//     pauseOnMouseEnter: true, // Пауза при наведении мыши
-//   },
-//   freeMode: {
-//     enabled: true,
-//     momentum: true, // Включаем инерцию для плавного перетаскивания
-//     momentumRatio: 0.5, // Коэффициент инерции
-//     momentumVelocityRatio: 0.5,
-//   },
-//   loopedSlides: 10, // Количество слайдов в цикле
-//   watchSlidesProgress: true,
-//   watchSlidesVisibility: true,
-//   // Отключаем пагинацию и навигацию, если они не нужны
-//   pagination: false,
-//   navigation: false,
-// });
-
-// Массив с изображениями для слайдера
 const sliderImages = [
   "./img/vakancy/B_slider/slide_1.webp",
   "./img/vakancy/B_slider/slide_2.webp",
@@ -189,25 +149,32 @@ function createMarqueeSlider(
   updateSizes();
 
   // === НАСТРОЙКА СКОРОСТИ ===
-  const baseSpeed = isMobile ? 0.6 : 1;
-  const speed = direction === "right" ? baseSpeed : -baseSpeed;
+  const SLIDER_SPEED = {
+    desktop: 0.8,
+    mobile: 0.4,
+  };
 
+  // Убираем зависимость от направления
+  const baseSpeed = isMobile ? SLIDER_SPEED.mobile : SLIDER_SPEED.desktop;
+  const speed = baseSpeed; // Всегда положительное значение
+
+  // В анимации используем знак в зависимости от направления
   function animate() {
     if (!isScrolling || isDragging) {
       animationId = requestAnimationFrame(animate);
       return;
     }
 
-    position += speed;
+    // Применяем направление
+    const directionMultiplier = direction === "right" ? 1 : -1;
+    position += speed * directionMultiplier;
 
     // Бесшовная логика
     if (direction === "right") {
-      // Движение вправо
       if (position >= 0) {
         position -= totalWidth;
       }
     } else {
-      // Движение влево
       if (position <= -totalWidth) {
         position += totalWidth;
       }
@@ -518,3 +485,144 @@ if (window.screen && window.screen.orientation) {
     }, 300);
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  "use strict";
+
+  const heart = document.getElementById("parallaxHeart");
+
+  if (!heart) {
+    console.error("❌ Элемент #parallaxHeart не найден!");
+    return;
+  }
+
+  console.log("✅ Параллакс инициализирован");
+
+  // --- Настройки ---
+  const MAX_OFFSET = 40; // Максимальное смещение в пикселях
+  const SMOOTHING = 0.08; // Плавность (0-1), чем меньше, тем плавнее
+
+  // Текущая позиция
+  let currentX = 0;
+  let currentY = 0;
+  let targetX = 0;
+  let targetY = 0;
+
+  // Флаг для гироскопа
+  let isGyroAvailable = false;
+
+  // --- Функция обновления позиции ---
+  function updateHeartPosition() {
+    // Плавное приближение к целевой позиции
+    currentX += (targetX - currentX) * SMOOTHING;
+    currentY += (targetY - currentY) * SMOOTHING;
+
+    heart.style.transform = `translate(${currentX}px, ${currentY}px)`;
+
+    requestAnimationFrame(updateHeartPosition);
+  }
+
+  // --- ДЕСКТОП: движение от курсора ---
+  function handleMouseMove(e) {
+    if (isGyroAvailable) return; // Если есть гироскоп, используем его
+
+    const rect = heart.getBoundingClientRect();
+    const heartCenterX = rect.left + rect.width / 2;
+    const heartCenterY = rect.top + rect.height / 2;
+
+    // Расстояние от центра сердечка до курсора
+    const deltaX = (e.clientX - heartCenterX) / window.innerWidth;
+    const deltaY = (e.clientY - heartCenterY) / window.innerHeight;
+
+    // Ограничиваем и применяем
+    targetX = Math.max(
+      -MAX_OFFSET,
+      Math.min(MAX_OFFSET, deltaX * MAX_OFFSET * 2),
+    );
+    targetY = Math.max(
+      -MAX_OFFSET,
+      Math.min(MAX_OFFSET, deltaY * MAX_OFFSET * 2),
+    );
+  }
+
+  // --- МОБИЛЬНЫЕ: гироскоп ---
+  function handleOrientation(e) {
+    if (!isGyroAvailable) return;
+
+    // beta: наклон вперёд/назад (-180 до 180)
+    // gamma: наклон влево/вправо (-90 до 90)
+    const beta = e.beta || 0; // -180 до 180
+    const gamma = e.gamma || 0; // -90 до 90
+
+    // Нормализуем значения
+    const normalizedBeta = Math.max(-1, Math.min(1, beta / 45));
+    const normalizedGamma = Math.max(-1, Math.min(1, gamma / 45));
+
+    targetX = normalizedGamma * MAX_OFFSET;
+    targetY = normalizedBeta * MAX_OFFSET;
+  }
+
+  // --- Проверка доступности гироскопа ---
+  function checkGyroAvailability() {
+    if (typeof DeviceOrientationEvent !== "undefined") {
+      // Для iOS 13+ нужно запросить разрешение
+      if (typeof DeviceOrientationEvent.requestPermission === "function") {
+        DeviceOrientationEvent.requestPermission()
+          .then((state) => {
+            if (state === "granted") {
+              isGyroAvailable = true;
+              window.addEventListener("deviceorientation", handleOrientation);
+              console.log("✅ Гироскоп активирован (iOS)");
+            } else {
+              console.log("ℹ️ Доступ к гироскопу запрещён");
+            }
+          })
+          .catch((err) => {
+            console.log("ℹ️ Гироскоп недоступен:", err);
+          });
+      } else {
+        // Android и другие
+        window.addEventListener("deviceorientation", handleOrientation);
+        isGyroAvailable = true;
+        console.log("✅ Гироскоп активирован (Android)");
+      }
+    } else {
+      console.log("ℹ️ Гироскоп не поддерживается");
+    }
+  }
+
+  // --- Сброс при ресайзе ---
+  function resetParallax() {
+    targetX = 0;
+    targetY = 0;
+  }
+
+  // --- Определяем, мобильное ли устройство ---
+  function isMobile() {
+    return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    );
+  }
+
+  // --- Инициализация ---
+  function init() {
+    // Если мобильное устройство — пробуем включить гироскоп
+    if (isMobile()) {
+      checkGyroAvailability();
+    }
+
+    // Всегда добавляем обработчик мыши (для десктопа и как fallback)
+    window.addEventListener("mousemove", handleMouseMove);
+
+    // Сброс при ресайзе
+    window.addEventListener("resize", resetParallax);
+
+    // Запускаем анимацию
+    updateHeartPosition();
+
+    console.log("📱 Мобильное устройство:", isMobile());
+    console.log("🔄 Гироскоп доступен:", isGyroAvailable);
+  }
+
+  init();
+});

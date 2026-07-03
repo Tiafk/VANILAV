@@ -1,8 +1,8 @@
 .vakancy-main .app-wrapper {
   a {
+    cursor: pointer;
     width: 364px;
     .btn {
-      cursor: pointer;
       border-radius: 46px;
       text-transform: uppercase;
       color: #fff;
@@ -15,8 +15,18 @@
       line-height: 28px;
       text-align: center;
       border: 0;
+      transition: 0.3s ease;
+
+      &:hover {
+        transition: 0.3s ease;
+        background-color: #511e62;
+      }
     }
   }
+}
+
+button {
+  cursor: pointer;
 }
 
 .vakancy-main {
@@ -24,6 +34,8 @@
     padding-top: 55px;
     .main-page {
       display: flex;
+      height: calc(100vh - 55px);
+      overflow: hidden;
       width: 100%;
       background-color: #f9f0f8;
 
@@ -48,6 +60,7 @@
             font-family: "CeraPro-Bold";
             font-size: 90px;
             user-select: none;
+            line-height: 1;
           }
           .sub {
             margin-bottom: 0;
@@ -78,8 +91,8 @@
         align-items: center;
         width: 100%;
         max-width: 50%;
-        max-height: 950px;
-        padding-top: 9%;
+        // max-height: 950px;
+        // padding-top: 9%;
         overflow: hidden;
         img {
           width: 100%;
@@ -124,7 +137,11 @@
     font-size: clamp(17px, 2vw, 22px);
   }
   .vakancy-main .app-wrapper a .btn {
-    font-size: clamp(16px, 2vw, 18px) !important;
+    font-size: clamp(13px, 2vw, 18px) !important;
+    padding: clamp(11px, 2vw, 16px) 0;
+  }
+  .vakancy-main .app-wrapper .main-page {
+    height: auto;
   }
 }
 
@@ -144,6 +161,9 @@
   }
   .vakancy-main .app-wrapper .main-page .text-wrap .text {
     gap: clamp(10px, 3vw, 20px);
+  }
+  .vakancy-main .app-wrapper .main-page .text-wrap .text .img-con-mobile {
+    height: 380px;
   }
 }
 
