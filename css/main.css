@@ -5020,6 +5020,7 @@ button {
   align-items: center;
   width: 100%;
   max-width: 50%;
+  padding-top: 9vw;
   overflow: hidden;
 }
 .vakancy-main .app-wrapper .main-page .img-con img {
@@ -5043,6 +5044,11 @@ button {
      object-fit: cover;
 }
 
+@media (max-width: 1920px) {
+  .vakancy-main .app-wrapper .main-page .img-con {
+    padding-top: 2vw;
+  }
+}
 @media (max-width: 1760px) {
   .vakancy-main .app-wrapper .main-page .text-wrap {
     padding: 20px 16px 60px;
