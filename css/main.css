@@ -4998,6 +4998,7 @@ button {
   font-size: 18px;
   line-height: 120%;
   letter-spacing: 0%;
+  max-width: 630px;
   vertical-align: middle;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -5044,14 +5045,14 @@ button {
      object-fit: cover;
 }
 
-@media (max-width: 1920px) {
-  .vakancy-main .app-wrapper .main-page .img-con {
-    padding-top: 2vw;
-  }
-}
 @media (max-width: 1760px) {
   .vakancy-main .app-wrapper .main-page .text-wrap {
     padding: 20px 16px 60px;
+  }
+}
+@media (max-width: 1700px) {
+  .vakancy-main .app-wrapper .main-page .img-con {
+    padding-top: 0;
   }
 }
 @media (max-width: 1440px) {
