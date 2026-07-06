@@ -5145,6 +5145,7 @@ button {
   width: 100%;
   max-width: 50px;
   max-height: 50px;
+  padding-top: 6px;
 }
 .offer-page .offer-wrapper .offer-list .offer .ico img {
   width: 100%;
@@ -5154,7 +5155,7 @@ button {
 .offer-page .offer-wrapper .offer-list .offer .text {
   font-family: "CeraPro-Regular";
   font-size: 22px;
-  line-height: 1;
+  line-height: 28px;
   vertical-align: middle;
   color: #1c1c1e;
 }
@@ -5207,9 +5208,11 @@ button {
   }
   .offer-page .offer-wrapper .offer-list .offer .text {
     font-size: clamp(15px, 3vw, 22px);
+    line-height: 1;
   }
   .offer-page .offer-wrapper .offer-list .offer .ico {
     max-width: clamp(32px, 8vw, 50px);
+    padding-top: 0;
   }
   .offer-page .offer-wrapper .offer-list a .btn {
     padding: clamp(11px, 2vw, 12px) 0;
