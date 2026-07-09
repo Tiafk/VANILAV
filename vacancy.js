@@ -33,6 +33,15 @@ const sliderImages = [
   "./img/vakancy/B_slider/slide_10.webp",
 ];
 
+// Функция для разделения массива на две части
+function splitImages(images) {
+  const mid = Math.ceil(images.length / 2);
+  return {
+    firstHalf: images.slice(0, mid),
+    secondHalf: images.slice(mid),
+  };
+}
+
 function createMarqueeSlider(
   container,
   images,
@@ -156,7 +165,7 @@ function createMarqueeSlider(
 
   // Убираем зависимость от направления
   const baseSpeed = isMobile ? SLIDER_SPEED.mobile : SLIDER_SPEED.desktop;
-  const speed = baseSpeed; // Всегда положительное значение
+  const speed = baseSpeed;
 
   // В анимации используем знак в зависимости от направления
   function animate() {
@@ -310,12 +319,10 @@ function createMarqueeSlider(
       updateSizes();
       setupHoverPause();
     },
-    updateSizes: updateSizes, // Добавляем метод для внешнего обновления
+    updateSizes: updateSizes,
     refresh: () => {
-      // Принудительное обновление всех размеров
       setTimeout(() => {
         updateSizes();
-        // Корректируем позицию
         if (direction === "right") {
           if (position > 0) position -= totalWidth;
           else if (position <= -totalWidth) position += totalWidth;
@@ -343,51 +350,95 @@ function createMarqueeSlider(
 
 // Функция для инициализации всех слайдеров
 function initAllSliders() {
-  // Десктопный слайдер
   const desktopSlider = document.querySelector(".mySwiper_desc");
-  // Мобильный слайдер
   const mobileSlider = document.querySelector(".mySwiper_education-mobile");
+
+  // Получаем ширину экрана
+  const windowWidth = window.innerWidth;
+  const isDesktop = windowWidth > 960;
+
+  // Разделяем изображения
+  const { firstHalf, secondHalf } = splitImages(sliderImages);
+
+  // ✅ ПРАВИЛЬНАЯ ЛОГИКА:
+  // При ширине > 960px (ДЕСКТОП): оба слайдера показывают ВСЕ 10 изображений
+  // При ширине <= 960px (МОБИЛЬНЫЙ): десктопный слайдер - первая половина, мобильный слайдер - вторая половина
+  const desktopImages = isDesktop ? sliderImages : firstHalf;
+  const mobileImages = isDesktop ? sliderImages : secondHalf;
+
+  console.log(
+    `Ширина экрана: ${windowWidth}px - ${isDesktop ? "ДЕСКТОП" : "МОБИЛЬНЫЙ"}`,
+  );
+  console.log(`📊 Десктопный слайдер: ${desktopImages.length} изображений`);
+  console.log(`📊 Мобильный слайдер: ${mobileImages.length} изображений`);
 
   if (desktopSlider && !window.desktopSliderInstance) {
     const desktopInstance = createMarqueeSlider(
       desktopSlider,
-      sliderImages,
+      desktopImages,
       "left",
       false,
     );
     window.desktopSliderInstance = desktopInstance;
-    console.log("Десктопный слайдер запущен!");
-
-    // Принудительно обновляем размеры после инициализации
+    console.log("✅ Десктопный слайдер запущен!");
     desktopInstance.refresh();
   } else if (desktopSlider) {
-    console.log("Десктопный слайдер уже инициализирован");
+    console.log("ℹ️ Десктопный слайдер уже инициализирован");
   } else {
-    console.error("Не найден десктопный слайдер .mySwiper_desc");
+    console.error("❌ Не найден десктопный слайдер .mySwiper_desc");
   }
 
   if (mobileSlider && !window.mobileSliderInstance) {
     const mobileInstance = createMarqueeSlider(
       mobileSlider,
-      sliderImages,
+      mobileImages,
       "right",
       true,
     );
     window.mobileSliderInstance = mobileInstance;
-    console.log("Мобильный слайдер запущен!");
-
-    // Принудительно обновляем размеры после инициализации
+    console.log("✅ Мобильный слайдер запущен!");
     mobileInstance.refresh();
   } else if (mobileSlider) {
-    console.log("Мобильный слайдер уже инициализирован");
+    console.log("ℹ️ Мобильный слайдер уже инициализирован");
   } else {
-    console.error("Не найден мобильный слайдер .mySwiper_education-mobile");
+    console.error("❌ Не найден мобильный слайдер .mySwiper_education-mobile");
+  }
+}
+
+// Функция для обновления слайдеров при ресайзе
+function updateSlidersOnResize() {
+  const windowWidth = window.innerWidth;
+  const isDesktop = windowWidth > 960;
+
+  const { firstHalf, secondHalf } = splitImages(sliderImages);
+
+  // ✅ ПРАВИЛЬНАЯ ЛОГИКА ПРИ РЕСАЙЗЕ:
+  // При ширине > 960px: оба слайдера показывают ВСЕ 10 изображений
+  // При ширине <= 960px: изображения разделяются между слайдерами
+  const desktopImages = isDesktop ? sliderImages : firstHalf;
+  const mobileImages = isDesktop ? sliderImages : secondHalf;
+
+  console.log(
+    `🔄 ОБНОВЛЕНИЕ слайдеров. Ширина: ${windowWidth}px - ${isDesktop ? "ДЕСКТОП" : "МОБИЛЬНЫЙ"}`,
+  );
+  console.log(`   📊 Десктопный слайдер: ${desktopImages.length} изображений`);
+  console.log(`   📊 Мобильный слайдер: ${mobileImages.length} изображений`);
+
+  // Обновляем десктопный слайдер
+  if (window.desktopSliderInstance) {
+    window.desktopSliderInstance.updateImages(desktopImages);
+    window.desktopSliderInstance.refresh();
+  }
+
+  // Обновляем мобильный слайдер
+  if (window.mobileSliderInstance) {
+    window.mobileSliderInstance.updateImages(mobileImages);
+    window.mobileSliderInstance.refresh();
   }
 }
 
 // Инициализация после загрузки DOM
 document.addEventListener("DOMContentLoaded", function () {
-  // Добавляем стили для слайдеров
   const style = document.createElement("style");
   style.textContent = `
     .mySwiper_desc, .mySwiper_education-mobile {
@@ -441,13 +492,20 @@ document.addEventListener("DOMContentLoaded", function () {
   `;
   document.head.appendChild(style);
 
-  // Инициализируем слайдеры
   initAllSliders();
+
+  // Добавляем обработчик ресайза с debounce
+  let resizeTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      updateSlidersOnResize();
+    }, 300);
+  });
 });
 
 // Дополнительная инициализация после полной загрузки страницы
 window.addEventListener("load", function () {
-  // Обновляем слайдеры после полной загрузки всех ресурсов
   setTimeout(function () {
     if (window.desktopSliderInstance) {
       window.desktopSliderInstance.refresh();
@@ -455,7 +513,7 @@ window.addEventListener("load", function () {
     if (window.mobileSliderInstance) {
       window.mobileSliderInstance.refresh();
     }
-    console.log("Слайдеры обновлены после полной загрузки страницы");
+    console.log("✅ Слайдеры обновлены после полной загрузки страницы");
   }, 300);
 });
 
@@ -464,7 +522,7 @@ document.addEventListener(
   "error",
   function (e) {
     if (e.target.tagName === "IMG") {
-      console.error("Ошибка загрузки изображения:", e.target.src);
+      console.error("❌ Ошибка загрузки изображения:", e.target.src);
       e.target.style.backgroundColor = "#f0f0f0";
       e.target.alt = "Изображение не загружено";
     }
@@ -486,6 +544,7 @@ if (window.screen && window.screen.orientation) {
   });
 }
 
+// Код для параллакс-сердца
 document.addEventListener("DOMContentLoaded", function () {
   "use strict";
 
@@ -498,43 +557,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log("✅ Параллакс инициализирован");
 
-  // --- Настройки ---
-  const MAX_OFFSET = 40; // Максимальное смещение в пикселях
-  const SMOOTHING = 0.08; // Плавность (0-1), чем меньше, тем плавнее
+  const MAX_OFFSET = 40;
+  const SMOOTHING = 0.08;
 
-  // Текущая позиция
   let currentX = 0;
   let currentY = 0;
   let targetX = 0;
   let targetY = 0;
-
-  // Флаг для гироскопа
   let isGyroAvailable = false;
 
-  // --- Функция обновления позиции ---
   function updateHeartPosition() {
-    // Плавное приближение к целевой позиции
     currentX += (targetX - currentX) * SMOOTHING;
     currentY += (targetY - currentY) * SMOOTHING;
-
     heart.style.transform = `translate(${currentX}px, ${currentY}px)`;
-
     requestAnimationFrame(updateHeartPosition);
   }
 
-  // --- ДЕСКТОП: движение от курсора ---
   function handleMouseMove(e) {
-    if (isGyroAvailable) return; // Если есть гироскоп, используем его
-
+    if (isGyroAvailable) return;
     const rect = heart.getBoundingClientRect();
     const heartCenterX = rect.left + rect.width / 2;
     const heartCenterY = rect.top + rect.height / 2;
-
-    // Расстояние от центра сердечка до курсора
     const deltaX = (e.clientX - heartCenterX) / window.innerWidth;
     const deltaY = (e.clientY - heartCenterY) / window.innerHeight;
-
-    // Ограничиваем и применяем
     targetX = Math.max(
       -MAX_OFFSET,
       Math.min(MAX_OFFSET, deltaX * MAX_OFFSET * 2),
@@ -545,27 +590,18 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 
-  // --- МОБИЛЬНЫЕ: гироскоп ---
   function handleOrientation(e) {
     if (!isGyroAvailable) return;
-
-    // beta: наклон вперёд/назад (-180 до 180)
-    // gamma: наклон влево/вправо (-90 до 90)
-    const beta = e.beta || 0; // -180 до 180
-    const gamma = e.gamma || 0; // -90 до 90
-
-    // Нормализуем значения
+    const beta = e.beta || 0;
+    const gamma = e.gamma || 0;
     const normalizedBeta = Math.max(-1, Math.min(1, beta / 45));
     const normalizedGamma = Math.max(-1, Math.min(1, gamma / 45));
-
     targetX = normalizedGamma * MAX_OFFSET;
     targetY = normalizedBeta * MAX_OFFSET;
   }
 
-  // --- Проверка доступности гироскопа ---
   function checkGyroAvailability() {
     if (typeof DeviceOrientationEvent !== "undefined") {
-      // Для iOS 13+ нужно запросить разрешение
       if (typeof DeviceOrientationEvent.requestPermission === "function") {
         DeviceOrientationEvent.requestPermission()
           .then((state) => {
@@ -581,7 +617,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("ℹ️ Гироскоп недоступен:", err);
           });
       } else {
-        // Android и другие
         window.addEventListener("deviceorientation", handleOrientation);
         isGyroAvailable = true;
         console.log("✅ Гироскоп активирован (Android)");
@@ -591,35 +626,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // --- Сброс при ресайзе ---
   function resetParallax() {
     targetX = 0;
     targetY = 0;
   }
 
-  // --- Определяем, мобильное ли устройство ---
   function isMobile() {
     return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent,
     );
   }
 
-  // --- Инициализация ---
   function init() {
-    // Если мобильное устройство — пробуем включить гироскоп
     if (isMobile()) {
       checkGyroAvailability();
     }
-
-    // Всегда добавляем обработчик мыши (для десктопа и как fallback)
     window.addEventListener("mousemove", handleMouseMove);
-
-    // Сброс при ресайзе
     window.addEventListener("resize", resetParallax);
-
-    // Запускаем анимацию
     updateHeartPosition();
-
     console.log("📱 Мобильное устройство:", isMobile());
     console.log("🔄 Гироскоп доступен:", isGyroAvailable);
   }
