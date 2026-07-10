@@ -22,16 +22,16 @@ const offerSlider = new Swiper(".myOfferSlider", {
 
 const sliderImages = [
   "./img/vakancy/B_slider/slide_1.webp",
-  "./img/vakancy/B_slider/slide_2.webp",
   "./img/vakancy/B_slider/slide_3.webp",
-  "./img/vakancy/B_slider/slide_4.webp",
+  "./img/vakancy/B_slider/slide_2.webp",
   "./img/vakancy/B_slider/slide_5.webp",
   "./img/vakancy/B_slider/slide_6.webp",
   "./img/vakancy/B_slider/slide_7.webp",
   "./img/vakancy/B_slider/slide_8.webp",
-  "./img/vakancy/B_slider/slide_9.webp",
   "./img/vakancy/B_slider/slide_10.webp",
+  "./img/vakancy/B_slider/slide_9.webp",
   "./img/vakancy/B_slider/slide_11.webp",
+  "./img/vakancy/B_slider/slide_4.webp",
 ];
 
 // Функция для разделения массива на две части
