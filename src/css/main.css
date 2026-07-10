@@ -5115,6 +5115,14 @@ button {
   margin-top: 100px;
 }
 
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
 .offer-page {
   width: 100%;
   display: flex;

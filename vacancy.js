@@ -31,6 +31,7 @@ const sliderImages = [
   "./img/vakancy/B_slider/slide_8.webp",
   "./img/vakancy/B_slider/slide_9.webp",
   "./img/vakancy/B_slider/slide_10.webp",
+  "./img/vakancy/B_slider/slide_11.webp",
 ];
 
 // Функция для разделения массива на две части
